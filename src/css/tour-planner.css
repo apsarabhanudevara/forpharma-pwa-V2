@@ -1,0 +1,326 @@
+/* Tour Planner Custom Styles */
+.tour-planner-container {
+  --primary-color: #0f3d60;
+  --secondary-color: #4a90e2;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --light-gray: #f8f9fa;
+  --border-radius: 8px;
+}
+
+/* Form Container Styles */
+.create-tour-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.form-title {
+  color: var(--primary-color);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Input Field Styles */
+.custom-input {
+  background-color: var(--light-gray);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.custom-select {
+  cursor: pointer;
+  background-color: var(--light-gray);
+}
+
+/* Button Styles */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.action-button {
+  min-width: 120px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+}
+
+.save-button {
+  border-radius: var(--border-radius);
+  background-color: green;
+}
+
+.cancel-button {
+  background-color: red;
+}
+
+/* Card Styles */
+.tour-card {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 0 1rem 1rem;
+  width: auto !important;
+}
+
+/* Fix for Framework7 card width */
+:root {
+  --f7-card-margin-horizontal: 0px;
+}
+
+.page-content {
+  --f7-block-padding-horizontal: 0px;
+}
+
+.block {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Segmented Control Styles */
+.segmented {
+  margin: 0 1rem 1rem !important;
+}
+
+.segmented .button {
+  font-size: 14px;
+  padding: 8px 16px;
+  color: #000;
+}
+
+.segmented .button.button-active {
+  background-color: var(--primary-color);
+  color: #000;
+}
+
+/* Approve Plans Card Styles */
+.block .card {
+  margin: 0 1rem 1rem;
+  width: auto !important;
+}
+
+.block .card-content {
+  padding: 1rem;
+}
+
+/* Top buttons container */
+.flex.gap-4 {
+  margin: 0 1rem 2rem; /* Increased bottom margin */
+}
+
+.tour-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-pending {
+  background-color: var(--warning-color);
+  color: #000;
+}
+
+.status-approved {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+.status-rejected {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+/* Responsive Grid */
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Custom Framework7 Overrides */
+:root {
+  --f7-list-item-padding-vertical: 12px;
+  --f7-list-item-padding-horizontal: 16px;
+  --f7-list-item-min-height: 48px;
+  --f7-list-margin-vertical: 24px;
+}
+
+.list .item-input {
+  margin-bottom: 1rem;
+}
+
+.item-input-wrap {
+  position: relative;
+}
+
+.item-input-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.item-input-wrap:focus-within::after {
+  transform: scaleX(1);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+}
+
+.status-approved {
+  color: green;
+}
+
+.status-rejected {
+  color: red;
+}
+
+.status-pending {
+  color: orange;
+}
+
+/* Grid Layout for Approve Plans */
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  margin-bottom: 0; /* Ensure no extra space below */
+  padding-bottom: 0;
+}
+
+/* Button styling */
+.button {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Small Popup Styles */
+.small-popup {
+  width: 300px !important;
+  height: auto !important;
+  margin: auto !important;
+  border-radius: var(--border-radius) !important;
+  background: white !important;
+}
+
+.small-popup .block {
+  margin: 0 !important;
+  padding: 1.5rem !important;
+}
+
+.small-popup p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.small-popup .flex {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.small-popup .button {
+  min-width: 80px;
+  margin: 0;
+}

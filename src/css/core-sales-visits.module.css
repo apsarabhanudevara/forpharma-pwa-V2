@@ -1,0 +1,327 @@
+:global(.md) {
+  .core-sales-visits-page {
+    :global(.page-content) {
+      --f7-page-toolbar-top-offset: 5px !important;
+      --f7-page-toolbar-bottom-offset: 116px;
+      margin-top: 10px;
+      background: #2186d4;
+    }
+    .top-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 96px;
+      top: 0px;
+      --f7-tabbar-link-inactive-color: white;
+      --f7-tabbar-link-active-color: white;
+      :global(.link) {
+        border-bottom: 2px solid #2186d4;
+      }
+      :global(.tab-link-active) {
+        border-bottom: 2px solid #0b2d47;
+      }
+    }
+    .bottom-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 116px;
+      --f7-bars-bg-color: #c7e1f4;
+      --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+      :global(.toolbar-inner) {
+        width: 100%;
+        :global(.link) {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-top: 2px solid #c7e1f4;
+          line-height: 2;
+          font-size: 10px;
+          text-wrap: nowrap;
+          margin-right: 6px;
+        }
+        :global(.tab-link-active) {
+          border-color: #2186d4;
+          color: #2186d4;
+        }
+      }
+    }
+    @media (max-width: 480px) {
+      .top-tool-bar:global(.toolbar) {
+        --f7-toolbar-height: 64px;
+        :global(.link) {
+          border-bottom: 1px solid #2186d4;
+        }
+        :global(.tab-link-active) {
+          border-bottom: 1px solid #0b2d47;
+        }
+      }
+      :global(.page-content) {
+        --f7-page-toolbar-top-offset: 64px;
+        --f7-page-toolbar-bottom-offset: 116px;
+      }
+      .top-tool-bar:global(.toolbar) {
+        --f7-toolbar-height: 64px;
+        :global(.link) {
+          border-bottom: 1px solid #2186d4;
+        }
+        :global(.tab-link-active) {
+          border-bottom: 1px solid #383a3c;
+        }
+      }
+      .page-nav-bar:global(.navbar) {
+        :global(.navbar-inner) {
+          .page-title {
+            font-size: 22px;
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    .page-header {
+      margin-top: 10px;
+    }
+    .page-header-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      width: 96%;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+    .page-title-info {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      line-height: 1;
+    }
+    .page-title-tag {
+      font-size: 12px;
+    }
+    .dashboard-main-container {
+      text-align: center;
+      color: white;
+    }
+    .team-summary-n-connect-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 5px;
+      margin: 13px;
+    }
+    .button-custom {
+      border: 1px solid;
+      border-radius: 7px;
+      margin: 3px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .tab-link-custom {
+      white-space: normal;
+      display: inline-block;
+    }
+    .caption-text-chart {
+      display: flex;
+      justify-content: end;
+      color: white;
+      width: 96%;
+      font-size: 11px;
+      margin-top: -12px;
+    }
+    .visits-chart-legends {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+    .week-day-info-container {
+      padding: 20px;
+    }
+    .week-day-info-item {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      justify-content: space-between;
+      align-items: stretch;
+      height: 28px;
+      grid-gap: 7px;
+      border-bottom: 3px solid lightgray;
+    }
+    .week-day-info-header {
+      margin-bottom: 11px;
+      font-size: medium;
+      font-weight: 600;
+    }
+    .week-day-visit-progress-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 4px;
+      margin-right: 4px;
+      padding: 4px;
+    }
+    .week-day-progress {
+      height: 21px;
+      --f7-progressbar-bg-color: #e0e0e0;
+      --f7-progressbar-progress-color: #00b295;
+    }
+    .sync-n-progress-contianer {
+      margin-left: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+    }
+    .sync-container {
+      font-size: 22px;
+      font-weight: 900;
+      font-weight: bold;
+    }
+    .progress-bar-container {
+      width: 70%;
+    }
+    .progress-bar-custom {
+      --f7-progressbar-bg-color: #e0e0e0;
+      --f7-progressbar-progress-color: #00b295;
+    }
+    .tab-content {
+      background-color: white;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+    }
+    .page-title-caption-with-icons {
+      font-size: 20px;
+      font-weight: 700;
+      text-wrap: pretty;
+    }
+    .page-title-with-icons {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .page-title-container {
+      line-height: 1;
+    }
+    .page-title-right-icon {
+      width: 21px;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+    .chat-media-internal-tab {
+      margin-top: 0px;
+      background-color: white;
+      height: 100%;
+    }
+    .card-item {
+      background-color: #e9f3fb;
+      margin: 19px;
+      border-radius: 3px;
+      height: 94px;
+    }
+    .card-item-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 89px;
+      gap: 9px;
+    }
+    .icon-image {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+    }
+    .div-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: baseline;
+      width: 91%;
+    }
+    .add-notes-button {
+      position: absolute;
+      bottom: 15%;
+      right: 3%;
+      z-index: 1000;
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+      background-color: #ff4082;
+      color: white;
+    }
+    .daily-visits-card-content {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .media-tool-card-item {
+      background-color: #e9f3fb;
+      margin: 19px;
+      border-radius: 3px;
+    }
+    .media-tool-card-footer {
+      height: 28px;
+      margin-left: 16px;
+    }
+  }
+  .share-button {
+    margin-left: 20px;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    background-color: #2186d4;
+    color: white;
+  }
+  .share-content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+  }
+  .share-button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    font-size: 12px;
+  }
+  .share-button-group-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-wrap: nowrap;
+  }
+  .card-item-notes {
+    margin: 17px;
+    :global(.item-content) {
+      border-radius: 1px;
+      border-bottom: 1px solid #cccccc;
+    }
+  }
+  .notes-icon-container {
+    border-radius: 50%;
+    width: 95px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .no-icon-page-header {
+    width: 100%;
+  }
+  .tab-content-visit-notes {
+    height: 100%;
+    background-color: white;
+    width: 100%;
+    overflow: hidden;
+  }
+}

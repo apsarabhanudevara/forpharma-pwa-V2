@@ -1,0 +1,20 @@
+{
+  "_ACHIEVED_": "Achieved:",
+  "_CHEMISTS_": "Chemists",
+  "_DAILY_PLANNER_": "Daily Planner",
+  "_DASHBOARD_": "Dashboard",
+  "_DOCTORS_": "Doctors",
+  "_DOCTORS_BY_LOCATION_": "Doctors by Location",
+  "_DOCTOR_BY_SPECIALITY_": "Doctors by Speciality",
+  "_DOCTOR_MASTER_": "Doctor Master",
+  "_HOME_": "Home",
+  "_MEETINGS_": "Meetings",
+  "_MEETING_PROGRESS_": "Meeting Target Progress",
+  "_NO_SHOWS_": "The above reports doesn't include no shows",
+  "_REASON_FOR_NOT_MEETING_TARGET_": "Reason for not meeting the target:",
+  "_DRUGS_BY_CATEGORY_": "Drugs By Category",
+  "_COMPARE_DRUGS_": "Compare Drugs",
+  "_DRUG_MASTER_": "Drug Master",
+  "_TARGET_": "Target:",
+  "_UNABLE_TO_MEET_TARGET_": "Unable to meet the target due to cancellations or unavailability of doctors"
+}

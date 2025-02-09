@@ -1,0 +1,263 @@
+:global(.md) {
+  .page-nav-bar:global(.navbar) {
+    --f7-bars-bg-color: #2186d4;
+    --f7-navbar-bg-color: var(--f7-bars-bg-color);
+    --f7-navbar-border-color: var(--f7-bars-bg-color);
+    :global(.navbar-inner) {
+      justify-content: space-between;
+      .page-title {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+        font-size: 30px;
+        span {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  #doctor-profile-page-content {
+    --f7-page-toolbar-bottom-offset: 116px;
+    padding-top: 410px;
+    padding-bottom: 200px;
+    box-sizing: border-box;
+    #info-grid-block {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  :global(.fab-right-bottom) {
+    right: 15px;
+    bottom: 170px;
+  }
+  :global(.fab) {
+    a {
+      border-radius: 50%;
+      background-color: #f1555a;
+      color: white;
+      transform: scale(1.5);
+    }
+  }
+
+  #doctor-profile-page-content:global(.page-content) {
+    background-color: white;
+  }
+
+  #doctor-profile-page-content :global(.block) {
+    margin: 0;
+  }
+
+  #doc-profile-header {
+    display: flex;
+    position: fixed;
+    top: 96px;
+    width: 100%;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    background-color: #2186d4;
+    p {
+      margin: 0;
+    }
+  }
+
+  #doc-avatar {
+    p {
+      font-size: 20px;
+      strong {
+        font-size: 30px;
+      }
+    }
+    img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+    }
+  }
+  #top-buttons:global(.block) {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    margin-top: 12px;
+    background-color: white;
+    z-index: 999;
+    .top-buttons-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 600px;
+      width: 100%;
+      a {
+        width: 100%;
+      }
+    }
+  }
+  .info-data-grid {
+    display: flex;
+    margin-bottom: 12px;
+    .info-data-icon {
+      display: flex;
+      width: 48px;
+      min-width: 48px;
+      justify-content: flex-start;
+    }
+  }
+
+  .bottom-tool-bar:global(.toolbar) {
+    --f7-toolbar-height: 116px;
+    --f7-bars-bg-color: #c7e1f4;
+    --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+    :global(.toolbar-inner) {
+      width: 100%;
+      :global(.link) {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-top: 2px solid #c7e1f4;
+        line-height: 2;
+      }
+      :global(.tab-link-active) {
+        border-color: #2186d4;
+        color: #2186d4;
+      }
+    }
+  }
+
+  #start-meeting-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    z-index: 999;
+    bottom: 116px;
+    a:global(.button-fill) {
+      --f7-button-bg-color: #2186d4;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      justify-content: space-between;
+      font-size: 22px;
+      :global(i.start-meeting) {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+  #share-modal-top,
+  #share-modal-bottom {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    align-items: flex-start;
+    justify-content: space-between;
+    a {
+      display: flex;
+      flex-direction: column;
+      max-width: 992px;
+      font-size: 10px;
+      text-align: center;
+      color: #333;
+    }
+    :global(.toggle) {
+      margin-right: 6px;
+    }
+    :global(.toggle),
+    :global(.toggle-icon) {
+      --f7-toggle-width: 26px;
+      --f7-toggle-height: 16px;
+    }
+  }
+  #share-modal-top-toggle {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 10px;
+    :global(.toggle) {
+      margin-left: 6px;
+    }
+    :global(.toggle),
+    :global(.toggle-icon) {
+      --f7-toggle-width: 26px;
+      --f7-toggle-height: 16px;
+    }
+  }
+  #share-content-btn {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    a:global(.button-fill) {
+      --f7-button-bg-color: #2186d4;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #doctor-profile-page-content {
+      padding-top: 270px;
+      padding-bottom: 180px;
+      box-sizing: border-box;
+    }
+    :global(.fab-right-bottom) {
+      right: 15px;
+      bottom: 130px;
+    }
+    :global(.fab) {
+      a {
+        transform: scale(1);
+      }
+    }
+    .page-nav-bar:global(.navbar) {
+      :global(.navbar-inner) {
+        .page-title {
+          font-size: 20px;
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    #doc-profile-header {
+      font-size: 18px;
+      top: 64px;
+    }
+    #doc-avatar {
+      p {
+        font-size: 12px;
+        strong {
+          font-size: 16px;
+        }
+      }
+      img {
+        width: 72px;
+        height: 72px;
+      }
+    }
+    #top-buttons:global(.block) {
+      height: 50px;
+    }
+    #start-meeting-btn {
+      height: 60px;
+      a:global(.button-fill) {
+        height: 48px;
+        font-size: 18px;
+        :global(i.start-meeting) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

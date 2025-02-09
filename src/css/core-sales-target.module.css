@@ -1,0 +1,134 @@
+:global(.md) {
+  .forpharma-page {
+    :global(.page-content) {
+      --f7-page-toolbar-bottom-offset: 116px;
+      background: linear-gradient(180deg, #2186d4 50%, #0b2d47 100%);
+      :global(.card) {
+        --f7-card-border-radius: 8px;
+      }
+      #chart-list-btn {
+        --f7-list-margin-vertical: 16px;
+        :global(.item-content) {
+          background-color: #c7e1f4;
+          border-radius: 4px;
+          text-align: left;
+          font-size: 14px;
+          color: #333;
+          :global(.item-inner::before) {
+            --f7-list-chevron-icon-right: 'chevron_down';
+            content: --f7-list-chevron-icon-right;
+          }
+        }
+      }
+      #doctor-dashboard-page-content {
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      #two-columns {
+        --f7-grid-gap: 8px;
+      }
+      #top-doctors {
+        :global(.item-content) {
+          padding-left: 0;
+        }
+        :global(.item-inner) {
+          font-size: 12px;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
+          padding: 0;
+          padding-left: calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-left));
+        }
+      }
+    }
+    .page-nav-bar:global(.navbar) {
+      --f7-bars-bg-color: #2186d4;
+      --f7-navbar-bg-color: var(--f7-bars-bg-color);
+      --f7-navbar-border-color: var(--f7-bars-bg-color);
+      :global(.navbar-inner) {
+        justify-content: space-between;
+        .page-title {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          text-align: center;
+          font-size: 30px;
+          span {
+            font-size: 18px;
+          }
+        }
+        #title-small {
+          font-size: 10px;
+        }
+      }
+    }
+    .bottom-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 116px;
+      --f7-bars-bg-color: #c7e1f4;
+      --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+      :global(.toolbar-inner) {
+        width: 100%;
+        :global(.link) {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-top: 2px solid #c7e1f4;
+          line-height: 2;
+        }
+        :global(.tab-link-active) {
+          border-color: #2186d4;
+          color: #2186d4;
+        }
+      }
+    }
+    .bottom-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 24px;
+      a {
+        display: flex;
+        width: 100%;
+        height: 64px;
+        align-items: center;
+        justify-content: center;
+        --f7-button-bg-color: #2186d4;
+        border: 1px solid #c7e1f4;
+        font-size: 20px;
+        :global(i.icon) {
+          margin-right: 16px;
+        }
+      }
+    }
+    @media (max-width: 480px) {
+      :global(.page-content) {
+        --f7-page-toolbar-bottom-offset: 116px;
+      }
+      .page-nav-bar:global(.navbar) {
+        :global(.navbar-inner) {
+          .page-title {
+            font-size: 20px;
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .bottom-buttons {
+        a {
+          height: 48px;
+          font-size: 16px;
+          :global(i.icon) {
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+/* Input Inventory Dashboard Styles */
+.custom-navbar {
+  background-color: #fff;
+  --f7-navbar-height: 60px;
+}
+
+.status-cards {
+  padding: 16px;
+}
+
+.status-card {
+  padding: 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+}
+
+.status-card.active {
+  background-color: #00a884;
+}
+
+.status-card.previous {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.previous-inputs-form {
+  padding: 16px;
+  background: white;
+  margin: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.save-button {
+  width: 100%;
+  background-color: #00a884;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
+  color: #333;
+}
+
+.inventory-grid {
+  padding: 0 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.inventory-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+}
+
+.inventory-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.inventory-stats {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.stat-label.green {
+  color: #4caf50;
+}
+
+.stat-label.red {
+  color: #f44336;
+}
+
+.stat-value {
+  font-weight: 500;
+  color: #333;
+}
+
+.fab {
+  margin-bottom: 56px;
+}
+
+/* Toolbar Styling */
+.toolbar {
+  --f7-toolbar-bg-color: #fff;
+  --f7-toolbar-height: 60px;
+}
+
+.toolbar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #666;
+}
+
+.toolbar a.tab-link-active {
+  color: #00a884;
+}
+
+.toolbar i {
+  margin-bottom: 4px;
+}
+
+/* Tab Content Styling */
+.page-content {
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 120px);
+}

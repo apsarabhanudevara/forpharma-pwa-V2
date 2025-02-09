@@ -1,0 +1,90 @@
+#login-screen :global(.page-content) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#login-logo {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  margin: 0;
+}
+
+#login-list {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  max-width: 380px;
+}
+
+#login-list :global(.toggle) {
+  margin-right: 6px;
+}
+
+#login-list :global(.toggle),
+#login-list :global(.toggle-icon) {
+  --f7-toggle-width: 26px;
+  --f7-toggle-height: 16px;
+}
+
+#login-list span,
+#login-list a {
+  font-size: 12px;
+}
+
+#sign-in-btn,
+#sign-in-btn-disabled,
+#google-btn {
+  padding: 0 16px;
+}
+
+#sign-in-btn :global(.list-button),
+#sign-in-btn-disabled :global(.list-button) {
+  border-radius: 4px;
+  line-height: 48px;
+}
+#sign-in-btn :global(.list-button) {
+  background-color: #2186d4;
+  color: white;
+}
+
+#btn-divider :global(.item-inner) {
+  align-items: center;
+  justify-content: center;
+}
+#sign-in-btn-disabled :global(.list-button) {
+  background-color: lightgray !important;
+  pointer-events: none;
+  color: white;
+}
+#google-btn :global(.list-button) {
+  border: 1px solid #2186d4;
+  border-radius: 4px;
+  line-height: 48px;
+}
+#copy-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #134e7c;
+  padding-top: 20px;
+}
+@media (max-width: 480px) {
+  #login-logo {
+    img {
+      width: 250px;
+    }
+  }
+}

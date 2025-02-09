@@ -1,0 +1,301 @@
+body {
+  background-color: black;
+}
+
+.item-input-outline.item-content .item-label,
+.item-input-outline.item-content .item-floating-label {
+  background: white;
+}
+
+/* ForPharma Custom icons */
+i.rep-icon {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  background-image: url('/assets/images/rep-icon.svg');
+}
+
+i.google {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  background-image: url('/assets/images/google.svg');
+}
+
+i.doctor-master,
+i.drug-master,
+i.employee-master,
+i.chemist-stockist,
+i.core-sales,
+i.core-sale-black,
+i.core-sales-visits,
+i.order-capture,
+i.input-inventory {
+  width: 64px;
+  height: 64px;
+}
+i.retail-chemist {
+  width: 64px;
+  height: 64px;
+}
+i.expense-claim {
+  width: 64px;
+  height: 64px;
+}
+i.tour-planner {
+  width: 64px;
+  height: 64px;
+}
+
+@media (max-width: 480px) {
+  i.doctor-master,
+  i.drug-master,
+  i.employee-master,
+  i.chemist-stockist,
+  i.core-sales,
+  i.core-sale-black,
+  i.core-sales-visits,
+  i.order-capture,
+  i.input-inventory,
+  i.retail-chemist,
+  i.expense-claim,
+  i.tour-planner,
+  i.rep-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+i.doctor-master {
+  background-image: url('/assets/images/doctor-master.svg');
+}
+
+i.drug-master {
+  background-image: url('/assets/images/drug-master.svg');
+}
+
+i.employee-master {
+  background-image: url('/assets/images/employee-master.svg');
+}
+
+i.chemist-stockist {
+  background-image: url('/assets/images/chemist-icon.svg');
+}
+
+i.core-sales {
+  background-image: url('/assets/images/core-sales.svg');
+}
+i.core-sale-black {
+  background-image: url('/assets/images/core-sale-black.svg');
+}
+i.core-sales-visits {
+  background-image: url('/assets/images/core-sales-visits.svg');
+}
+
+i.order-capture {
+  background-image: url('/assets/images/order-capture.svg');
+}
+
+i.retail-chemist {
+  background-image: url('/assets/images/retail-chemist.svg');
+}
+
+i.expense-claim {
+  background-image: url('/assets/images/claim.svg');
+}
+i.tour-planner {
+  background-image: url('/assets/images/mail.svg');
+}
+
+i.input-inventory {
+  background-image: url('/assets/images/share-icon-03.svg');
+}
+
+i.dashboard {
+  background-image: url('/assets/images/dashboard.svg');
+}
+
+i.dashboard.color-blue {
+  background-image: url('/assets/images/dashboard-blue.svg');
+}
+
+i.doctors {
+  background-image: url('/assets/images/doctors.svg');
+}
+
+i.doctors.color-blue {
+  background-image: url('/assets/images/doctors-blue.svg');
+}
+
+i.chemists {
+  background-image: url('/assets/images/chemists.svg');
+}
+
+i.chemists.color-blue {
+  background-image: url('/assets/images/chemists-blue.svg');
+}
+
+i.home {
+  background-image: url('/assets/images/home.svg');
+}
+
+i.home.color-blue {
+  background-image: url('/assets/images/home-blue.svg');
+}
+i.start-meeting {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  background-image: url('/assets/images/start-meeting.svg');
+}
+i.daily-planner {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  background-image: url('/assets/images/daily-planner.svg');
+}
+i.share-icon-01 {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/share-icon-01.svg');
+}
+i.share-icon-02 {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/share-icon-02.svg');
+}
+i.share-icon-03 {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/share-icon-03.svg');
+}
+i.more-icon {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/more-icon.svg');
+}
+i.whatsapp {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/whatsapp.svg');
+}
+i.fpmail {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/mail.svg');
+}
+i.fpmessage {
+  width: 55px;
+  height: 55px;
+  background-image: url('/assets/images/message.svg');
+}
+i.checkin-pin {
+  width: 22px;
+  height: 27px;
+  background-image: url('/assets/images/checkin.svg');
+}
+/* ForPharma PWA Container */
+#forpharma-pwa {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+}
+
+#forpharma-pwa .page {
+  background:
+    url(/assets/images/forpharma-bg.svg) no-repeat center,
+    #175e95;
+  /* global 94%+ browsers support */
+  background:
+    url(/assets/images/forpharma-bg.svg) no-repeat center,
+    linear-gradient(150.64deg, #0b2d47 0%, #175e95 100%);
+  background-size: 1920px;
+}
+
+#daily-planner-tabs {
+  font-size: 18px;
+  display: flex;
+  height: 116px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #c7e1f4;
+}
+
+#daily-planner-tab-pages.tabs-animated-wrap {
+  height: 100%;
+}
+
+#daily-planner-tabs .link {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #c7e1f4;
+}
+
+#daily-planner-tabs .tab-link-active {
+  border-color: #2186d4;
+}
+
+:root {
+  --f7-bars-bg-color: #2186d4;
+  --f7-navbar-bg-color: var(--f7-bars-bg-color);
+  --f7-navbar-border-color: var(--f7-bars-bg-color);
+  --f7-navbar-height: 96px;
+  --f7-navbar-text-color: white;
+  --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+}
+.page-flex-provider {
+  display: flex;
+  justify-content: center;
+}
+.page-width-wrapper {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+}
+
+.swipe-handler {
+  height: 16px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  cursor: pointer;
+  z-index: 10;
+}
+.swipe-handler:after {
+  content: '';
+  width: 36px;
+  height: 6px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -18px;
+  margin-top: -3px;
+  border-radius: 3px;
+  background: #666;
+}
+.confirm-checkin-dialog {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 0;
+}
+.confirm-checkin-dialog .dialog-inner {
+  padding: 0;
+}
+.autocomplete-popup .page-content {
+  background-color: #fff;
+}
+
+.autocomplete-popup .popup-close {
+  color: #fff;
+}
+@media (max-width: 480px) {
+  :root {
+    --f7-navbar-height: 64px;
+  }
+}

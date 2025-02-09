@@ -1,0 +1,160 @@
+:global(.md) {
+  .forpharma-page {
+    :global(.page-content) {
+      --f7-page-toolbar-bottom-offset: 116px;
+      background-color: white;
+    }
+    .page-nav-bar:global(.navbar) {
+      --f7-bars-bg-color: #2186d4;
+      --f7-navbar-bg-color: var(--f7-bars-bg-color);
+      --f7-navbar-border-color: var(--f7-bars-bg-color);
+      :global(.navbar-inner) {
+        justify-content: space-between;
+        .page-title {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          text-align: center;
+          font-size: px;
+          span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .top-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 96px;
+      --f7-tabbar-link-inactive-color: white;
+      --f7-tabbar-link-active-color: white;
+      :global(.link) {
+        border-bottom: 2px solid #2186d4;
+      }
+      :global(.tab-link-active) {
+        border-bottom: 2px solid #0b2d47;
+      }
+    }
+    .bottom-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 116px;
+      --f7-bars-bg-color: #c7e1f4;
+      --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+      :global(.toolbar-inner) {
+        width: 100%;
+        :global(.link) {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-top: 2px solid #c7e1f4;
+          line-height: 2;
+        }
+        :global(.tab-link-active) {
+          border-color: #2186d4;
+          color: #2186d4;
+        }
+      }
+    }
+    #weekly-msg {
+      text-align: center;
+      color: white;
+    }
+    #weekly-doct-mesg {
+      text-align: center;
+      margin-top: 0px;
+      color: white;
+    }
+
+    #flex-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .target-achieved {
+      display: grid;
+      grid-template-columns: 1fr 10fr;
+      padding: 0px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 4%;
+      align-items: center;
+      margin: 10px;
+      .no-padding {
+        margin-left: 12px;
+      }
+    }
+
+    .target-text {
+      font-weight: bold; /* Make "Target" bold */
+    }
+
+    .meetingsCount {
+      font-size: 10px;
+      /* color: #e66e32; */
+    }
+    .date-Font {
+      font-weight: bold;
+      font-size: 11px;
+    }
+    .name-Font {
+      color: rgb(99, 99, 234);
+    }
+    .order-Font {
+      color: rgb(99, 99, 234);
+    }
+    .reason-block {
+      height: 130px;
+      font-size: 18px;
+    }
+    .no-shows {
+      text-align: right;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      :global(.page-content) {
+        --f7-page-toolbar-bottom-offset: 116px;
+      }
+      .top-tool-bar:global(.toolbar) {
+        --f7-toolbar-height: 46px;
+        :global(.link) {
+          border-bottom: 1px solid #2186d4;
+        }
+        :global(.tab-link-active) {
+          border-bottom: 1px solid #0b2d47;
+        }
+      }
+      .target-achieved {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        padding: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 4%;
+        align-items: center;
+        margin: 10px;
+        .no-padding {
+          margin-left: 12px;
+        }
+      }
+      .page-nav-bar:global(.navbar) {
+        :global(.navbar-inner) {
+          .page-title {
+            font-size: 16px;
+
+            .updated-at {
+              font-size: 10px;
+            }
+            span {
+              font-size: 19px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#contianer-align {
+  margin: 7px;
+}

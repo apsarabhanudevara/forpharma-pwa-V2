@@ -1,0 +1,22 @@
+#daily-planner-tabs {
+  font-size: 18px;
+  display: flex;
+  height: 116px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #c7e1f4;
+}
+
+#daily-planner-tab-pages:global(.tabs-animated-wrap) {
+  height: 100%;
+}
+
+#daily-planner-tabs :global(.link) {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #c7e1f4;
+}
+
+#daily-planner-tabs :global(.tab-link-active) {
+  border-color: #2186d4;
+}

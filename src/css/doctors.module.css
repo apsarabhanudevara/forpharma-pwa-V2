@@ -1,0 +1,103 @@
+#doctors-page-content:global(.page-content) {
+  background-color: #fff;
+  --f7-page-toolbar-bottom-offset: 116px;
+}
+
+#connect-doctors-tabs :global(.page-content) {
+  background-color: #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#doctors-page-content :global(.tabs-animated-wrap) {
+  height: calc(100vh - (96px + 96px + 116px));
+}
+
+#connect-doctors-navbar:global(.navbar) {
+  --f7-navbar-text-color: #fff;
+  --f7-navbar-height: 96px;
+  --f7-navbar-bg-color: #2186d4;
+}
+
+#connect-doctors-navbar :global(.navbar-bg),
+#connect-doctors-navbar :global(.navbar-bg:after) {
+  background-color: #2186d4;
+}
+
+#connect-doctors-navbar:global(.navbar .navbar-inner) {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2186d4;
+}
+
+#connect-doctors-navbar:global(.navbar .left) {
+  display: flex;
+  padding-left: 24px;
+}
+
+#connect-doctors-navbar:global(.navbar .right) {
+  display: flex;
+  padding-right: 24px;
+}
+
+#connect-doctors-navbar:global(.navbar .title) {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#connect-doctors-tabbar:global(.toolbar) {
+  --f7-toolbar-height: 96px;
+  --f7-tabbar-link-active-color: #fff;
+  --f7-tabbar-link-inactive-color: #fff;
+  background-color: #2186d4;
+}
+
+#connect-doctors-tabbar :global(a.tab-link) {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid #2186d4;
+  text-align: center;
+  padding-top: 16px;
+}
+
+#connect-doctors-tabbar :global(a.tab-link-active) {
+  border-bottom: 2px solid #c0e3f9;
+}
+
+#connect-doctors-tabbar:global(.tabbar .tab-link-highlight) {
+  bottom: 0;
+  --f7-tabbar-link-active-border-color: #c0e3f9;
+}
+
+@media (max-width: 480px) {
+  #doctors-page-content :global(.tabs-animated-wrap) {
+    height: calc(100vh - (64px + 64px + 116px));
+  }
+
+  #connect-doctors-navbar:global(.navbar) {
+    --f7-navbar-height: 64px;
+  }
+
+  #connect-doctors-navbar:global(.navbar .left) {
+    display: flex;
+    padding-left: 10px;
+  }
+
+  #connect-doctors-navbar:global(.navbar .right) {
+    display: flex;
+    padding-right: 10px;
+  }
+
+  #connect-doctors-tabbar:global(.toolbar) {
+    --f7-toolbar-height: 64px;
+  }
+
+  #connect-doctors-navbar:global(.navbar .title) {
+    font-size: 20px;
+  }
+}

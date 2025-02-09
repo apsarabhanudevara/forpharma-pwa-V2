@@ -1,0 +1,179 @@
+:global(.md) {
+  .forpharma-page {
+    :global(.page-content) {
+      --f7-page-toolbar-bottom-offset: 116px;
+      background-color: white;
+    }
+    .page-nav-bar:global(.navbar) {
+      --f7-bars-bg-color: #2186d4;
+      --f7-navbar-bg-color: var(--f7-bars-bg-color);
+      --f7-navbar-border-color: var(--f7-bars-bg-color);
+      :global(.navbar-inner) {
+        justify-content: space-between;
+        .page-title {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          text-align: center;
+          font-size: 30px;
+          span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .top-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 96px;
+      --f7-tabbar-link-inactive-color: white;
+      --f7-tabbar-link-active-color: white;
+      :global(.link) {
+        border-bottom: 2px solid #2186d4;
+      }
+      :global(.tab-link-active) {
+        border-bottom: 2px solid #0b2d47;
+      }
+    }
+    .bottom-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 116px;
+      --f7-bars-bg-color: #c7e1f4;
+      --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+      :global(.toolbar-inner) {
+        width: 100%;
+        :global(.link) {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-top: 2px solid #c7e1f4;
+          line-height: 2;
+        }
+        :global(.tab-link-active) {
+          border-color: #2186d4;
+          color: #2186d4;
+        }
+      }
+    }
+    .calender {
+      display: flex;
+      justify-content: center; /* Centers horizontally */
+      align-items: center; /* Centers vertically */
+      width: 100%;
+      :global(.item-input-outline) {
+        /* background-color: #c0e3f9; */
+        border-color: #c0e3f9;
+      }
+      :global(.item-content) {
+        padding-left: 0 !important;
+        --f7-list-item-min-height: 30px;
+        width: 210px;
+      }
+      :global(.item-inner) {
+        flex-direction: row;
+        background-color: #c0e3f9;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      :global(.item-input-wrap) {
+        --f7-input-height: 30px;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        input {
+          /* background-color: #c0e3f9; */
+          /* --f7-input-height: 20px; */
+          padding: 10px;
+        }
+      }
+    }
+    .custom-progressbar .progressbar-line {
+      height: 100%; /* Ensure the inner bar takes the full height */
+    }
+
+    .progress-container {
+      position: relative;
+      width: 100%;
+      .custom-progressbar {
+        --f7-progressbar-height: 40px;
+        --f7-progressbar-border-radius: 0px;
+      }
+      :global(.progressbar, .progressbar-infinite) {
+        background-color: #d9d9d9;
+      }
+      :global(.progressbar span) {
+        --f7-theme-color-rgb: #fe8109;
+        --f7-progressbar-progress-color: var(--f7-theme-color-rgb);
+      }
+    }
+
+    .progress-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; /* Text color */
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .target-achieved {
+      display: flex;
+      justify-content: space-between; /* Aligns items to left and right */
+      width: 100%; /* Ensure it takes full width */
+      font-size: 18px;
+      align-items: center;
+      height: 90px;
+    }
+
+    .target-text {
+      font-weight: bold; /* Make "Target" bold */
+    }
+
+    .meetingsCount {
+      text-align: right; /* Align "100 Meetings" to the right */
+    }
+    .reason-block {
+      height: 130px;
+      font-size: 18px;
+    }
+    .no-shows {
+      text-align: right;
+      font-size: 14px;
+    }
+
+    #medicalrep-data:global(.block) {
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+      border-bottom: 1px solid #cccccc;
+      margin: 0;
+      p {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :global(.page-content) {
+        --f7-page-toolbar-bottom-offset: 116px;
+      }
+      .top-tool-bar:global(.toolbar) {
+        --f7-toolbar-height: 64px;
+        :global(.link) {
+          border-bottom: 1px solid #2186d4;
+        }
+        :global(.tab-link-active) {
+          border-bottom: 1px solid #0b2d47;
+        }
+      }
+      .page-nav-bar:global(.navbar) {
+        :global(.navbar-inner) {
+          .page-title {
+            font-size: 22px;
+            span {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

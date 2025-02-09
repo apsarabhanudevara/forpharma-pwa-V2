@@ -1,0 +1,13 @@
+{
+  "Welcome to React": "Welcome to React and react-i18next",
+  "_CLOSE_": "Close",
+  "_DEVICE_OFFLINE_SUBTITLE_": "Check your network connection otherwise!",
+  "_DEVICE_OFFLINE_TITLE_": "Are you sure this is intentional?",
+  "_DEVICE_OFFLNE_": "Device is Offline",
+  "_EMAIL_": "Email",
+  "_OR_": "Or",
+  "_PASSWORD_": "Password",
+  "_SERVICE_WORKER_DIALOG_TEXT_": "It is recommended to press the update button for a better user experience and increased security.",
+  "_SERVICE_WORKER_DIALOG_TITLE_": "An Update to ForPharma detected!",
+  "_UPDATE_": "Update"
+}

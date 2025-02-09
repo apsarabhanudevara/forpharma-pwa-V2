@@ -1,0 +1,275 @@
+:global(.md) {
+  .forpharma-page {
+    :global(.page-content) {
+      --f7-page-toolbar-bottom-offset: 116px;
+      background-color: white;
+    }
+    .page-nav-bar:global(.navbar) {
+      --f7-bars-bg-color: #2186d4;
+      --f7-navbar-bg-color: var(--f7-bars-bg-color);
+      --f7-navbar-border-color: var(--f7-bars-bg-color);
+      :global(.navbar-inner) {
+        justify-content: space-between;
+        .page-title {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          text-align: center;
+          font-size: 30px;
+          span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .top-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 96px;
+      --f7-tabbar-link-inactive-color: white;
+      --f7-tabbar-link-active-color: white;
+      :global(.link) {
+        border-bottom: 2px solid #2186d4;
+      }
+      :global(.tab-link-active) {
+        border-bottom: 2px solid #0b2d47;
+      }
+    }
+    :global(.fab-right-bottom) {
+      right: 15px;
+      bottom: 170px;
+    }
+    :global(.fab) {
+      a {
+        border-radius: 50%;
+        background-color: #f1555a;
+        color: white;
+        transform: scale(1.5);
+        width: 45px;
+        height: 45px;
+      }
+    }
+    .progress-label {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; /* Text color */
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .top-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 96px;
+      --f7-tabbar-link-inactive-color: white;
+      --f7-tabbar-link-active-color: white;
+      :global(.link) {
+        border-bottom: 2px solid #2186d4;
+      }
+      :global(.tab-link-active) {
+        border-bottom: 2px solid #0b2d47;
+      }
+    }
+    .bottom-tool-bar:global(.toolbar) {
+      --f7-toolbar-height: 116px;
+      --f7-bars-bg-color: #c7e1f4;
+      --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+
+      :global(.toolbar-inner) {
+        width: 100%;
+
+        :global(.link) {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-top: 2px solid #c7e1f4;
+          line-height: 1.5;
+          font-size: 10px;
+          white-space: normal;
+          text-align: center;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        :global(.tab-link-active) {
+          border-color: #2186d4;
+          color: #2186d4;
+        }
+      }
+    }
+
+    .bottom-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 24px;
+      a {
+        display: flex;
+        width: 100%;
+        height: 64px;
+        align-items: center;
+        justify-content: center;
+        --f7-button-bg-color: #67ade2;
+        border: 1px solid #c7e1f4;
+        font-size: 20px;
+        :global(i.icon) {
+          margin-right: 16px;
+        }
+      }
+    }
+
+    :global(.fab-right-bottom) {
+      right: 15px;
+      bottom: 90px;
+    }
+    :global(.fab) {
+      a {
+        border-radius: 50%;
+        background-color: rgb(116, 107, 248);
+        color: white;
+        transform: scale(1.5);
+      }
+    }
+
+    #medicalrep-data:global(.block) {
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+      border-bottom: 1px solid #cccccc;
+      margin: 0;
+      p {
+        text-align: center;
+      }
+    }
+
+    #weekly-msg {
+      text-align: center;
+      color: white;
+    }
+    #weekly-doct-mesg {
+      text-align: center;
+      margin-top: 0px;
+      color: white;
+    }
+
+    #flex-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .custom-progressbar .progressbar-line {
+      height: 100%; /* Ensure the inner bar takes the full height */
+    }
+
+    .progress-container {
+      position: relative;
+      width: 90%;
+      display: grid;
+      grid-template-columns: 3fr 1fr 9fr;
+      align-items: center;
+      padding-left: 20px;
+      .custom-progressbar {
+        --f7-progressbar-height: 5px;
+        --f7-progressbar-border-radius: 0px;
+      }
+      :global(.progressbar, .progressbar-infinite) {
+        background-color: #d9d9d9;
+        color: #e2ec1e;
+      }
+      :global(.progressbar span) {
+        --f7-theme-color-rgb: #00a086;
+        --f7-progressbar-progress-color: var(--f7-theme-color-rgb);
+      }
+    }
+    .font-size {
+      font-size: 11px;
+    }
+    #share-content-btn {
+      padding-top: 24px;
+      padding-bottom: 24px;
+      a:global(.button-fill) {
+        --f7-button-bg-color: #2186d4;
+      }
+    }
+    .inputField {
+      margin-bottom: 10px; /* Adjust this value to your preference */
+    }
+
+    @media (max-width: 480px) {
+      :global(.page-content) {
+        --f7-page-toolbar-bottom-offset: 116px;
+      }
+      .top-tool-bar:global(.toolbar) {
+        --f7-toolbar-height: 64px;
+        :global(.link) {
+          border-bottom: 1px solid #2186d4;
+        }
+        :global(.tab-link-active) {
+          border-bottom: 1px solid #0b2d47;
+        }
+      }
+      .top-tool-bar:global(.toolbar) {
+        --f7-toolbar-height: 64px;
+        :global(.link) {
+          border-bottom: 1px solid #2186d4;
+        }
+        :global(.tab-link-active) {
+          border-bottom: 1px solid #0b2d47;
+        }
+      }
+      :global(.weekly-msg) {
+        text-align: center;
+        color: white;
+      }
+
+      .page-nav-bar:global(.navbar) {
+        :global(.navbar-inner) {
+          .page-title {
+            font-size: 16px;
+            .updated-at {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      .bottom-buttons,
+      .target-progress {
+        a {
+          height: 48px;
+          font-size: 16px;
+          :global(i.icon) {
+            margin-right: 16px;
+          }
+        }
+      }
+      .bottom-buttons {
+        margin-top: 12px;
+      }
+    }
+    .doctorList {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doctorItem {
+      display: flex;
+      align-items: center;
+    }
+
+    .doctorMedia {
+      margin-right: 16px; /* Spacing between media and details */
+    }
+
+    .doctorDetails h5 {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    .doctorDetails p {
+      margin: 0;
+      color: #666;
+    }
+  }
+}

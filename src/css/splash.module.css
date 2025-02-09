@@ -1,0 +1,112 @@
+#splash-screen :global(.page-content) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#splash-logo-frame {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 150px;
+  overflow: hidden;
+}
+
+#ForPharma {
+  margin-top: 40px;
+  margin-left: 18px;
+  translate: 100vw 0;
+  width: 491px;
+  height: 112px;
+}
+
+#ForPharmaicon {
+  transform-origin: center;
+  translate: 254px 0;
+  width: 143px;
+  height: 143px;
+}
+
+@keyframes icon-anim {
+  0% {
+    transform: rotate(0deg) scale(0.5);
+  }
+
+  15% {
+    transform: rotate(45deg) scale(0.6);
+  }
+
+  25% {
+    transform: rotate(90deg) scale(0.7);
+  }
+
+  35% {
+    transform: rotate(120deg) scale(0.8);
+  }
+
+  50% {
+    transform: rotate(135deg) scale(1);
+  }
+
+  65% {
+    transform: rotate(120deg) scale(0.8);
+  }
+
+  75% {
+    transform: rotate(90deg) scale(0.7);
+  }
+
+  90% {
+    transform: rotate(45deg) scale(0.6);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(0.5);
+  }
+}
+
+@keyframes transform-icon {
+  100% {
+    translate: 0px 0px;
+  }
+}
+
+@keyframes transform-text {
+  90% {
+    translate: -10px 0px;
+  }
+
+  100% {
+    translate: 0px 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  #splash-logo-frame {
+    display: flex;
+    width: 100vw;
+    height: 75px;
+    overflow: hidden;
+  }
+
+  #ForPharma {
+    margin-top: 20px;
+    margin-left: 9px;
+    translate: 100vw 0;
+    width: 246px;
+    height: 56px;
+  }
+
+  #ForPharmaicon {
+    transform-origin: center;
+    translate: 127px 0;
+    width: 71px;
+    height: 71px;
+  }
+}

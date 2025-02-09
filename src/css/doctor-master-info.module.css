@@ -1,0 +1,417 @@
+:global(.md) {
+  .page-nav-bar:global(.navbar) {
+    --f7-bars-bg-color: #2186d4;
+    --f7-navbar-bg-color: var(--f7-bars-bg-color);
+    --f7-navbar-border-color: var(--f7-bars-bg-color);
+    :global(.navbar-inner) {
+      justify-content: space-between;
+      .page-title {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+        font-size: 30px;
+        span {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  #doctor-profile-page-content {
+    --f7-page-toolbar-bottom-offset: 116px;
+    padding-top: 410px;
+    padding-bottom: 200px;
+    box-sizing: border-box;
+    #info-grid-block {
+      display: flex;
+      justify-content: center;
+      padding: 0 32px;
+    }
+  }
+  #dcr-form {
+    padding: 32px;
+    height: 800px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    &.sheet-success {
+      margin-top: 16px;
+      .form-group {
+        display: none;
+      }
+      .button-group {
+        display: none;
+      }
+      .success-message {
+        display: block;
+      }
+    }
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    label {
+      flex-basis: 30%;
+      font-weight: bold;
+    }
+    input,
+    select,
+    textarea,
+    .upload-photo {
+      flex-basis: 65%;
+      padding: 8px;
+      border: 1px solid #ccc;
+
+      border-radius: 5px;
+    }
+    .button-group {
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+    }
+    button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    button.save {
+      background-color: #4caf50;
+      color: white;
+    }
+    button.cancel {
+      background-color: #f44336;
+      color: white;
+    }
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #dff0d8;
+      color: #3c763d;
+      border-radius: 5px;
+    }
+  }
+  .footer-icon {
+    padding: 16px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 10px;
+    align-items: center;
+    text-align: center;
+    i {
+      margin-bottom: 4px;
+    }
+  }
+  .heading-tables {
+    font-size: 18px;
+    margin: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 14px;
+      color: #0000ee;
+    }
+  }
+  .table-data {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  .table-data th,
+  .table-data td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  .table-data th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  .table-data tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  :global(.fab-right-bottom) {
+    right: 15px;
+    bottom: 170px;
+  }
+  :global(.fab) {
+    a {
+      border-radius: 50%;
+      background-color: #f1555a;
+      color: white;
+      transform: scale(1.5);
+    }
+  }
+
+  #doctor-profile-page-content:global(.page-content) {
+    background-color: white;
+  }
+
+  #doctor-profile-page-content :global(.block) {
+    margin: 0;
+  }
+
+  #doc-profile-header {
+    display: flex;
+    position: absolute;
+    top: 96px;
+    width: 100%;
+    z-index: 999;
+    margin: 16px;
+    padding: 0;
+    font-size: 14px;
+    padding-top: 32px;
+    padding-left: 32px;
+    p {
+      margin-left: 32px;
+      margin-top: 0px;
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #doc-avatar {
+    p {
+      font-size: 20px;
+      strong {
+        font-size: 30px;
+      }
+    }
+    img {
+      width: 128px;
+      height: 128px;
+      border-radius: 16px;
+    }
+  }
+  #top-buttons:global(.block) {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    margin-top: 12px;
+    background-color: white;
+    z-index: 999;
+    .top-buttons-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 600px;
+      width: 100%;
+      a {
+        width: 100%;
+      }
+    }
+  }
+  .info-data-grid {
+    display: flex;
+    margin-bottom: 12px;
+    .info-data-icon {
+      display: flex;
+      width: 48px;
+      min-width: 48px;
+      justify-content: flex-start;
+    }
+  }
+
+  .bottom-tool-bar:global(.toolbar) {
+    --f7-toolbar-height: 116px;
+    --f7-bars-bg-color: #c7e1f4;
+    --f7-toolbar-bg-color: var(--f7-bars-bg-color);
+    :global(.toolbar-inner) {
+      width: 100%;
+      :global(.link) {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-top: 2px solid #c7e1f4;
+        line-height: 1.5;
+        font-size: 10px;
+        white-space: normal;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      :global(.tab-link-active) {
+        border-color: #2186d4;
+        color: #2186d4;
+      }
+    }
+  }
+  /* .bottomToolBar{
+    background: #2186d4;
+  } */
+
+  #start-meeting-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    z-index: 999;
+    bottom: 116px;
+    a:global(.button-fill) {
+      --f7-button-bg-color: #2186d4;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      justify-content: space-between;
+      font-size: 22px;
+      :global(i.start-meeting) {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+  #share-modal-top,
+  #share-modal-bottom {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    align-items: flex-start;
+    justify-content: space-between;
+    a {
+      display: flex;
+      flex-direction: column;
+      max-width: 72px;
+      font-size: 10px;
+      text-align: center;
+      color: #333;
+    }
+    :global(.toggle) {
+      margin-right: 6px;
+    }
+    :global(.toggle),
+    :global(.toggle-icon) {
+      --f7-toggle-width: 26px;
+      --f7-toggle-height: 16px;
+    }
+  }
+  #share-modal-top-toggle {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-size: 10px;
+    :global(.toggle) {
+      margin-left: 6px;
+    }
+    :global(.toggle),
+    :global(.toggle-icon) {
+      --f7-toggle-width: 26px;
+      --f7-toggle-height: 16px;
+    }
+  }
+  #share-content-btn {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    a:global(.button-fill) {
+      --f7-button-bg-color: #2186d4;
+    }
+  }
+
+  .checkInButton {
+    background: linear-gradient(135deg, #4caf50, #45a049); /* Modern Gradient */
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px; /* Smooth Edges */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Space for Icon */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    width: auto; /* ✅ Reduces Width */
+    min-width: 120px; /* Ensures it's not too small */
+  }
+
+  .checkInButton i {
+    font-size: 16px;
+  }
+
+  .checkInButton:hover {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+    transform: scale(1.05); /* Slight Hover Effect */
+  }
+
+  .checkInButton:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 480px) {
+    #doctor-profile-page-content {
+      padding-top: 210px;
+      padding-bottom: 180px;
+      box-sizing: border-box;
+    }
+    :global(.fab-right-bottom) {
+      right: 15px;
+      bottom: 75px;
+    }
+    :global(.fab) {
+      a {
+        transform: scale(1);
+      }
+    }
+    .page-nav-bar:global(.navbar) {
+      :global(.navbar-inner) {
+        .page-title {
+          font-size: 20px;
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    #doc-profile-header {
+      font-size: 14px;
+      top: 64px;
+    }
+    #doc-avatar {
+      p {
+        font-size: 12px;
+        strong {
+          font-size: 16px;
+        }
+      }
+      img {
+        width: 96px;
+        height: 96px;
+      }
+    }
+    #top-buttons:global(.block) {
+      height: 50px;
+    }
+    #start-meeting-btn {
+      height: 60px;
+      a:global(.button-fill) {
+        height: 48px;
+        font-size: 18px;
+        :global(i.start-meeting) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
