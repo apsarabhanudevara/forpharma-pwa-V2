@@ -43,9 +43,48 @@ const RepCheckinPage = ({ f7router }) => {
   }, []);
   // Checkin Dialog
   const checkinDialogTitle = isUserCheckedin ? 'Confirm Check-Out' : 'Confirm Check-In';
-  const dialogLocationUpper = 'Nanakramguda, Hyderabad';
-  const dialogLocationLower = 'Telangana, 500032';
-  const locationAndTime = 'Friday, September 30, 2024 | 9:03 AM';
+  const [dialogLocationUpper, setDialogLocationUpper] = useState('');
+  const [dialogLocationLower, setDialogLocationLower] = useState('');
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAkxPZQwiL-t1a07TKqJijC3EX8hy9c2RA`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.results.length > 0) {
+                const addressComponents = data.results[0].address_components;
+                const upper =
+                  addressComponents.find((component) => component.types.includes('locality'))?.long_name || '';
+                const lower =
+                  addressComponents.find((component) => component.types.includes('administrative_area_level_1'))
+                    ?.long_name || '';
+                const pincode =
+                  addressComponents.find((component) => component.types.includes('postal_code'))?.long_name || '';
+                setDialogLocationUpper(upper);
+                setDialogLocationLower(`${lower}, ${pincode}`);
+              }
+            });
+        },
+        (error) => {
+          console.error('Error getting location', error);
+        }
+      );
+    }
+  }, []);
+  const locationAndTime = new Date().toLocaleString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  });
 
   const openCheckinDialog = () => {
     var checkin_dialog = f7.dialog

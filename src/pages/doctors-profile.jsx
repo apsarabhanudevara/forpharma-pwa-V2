@@ -25,6 +25,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import RepAvatar from '../assets/images/rep-placeholder.jpg';
 import DoctorsProfileCss from '../css/doctors-profile.module.css';
 import { db } from '../models/db';
+import DoctorMasterInfoCss from '../css/doctor-master-info.module.css';
 
 const DoctorsProfile = (props) => {
   const { f7router, uid__c } = props;
@@ -32,6 +33,20 @@ const DoctorsProfile = (props) => {
   const dialogRef = useRef(null);
   const [shareSheetOpen, setShareSheetOpen] = useState(false);
   const doctor = useLiveQuery(async () => await db.doctors.get({ uid__c }));
+  const [hoveredButton, setHoveredButton] = useState(null);
+
+  const handleSave = () => {
+    f7.toast
+      .create({
+        text: 'Check-in successfully!',
+        closeTimeout: 2000,
+        position: 'center',
+        cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
+      })
+      .open();
+    setView('list');
+  };
 
   const showNoShowDialog = () => {
     dialogRef.current = f7.dialog.create({
@@ -145,7 +160,7 @@ const DoctorsProfile = (props) => {
           {t('_CHEMISTS_')}
         </Link>
       </Toolbar>
-      <PageContent id={DoctorsProfileCss.doctorProfilePageContent}>
+      {/* <PageContent id={DoctorsProfileCss.doctorProfilePageContent}>
         {doctor && (
           <>
             <Block id={DoctorsProfileCss.docProfileHeader}>
@@ -157,10 +172,10 @@ const DoctorsProfile = (props) => {
               </p>
               <Block id={DoctorsProfileCss.topButtons}>
                 <div className={DoctorsProfileCss.topButtonsInner}>
-                  <Button small outline style={{ marginRight: '12px' }} onClick={showNoShowDialog}>
+                  <Button small outline style={{ marginRight: '2px' }} onClick={showNoShowDialog}>
                     Update Status
                   </Button>
-                  <Button small outline style={{ marginRight: '12px' }} href="/transfer-doctor-meeting">
+                  <Button small outline style={{ marginRight: '2px' }} href="/transfer-doctor-meeting">
                     Transfer Meeting
                   </Button>
                   <Button small outline href="/tagged-chemist">
@@ -298,7 +313,165 @@ const DoctorsProfile = (props) => {
             </Block>
           </>
         )}
-      </PageContent>
+      </PageContent> */}
+
+    <PageContent id={DoctorMasterInfoCss.doctorProfilePageContent}>
+            {doctor && (
+              <>
+                <Block id={DoctorMasterInfoCss.docProfileHeader}>
+                              <div id={DoctorMasterInfoCss.docAvatar}>
+                                <img src={RepAvatar} alt="Avatar" />
+                              </div>
+                              <p>
+                                <span>{doctor.title__c + doctor.full_name__c}</span>
+                                <br />
+                                {doctor.designation__c},&nbsp;
+                                {doctor.hospital__c}
+                                <br />
+                                {doctor.timing__c}
+                                <br />
+                                {doctor.mobile__c}
+                              </p>
+                            </Block>
+
+                            <Block id={DoctorMasterInfoCss.infoGridBlock}>
+                                          <div className="page-width-wrapper">
+                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
+                                              <div>{doctor.bio__c}</div>
+                                            </div>
+                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
+                                              <div className={DoctorMasterInfoCss.infoDataIcon}>
+                                                <Icon material="fmd_good" color="blue" />
+                                              </div>
+                                              <div>
+                                                {doctor.locality__c}, {doctor.city__c}, {doctor.state__c}, {doctor.pin_code__c}
+                                              </div>
+                                            </div>
+                            
+                                            {/* Check-in Button (Placed Right After Doctor Info for Better UX) */}
+                                            <Block id={DoctorsProfileCss.topButtons}>
+                                                    <div className={DoctorsProfileCss.topButtonsInner}>
+                                                    <Button small outline style={{ marginRight: '2px' }} onClick={showNoShowDialog} tooltip="Update Status">
+                                                      <i className="icon f7-icons">clock</i>
+                                                      {/* Update Status */}
+                                                      </Button>
+                                                      <Button small outline style={{ marginRight: '2px' }} href="/transfer-doctor-meeting" tooltip="Transfer Meeting">
+                                                      <i className="icon f7-icons">arrow_right_arrow_left</i>
+                                                      
+                                                      {/* Transfer Meeting */}
+                                                      </Button>
+                                                      <Button small outline href="/tagged-chemist" tooltip="Tagged Chemist">
+                                                      <i className="icon f7-icons">person_2</i>
+                                                      {/* Tagged Chemist */}
+                                                      </Button>
+                                                    </div>
+                                                    
+                                            <div
+                                              className={DoctorMasterInfoCss.infoDataGrid}
+                                              style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '15px' }}
+                                            >
+                                              <button
+                                                id="checkInBtn"
+                                                className={DoctorMasterInfoCss.checkInButton}
+                                                onClick={handleSave}
+                                                 // ✅ Using the toast function
+                                                            >
+                                                            <i className="icon f7-icons">checkmark_circle</i> Check-in
+                                                            </button>
+                                                            </div>
+                                                            </Block>
+                                                            
+                                                        
+                                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
+                                                            <div>
+                                                            <p className={DoctorMasterInfoCss.headingTables}>
+                                                              Last 3 MR Visits <span>View All</span>
+                                                            </p>
+                                                            <table className={DoctorMasterInfoCss.tableData}>
+                                                              <thead>
+                                                              <tr>
+                                                              <th>Date</th>
+                                                              <th>MR</th>
+                                                              <th>Comments</th>
+                                                              </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                              <tr>
+                                                              <td>18 Jan 24 3:30PM</td>
+                                                              <td>Aryan</td>
+                                                              <td>Reschedule to 25th Jan</td>
+                                                              </tr>
+                                                              <tr>
+                                                              <td>10 Jan 24 3:30PM</td>
+                                                              <td>Aryan</td>
+                                                              <td>Reordered existing drugs</td>
+                                                              </tr>
+                                                              <tr>
+                                                              <td>4 Jan 24 10:30AM</td>
+                                                              <td>Aryan</td>
+                                                              <td>Explained New Drugs</td>
+                                                              </tr>
+                                                              </tbody>
+                                                            </table>
+                                                            </div>
+                                                            </div>
+                                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
+                                                            <div>
+                                                            <p className={DoctorMasterInfoCss.headingTables}>
+                                                              Last 3 Orders Placed <span>View All</span>
+                                                            </p>
+                                                            <table className={DoctorMasterInfoCss.tableData}>
+                                                              <thead>
+                                                              <tr>
+                                                              <th>Date</th>
+                                                              <th>Name</th>
+                                                              <th>Price MRP/RP</th>
+                                                              <th>Comments</th>
+                                                              </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                              <tr>
+                                                              <td>18 Jan 24 3:30PM</td>
+                                                              <td>Myrion Tablets</td>
+                                                              <td>570/500</td>
+                                                              <td>Approved</td>
+                                                              </tr>
+                                                              <tr>
+                                                              <td>10 Jan 24 3:30PM</td>
+                                                              <td>Amox-300</td>
+                                                              <td>650/550</td>
+                                                              <td>Dispatched</td>
+                                                              </tr>
+                                                              <tr>
+                                                              <td>4 Jan 24 10:30AM</td>
+                                                              <td>Penta-500</td>
+                                                              <td>150/130</td>
+                                                              <td>Pending</td>
+                                                              </tr>
+                                                              </tbody>
+                                                            </table>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                          </Block>
+                                                          <Block id={DoctorsProfileCss.startMeetingBtn}>
+              <div className="page-width-wrapper">
+                <Button
+                  large
+                  fill
+                  
+                  onClick={() => f7router.navigate('/start-meeting', { props: { doctorUID: uid__c } })}
+                >
+                  <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" />
+                </Button>
+              </div>
+            </Block>
+                                                    </>
+                                                    )}
+                                                    </PageContent>
+
+                                                  {/* Replace your existing PageContent section with this */}
+
       <div className="page-flex-provider">
         <div className="page-width-wrapper" style={{ bottom: '65px' }}>
           <Fab position="right-bottom" slot="fixed" onClick={() => setShareSheetOpen(true)}>
@@ -333,6 +506,7 @@ const DoctorsProfile = (props) => {
                 <img src="your-image-url.png" alt="Campaign Banner" />
               </div> */}
               <div className="campaign-details">
+                <h1 style={{ textAlign: 'center' }}>Campaign</h1>
                 <h3>EyeCareWeCare</h3>
                 <p>
                   <Icon icon="time" /> 07:00 am, 1 Jan 📍 ForPharma, India, 2024

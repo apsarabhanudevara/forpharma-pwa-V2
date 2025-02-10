@@ -157,6 +157,7 @@ const DrugMasterDashboard = ({ f7router }) => {
         </NavTitle>
       </Navbar>
       <Block>
+        <p id={EmployeeDashboardCss.weeklyDoctMesg}>Total Employee Performance</p>
         <div
           style={{
             display: 'flex',

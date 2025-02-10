@@ -345,12 +345,20 @@ const TeamPerformanceOverview = ({ f7router }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'white',
-                marginLeft: '18px',
-                marginRight: '16px',
+                margin: '0 4%',
                 borderRadius: '8px',
+                padding: '8px',
+                width: '90%', // Ensures it adjusts dynamically
+                maxWidth: '400px', // Limits width on larger screens
               }}
             >
-              <Chart options={chartData.options} series={chartData.series} type="bar" height={150} width={350} />
+              <Chart
+                options={chartData.options}
+                series={chartData.series}
+                type="bar"
+                height="auto"
+                width="100%" // Makes it responsive
+              />
             </Block>
             <BlockTitle className={PageCss.teamPerfInsightsHeading}>
               <span>Key Insights</span>
@@ -432,7 +440,7 @@ const TeamPerformanceOverview = ({ f7router }) => {
                       borderBgColor="#fec10d"
                       borderWidth={15}
                     />
-                    <p>{t('_REGIONS_')}</p>
+                    <p className={PageCss.regionsText}>{t('_REGIONS_')}</p>
                   </section>
                   <section className={PageCss.guageChart}>
                     <Gauge
@@ -445,7 +453,7 @@ const TeamPerformanceOverview = ({ f7router }) => {
                       borderBgColor="#fec10d"
                       borderWidth={15}
                     />
-                    <p>{t('_DIVISIONS_')}</p>
+                    <p className={PageCss.regionsText}>{t('_DIVISIONS_')}</p>
                   </section>
                   <section className={PageCss.guageChart}>
                     <Gauge
@@ -458,7 +466,7 @@ const TeamPerformanceOverview = ({ f7router }) => {
                       borderBgColor="#fec10d"
                       borderWidth={15}
                     />
-                    <p>{t('_ZONES_')}</p>
+                    <p className={PageCss.regionsText}>{t('_ZONES_')}</p>
                   </section>
                 </section>
               </Block>

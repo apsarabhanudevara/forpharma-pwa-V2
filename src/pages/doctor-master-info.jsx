@@ -37,14 +37,14 @@ const DoctorMasterInfo = (props) => {
   const handleSave = () => {
     f7.toast
       .create({
-        text: ' Check-in successfully!',
+        text: 'DCR Survey Saved successfully!',
         closeTimeout: 2000,
         position: 'center',
         cssClass: 'custom-toast',
         icon: '<i class="icon f7-icons">checkmark_circle</i>',
       })
       .open();
-    // setView('list'); // Commented out as setView is not defined
+    setView('list');
   };
 
   useEffect(() => {
@@ -69,6 +69,7 @@ const DoctorMasterInfo = (props) => {
         <NavLeft>
           <Link onClick={() => f7router.back()}>
             <Icon material="chevron_left" color="white" size={36} />
+            <span style={{ color: 'white' }}>{doctor ? `${doctor.full_name__c} Info` : 'Doctor Info'}</span>
           </Link>
         </NavLeft>
         {/* <NavTitle className={DoctorMasterInfoCss.pageTitle}>
@@ -99,7 +100,7 @@ const DoctorMasterInfo = (props) => {
         </Link> */}
         <Link href="#" tabLinkActive>
           <Icon icon="doctors" size={22} color="blue" />
-          Doctors Check-in
+          Doctor Info
         </Link>
         {/* <Link href="/doctor-speciality">
           <Icon material="history" />

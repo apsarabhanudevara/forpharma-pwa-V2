@@ -480,18 +480,65 @@ const StartMeeting = (props) => {
               </div>
               <p>ForPharma Visual Aid</p>
             </CardContent>
+            <Card>
+              <CardContent>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSJqWRgBV_WrZIORHlTN1kzTac10-4zuAxhg&s"
+                    alt="Knee Replacement Surgery"
+                    style={{ width: '100px', height: '100px', marginRight: '16px' }}
+                  />
+                  <a
+                    href="#"
+                    onClick={() =>
+                      window.open(
+                        'https://www.unfpa.org/sites/default/files/pub-pdf/en_SOWMR_Full.pdf',
+                        '_blank',
+                        'noopener,noreferrer'
+                      )
+                    }
+                  >
+                    Knee Replacement Surgery
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src="https://www.researchgate.net/publication/358158607/figure/fig1/AS:1127575745249281@1645846415722/The-procedure-of-hemodialysis-A-patient-is-connected-to-a-dialysis-machine-and-their.png"
+                    alt="Dialysis"
+                    style={{ width: '100px', height: '100px', marginRight: '16px' }}
+                  />
+                  <a
+                    href="#"
+                    onClick={() =>
+                      window.open(
+                        'https://www.kidney.org/sites/default/files/11-50-0214_hemodialysis.pdf',
+                        '_blank',
+                        'noopener,noreferrer'
+                      )
+                    }
+                  >
+                    Dialysis
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </Card>
 
-          <Fab position="right-bottom" slot="fixed" style={{ bottom: '90px' }} href="/document">
+          {/* <Fab position="right-bottom" slot="fixed" style={{ bottom: '90px' }} href="/document">
             <Icon material="edit_note" />
-          </Fab>
+          </Fab> */}
         </Tab>
 
         <Tab id="completed" className="page-content">
           <VisitNotes />
-          <Fab position="right-bottom" slot="fixed" style={{ bottom: '90px' }} href="/document">
+          {/* <Fab position="right-bottom" slot="fixed" style={{ bottom: '90px' }} href="/document">
             <Icon material="edit_note" />
-          </Fab>
+          </Fab> */}
         </Tab>
         <Tab id="no-show" className="page-content">
           <div

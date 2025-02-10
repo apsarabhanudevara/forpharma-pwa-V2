@@ -134,7 +134,7 @@
     .my-statistics-row {
       display: grid;
       grid-template-columns: repeat(4, 21vw);
-      gap: 6px;
+      gap: 3px;
       padding: 5px;
       align-items: center;
     }
@@ -168,7 +168,7 @@
         .grades {
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 2px;
           align-items: center;
         }
         .grade-block {
@@ -177,7 +177,7 @@
           flex-direction: column;
           background: white;
           border-radius: 10px;
-          padding: 12px;
+          padding: 9px;
           align-items: center;
           width: 65px;
         }
@@ -189,6 +189,11 @@
       gap: 6px;
       padding: 5px;
       align-items: center;
+    }
+    .regionsText {
+      padding-left: 8px;
+      font-size: 13px;
+      text-align: center;
     }
     @media (max-width: 480px) {
       :global(.page-content) {

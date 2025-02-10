@@ -56,7 +56,7 @@ const visitors = [
   {
     id: 1,
     name: 'John Doe',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '10:00 am',
     endTime: '10:30 am',
@@ -64,7 +64,7 @@ const visitors = [
   {
     id: 2,
     name: 'Jane Smith',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '11:00 am',
     endTime: '11:45 am',
@@ -72,7 +72,7 @@ const visitors = [
   {
     id: 3,
     name: 'Michael Johnson',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '12:00 pm',
     endTime: '12:30 pm',
@@ -80,7 +80,7 @@ const visitors = [
   {
     id: 4,
     name: 'John Doe',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '10:00 am',
     endTime: '10:30 am',
@@ -88,7 +88,7 @@ const visitors = [
   {
     id: 5,
     name: 'Jane Smith',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '11:00 am',
     endTime: '11:45 am',
@@ -96,7 +96,7 @@ const visitors = [
   {
     id: 6,
     name: 'Michael Johnson',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '12:00 pm',
     endTime: '12:30 pm',
@@ -104,7 +104,7 @@ const visitors = [
   {
     id: 7,
     name: 'John Doe',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '10:00 am',
     endTime: '10:30 am',
@@ -112,7 +112,7 @@ const visitors = [
   {
     id: 8,
     name: 'Jane Smith',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '11:00 am',
     endTime: '11:45 am',
@@ -120,7 +120,7 @@ const visitors = [
   {
     id: 9,
     name: 'Michael Johnson',
-    image: 'https://via.placeholder.com/80',
+    image: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
     date: '8th Oct 2024',
     startTime: '12:00 pm',
     endTime: '12:30 pm',
@@ -150,7 +150,7 @@ const contacts = [
     role: 'Manager',
     phone: '+1 234 567 890',
     email: 'johndoe@example.com',
-    profileImage: 'https://via.placeholder.com/50',
+    profileImage: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
   },
   {
     id: 2,
@@ -158,7 +158,7 @@ const contacts = [
     role: 'Team Lead',
     phone: '+1 987 654 321',
     email: 'janesmith@example.com',
-    profileImage: 'https://via.placeholder.com/50',
+    profileImage: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
   },
   {
     id: 3,
@@ -166,7 +166,7 @@ const contacts = [
     role: 'Software Engineer',
     phone: '+1 123 456 789',
     email: 'mikejohnson@example.com',
-    profileImage: 'https://via.placeholder.com/50',
+    profileImage: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
   },
   {
     id: 4,
@@ -174,7 +174,7 @@ const contacts = [
     role: 'Product Manager',
     phone: '+1 456 789 123',
     email: 'emilydavis@example.com',
-    profileImage: 'https://via.placeholder.com/50',
+    profileImage: 'https://cdn-icons-png.flaticon.com/512/8815/8815112.png',
   },
 ];
 const visitedNotes = [
@@ -594,8 +594,8 @@ const VisitNotes = () => {
 
 const ConnectActionPopOverComponent = ({ show, handleActionsTab, shareInfo }) => {
   return (
-    <Actions grid={true} opened={show} onActionsClosed={() => handleActionsTab(false)}>
-      <Block>
+    <Actions grid={true} opened={show} onActionsClosed={() => handleActionsTab(false)} style={{ paddingLeft: '8px' }}>
+      <Block style={{ paddingLeft: '6px' }}>
         Share with <strong>{shareInfo.title + shareInfo.fullname}</strong>
       </Block>
       <hr />
@@ -649,7 +649,12 @@ const ConnectActionPopOverComponent = ({ show, handleActionsTab, shareInfo }) =>
           </Link>
         </div>
         <div>
-          <Button large fill onClick={() => handleActionsTab(false)}>
+          <Button
+            large
+            fill
+            onClick={() => handleActionsTab(false)}
+            style={{ marginLeft: '56px', marginRight: '56px' }}
+          >
             <Icon material="share" style={{ marginRight: '16px' }} /> Share
           </Button>
         </div>

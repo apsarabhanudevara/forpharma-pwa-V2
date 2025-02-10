@@ -68,7 +68,7 @@ const mockPendingTours = [
     name: 'Sourabh',
     tourType: 'Non Field Work',
     customers: 7,
-    status: 'Pending for approval',
+    status: 'Pending',
     place: 'Pune',
   },
   {
@@ -77,7 +77,7 @@ const mockPendingTours = [
     name: 'Raj',
     tourType: 'Field Work',
     customers: 6,
-    status: 'Pending for approval',
+    status: 'Pending',
     place: 'Chennai',
   },
   {
@@ -86,7 +86,7 @@ const mockPendingTours = [
     name: 'Sanket',
     tourType: 'Non Field Work',
     customers: 10,
-    status: 'Pending for approval',
+    status: 'Pending',
     place: 'Hyderabad',
   },
 ];
@@ -241,7 +241,15 @@ const TourPlanner = ({ f7router }) => {
                   <div className="text-sm text-gray-600">No of Customers</div>
                   <div>{tour.customers}</div>
                 </div>
-                <Button fill>View Details</Button>
+                <div className="text-red-900 bold" style={{ color: 'orange' }}>
+                  Pending
+                </div>
+                <Button
+                  fill
+                  onClick={() => f7.dialog.alert(renderTourDetails(tour).replace(/\n/g, '<br/>'), 'Tour Details')}
+                >
+                  View Details
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -268,7 +276,18 @@ const TourPlanner = ({ f7router }) => {
                   <div className="text-sm text-gray-600">No of Customers</div>
                   <div>{tour.customers}</div>
                 </div>
-                <div className={tour.status === 'Approved' ? 'text-green-500' : 'text-red-500'}>{tour.status}</div>
+                <div
+                  className={tour.status === 'Approved' ? 'text-green-500' : 'text-red-500'}
+                  style={{ color: 'green' }}
+                >
+                  {tour.status}
+                </div>
+                <Button
+                  fill
+                  onClick={() => f7.dialog.alert(renderTourDetails(tour).replace(/\n/g, '<br/>'), 'Tour Details')}
+                >
+                  View Details
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -295,13 +314,27 @@ const TourPlanner = ({ f7router }) => {
                   <div className="text-sm text-gray-600">No of Customers</div>
                   <div>{tour.customers}</div>
                 </div>
-                <div className="text-red-500">Deleted</div>
+                <div className="text-red-500" style={{ color: 'Red' }}>
+                  Deleted
+                </div>
+                <Button
+                  fill
+                  onClick={() => f7.dialog.alert(renderTourDetails(tour).replace(/\n/g, '<br/>'), 'Tour Details')}
+                >
+                  View Details
+                </Button>
               </div>
             </CardContent>
           </Card>
         ))}
     </Block>
   );
+
+  const renderTourDetails = (tour) => {
+    return Object.entries(tour)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join('\n');
+  };
 
   const renderCreateView = () => (
     <Block className="create-tour-form animate-fade-in" style={{ maxWidth: '800px', margin: '0 auto' }}>
