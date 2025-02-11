@@ -23,7 +23,7 @@ import {
   f7,
   Toolbar,
 } from 'framework7-react';
-import { ArrowLeft, Trash2, Edit } from 'lucide-react';
+import { ArrowLeft, Trash2, Edit, X as XIcon } from 'lucide-react';
 
 const mockTours = [
   {
@@ -32,7 +32,7 @@ const mockTours = [
     tourType: 'Admin Work',
     customers: 9,
     status: 'Saved',
-    place: 'Mumbai',
+    place: 'Hyderabad',
     startTime: '09:00',
     endTime: '17:00',
     station: 'Central',
@@ -147,7 +147,7 @@ const mockCampaigns = [
   { id: 4, name: 'Vaccination Drive' },
 ];
 
-const mockStations = ['Central Mumbai', 'South Delhi', 'Bangalore Central', 'Pune East', 'Chennai North'];
+const mockStations = ['Hyderabad', 'South Delhi', 'Bangalore Central', 'Pune East', 'Chennai North'];
 
 const TourPlanner = ({ f7router }) => {
   const { t } = useTranslation('dashboard');
@@ -156,6 +156,25 @@ const TourPlanner = ({ f7router }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [approveViewTab, setApproveViewTab] = useState('pending');
+  const [selectedDoctors, setSelectedDoctors] = useState([]);
+  const [showDoctorsDropdown, setShowDoctorsDropdown] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter doctors based on search query
+  const filteredDoctors = mockDoctors.filter(
+    (doctor) =>
+      doctor.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      !selectedDoctors.find((selected) => selected.id === doctor.id)
+  );
+
+  const handleDoctorSelect = (doctor) => {
+    setSelectedDoctors([...selectedDoctors, doctor]);
+    setSearchQuery('');
+  };
+
+  const handleDoctorRemove = (doctorId) => {
+    setSelectedDoctors(selectedDoctors.filter((doctor) => doctor.id !== doctorId));
+  };
 
   const handleSave = () => {
     f7.toast
@@ -173,6 +192,19 @@ const TourPlanner = ({ f7router }) => {
     f7.toast
       .create({
         text: 'Approval Comfirmed!',
+        closeTimeout: 2000,
+        position: 'center',
+        cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
+      })
+      .open();
+    setShowApprovalModal(false);
+  };
+
+  const handleDeletionConfirm = () => {
+    f7.toast
+      .create({
+        text: 'Deleted Successfully!',
         closeTimeout: 2000,
         position: 'center',
         cssClass: 'custom-toast',
@@ -339,10 +371,13 @@ const TourPlanner = ({ f7router }) => {
   };
 
   const renderCreateView = () => (
-    <Block className="create-tour-form animate-fade-in" style={{ maxWidth: '800px', margin: '0 auto' }}>
+    <Block
+      className="create-tour-form animate-fade-in"
+      style={{ maxWidth: '1200px', margin: '20 auto', background: '#ffffff' }}
+    >
       <Card className="tour-card">
         <CardContent>
-          <div className="form-title">Create New Tour Plan</div>
+          {/* <div className="form-title">Create New Tour Plan</div> */}
           <List noHairlinesMd inset>
             <ListInput
               label="Select Day"
@@ -433,23 +468,153 @@ const TourPlanner = ({ f7router }) => {
               ))}
             </ListInput>
 
-            <ListInput
-              label="Select Doctors"
-              type="select"
-              placeholder="Select a doctor"
-              dropdownPlaceholderText="Select a doctor"
-              className="custom-input custom-select"
-              popupParams={{
-                backdrop: true,
-                closeOnSelect: true,
+            <div
+              style={{
+                position: 'relative',
+                marginBottom: '20px',
+                backgroundColor: '#f8f9fa',
+                padding: '15px',
+                borderRadius: '8px',
               }}
             >
-              {mockDoctors.map((doctor) => (
-                <option key={doctor.id} value={doctor.id}>
-                  {doctor.name}
-                </option>
-              ))}
-            </ListInput>
+              <div
+                style={{
+                  fontSize: '14px',
+                  color: '#666',
+                  marginBottom: '10px',
+                  fontWeight: '500',
+                }}
+              >
+                Select Doctors
+              </div>
+
+              {/* Selected doctors tags */}
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '8px',
+                  marginBottom: '10px',
+                }}
+              >
+                {selectedDoctors.map((doctor) => (
+                  <div
+                    key={doctor.id}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      backgroundColor: '#e8f0fe',
+                      borderRadius: '4px',
+                      padding: '6px 10px',
+                      fontSize: '13px',
+                      border: '1px solid #d0e1fd',
+                      minWidth: '150px',
+                      justifyContent: 'space-between',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        color: '#1967d2',
+                      }}
+                    >
+                      {/* <span style={{ fontWeight: '500' }}>Dr.</span> */}
+                      <span>{doctor.name.split(' ')[0]}</span>
+                      <span>{doctor.name.split(' ')[1]}</span>
+                    </div>
+                    <button
+                      onClick={() => handleDoctorRemove(doctor.id)}
+                      style={{
+                        padding: '2px',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        color: '#1967d2',
+                      }}
+                    >
+                      <XIcon size={16} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Search input */}
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setShowDoctorsDropdown(true)}
+                placeholder="Search doctors..."
+                style={{
+                  width: '100%',
+                  padding: '8px 12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '4px',
+                  fontSize: '14px',
+                  backgroundColor: 'white',
+                }}
+              />
+
+              {/* Dropdown */}
+              {showDoctorsDropdown && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    backgroundColor: 'white',
+                    border: '1px solid #ddd',
+                    borderRadius: '4px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    maxHeight: '200px',
+                    overflowY: 'auto',
+                    zIndex: 1000,
+                    marginTop: '4px',
+                  }}
+                >
+                  {filteredDoctors.length > 0 ? (
+                    filteredDoctors.map((doctor) => (
+                      <div
+                        key={doctor.id}
+                        style={{
+                          padding: '8px 12px',
+                          cursor: 'pointer',
+                          borderBottom: '1px solid #eee',
+                          transition: 'background-color 0.2s',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#f5f5f5';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = 'white';
+                        }}
+                        onClick={() => {
+                          handleDoctorSelect(doctor);
+                          setShowDoctorsDropdown(false);
+                        }}
+                      >
+                        <div style={{ fontWeight: '500' }}>{doctor.name}</div>
+                        <div style={{ fontSize: '12px', color: '#666' }}>{doctor.address}</div>
+                      </div>
+                    ))
+                  ) : (
+                    <div
+                      style={{
+                        padding: '8px 12px',
+                        color: '#666',
+                        textAlign: 'center',
+                      }}
+                    >
+                      No doctors found
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
 
             <ListInput label="Enter Place" type="text" placeholder="Enter location" className="custom-input" />
           </List>
@@ -529,7 +694,7 @@ const TourPlanner = ({ f7router }) => {
 
   return (
     // <F7App theme="ios">
-    <Page className={DrugMasterDashboardCss.forpharmaPage}>
+    <Page className={DrugMasterDashboardCss.forpharmaPage} style={{ backgroundColor: '#ffffff' }}>
       <Navbar className={DrugMasterDashboardCss.pageNavBar} sliding={false}>
         {view !== 'list' && view !== 'create' && (
           <NavLeft>
@@ -540,7 +705,7 @@ const TourPlanner = ({ f7router }) => {
             </Link>
           </NavLeft>
         )}
-        <NavTitle className={DrugMasterDashboardCss.pageTitle}>
+        <NavTitle className={DrugMasterDashboardCss.pageTitle} style={{ paddingTop: '30px', fontSize: '30px' }}>
           {view === 'list' && 'Tour Plans'}
           {view === 'approve' && 'Approve Plans'}
           {view === 'create' && 'Create New Tour Plan'}
@@ -612,7 +777,7 @@ const TourPlanner = ({ f7router }) => {
               <Button
                 fill
                 onClick={() => {
-                  handleApprovalConfirm();
+                  handleDeletionConfirm();
                   setShowDeleteModal(false);
                 }}
                 color="blue"

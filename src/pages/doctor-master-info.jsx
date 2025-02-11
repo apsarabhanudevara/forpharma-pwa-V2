@@ -271,14 +271,14 @@ const DoctorMasterInfo = (props) => {
                     </select>
                   </div>
 
-                  <div className={DoctorMasterInfoCss.formGroup}>
+                  {/* <div className={DoctorMasterInfoCss.formGroup}>
                     <label for="doctorName">Doctor's Name</label>
                     <select id="doctorName">
                       <option value="">Select Doctor</option>
                       <option value="Dr. Smith">Dr. Smith</option>
                       <option value="Dr. Johnson">Dr. Johnson</option>
                     </select>
-                  </div>
+                  </div> */}
 
                   <div className={DoctorMasterInfoCss.formGroup}>
                     <label for="visitDate">Select Visited Date</label>

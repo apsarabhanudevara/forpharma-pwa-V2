@@ -105,9 +105,9 @@ const RescheduleMeet = ({ f7router }) => {
               </ListInput>
             </List>
 
-            <div style={{ marginTop: '70px', textAlign: 'center' }}>
+            {/* <div style={{ marginTop: '70px', textAlign: 'center' }}>
               <p>Meetin Doctor Detals</p>
-            </div>
+            </div> */}
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               {doctors &&

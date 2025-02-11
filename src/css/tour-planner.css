@@ -384,3 +384,41 @@
   min-width: 80px;
   margin: 0;
 }
+
+.custom-input {
+  position: relative;
+}
+
+.custom-input input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Ensure dropdown is above other elements */
+.custom-input .dropdown {
+  z-index: 50;
+}
+
+/* Style for selected doctor tags */
+.doctor-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.doctor-tag button {
+  margin-left: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.doctor-tag button:hover {
+  opacity: 1;
+}

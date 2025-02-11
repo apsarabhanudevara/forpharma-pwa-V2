@@ -30,6 +30,7 @@ import PageCss from '../css/start-meeting.module.css';
 import { db } from '../models/db';
 import BioSplit from '../assets/images/biosplit.png'; // adjust the path if necessary
 import CyproNect from '../assets/images/cypronect.png'; // adjust the path if necessary
+import { Plus, Trash2 } from 'lucide-react';
 
 const openConfirmDoctorsSync = () => {
   f7.dialog.confirm("Sync Doctor's data now?", () => {
@@ -96,6 +97,46 @@ const StartMeeting = (props) => {
   const drugs = useLiveQuery(async () => await db.drugs.toArray());
   const { t } = useTranslation(['dailyplanner']);
 
+  const [formRows, setFormRows] = useState([
+    { id: '1', type: 'sample', selection: '', quantity: '', isOriginal: true },
+    { id: '2', type: 'promotion', selection: '', quantity: '', isOriginal: true },
+  ]);
+
+  const addRow = (type, afterId) => {
+    const newRow = {
+      id: Math.random().toString(36).substr(2, 9),
+      type,
+      selection: '',
+      quantity: '',
+      isOriginal: false,
+    };
+
+    const index = formRows.findIndex((row) => row.id === afterId);
+    const newRows = [...formRows];
+    newRows.splice(index + 1, 0, newRow);
+    setFormRows(newRows);
+  };
+
+  const deleteRow = (id) => {
+    setFormRows(formRows.filter((row) => row.id !== id));
+  };
+
+  const updateRow = (id, field, value) => {
+    setFormRows(formRows.map((row) => (row.id === id ? { ...row, [field]: value } : row)));
+  };
+
+  const handleSaveOrder = () => {
+    f7.toast
+      .create({
+        text: 'Order Saved successfully!',
+        closeTimeout: 2000,
+        position: 'center',
+        cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
+      })
+      .open();
+  };
+
   const handleSave = () => {
     f7.toast
       .create({
@@ -106,7 +147,10 @@ const StartMeeting = (props) => {
         icon: '<i class="icon f7-icons">checkmark_circle</i>',
       })
       .open();
-    setView('list');
+    setFormRows([
+      { id: '1', type: 'sample', selection: '', quantity: '', isOriginal: true },
+      { id: '2', type: 'promotion', selection: '', quantity: '', isOriginal: true },
+    ]);
   };
 
   useEffect(() => {
@@ -192,15 +236,6 @@ const StartMeeting = (props) => {
           </div>
 
           <div className={PageCss.formGroup}>
-            <label htmlFor="doctorName">Doctor's Name</label>
-            <select id="doctorName" className={PageCss.formControl}>
-              <option value="">Select Doctor</option>
-              <option value="Dr. Smith">Dr. Smith</option>
-              <option value="Dr. Johnson">Dr. Johnson</option>
-            </select>
-          </div>
-
-          <div className={PageCss.formGroup}>
             <label htmlFor="visitDate">Select Visited Date</label>
             <input type="date" id="visitDate" className={PageCss.formControl} />
           </div>
@@ -210,39 +245,86 @@ const StartMeeting = (props) => {
             <input type="time" id="visitTime" className={PageCss.formControl} />
           </div>
 
-          <div className={PageCss.formGroup}>
-            <label htmlFor="sample">Select Sample</label>
-            <select id="sample" className={PageCss.formControl}>
-              <option value="">Select Sample</option>
-              <option value="Sample A">Sample A</option>
-              <option value="Sample B">Sample B</option>
-            </select>
-            <input type="number" placeholder="Enter Quantity for Samples" min="0" className={PageCss.formControl} />
-          </div>
-
-          <div className={PageCss.formGroup}>
-            <label htmlFor="promotions">Select Promotional Inputs</label>
-            <select id="promotions" className={PageCss.formControl}>
-              <option value="">Select Promotions</option>
-              <option value="Promotion A">Promotion A</option>
-              <option value="Promotion B">Promotion B</option>
-            </select>
-            <input
-              type="number"
-              placeholder="Enter Quantity Promotional Inputs"
-              min="0"
-              className={PageCss.formControl}
-            />
-          </div>
+          <List>
+            {formRows.map((row) => (
+              <ListItem key={row.id}>
+                <Block>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div>
+                      <div className="text-sm font-medium text-gray-600 mb-1.5">
+                        {row.type === 'sample' ? 'Select Sample' : 'Select Promotional'}
+                      </div>
+                      <select
+                        value={row.selection}
+                        onChange={(e) => updateRow(row.id, 'selection', e.target.value)}
+                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500"
+                      >
+                        <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option>
+                        {row.type === 'sample' ? (
+                          <>
+                            <option value="Aspirin">Aspirin</option>
+                            <option value="Ibuprofen">Ibuprofen</option>
+                          </>
+                        ) : (
+                          <>
+                            <option value="Paracetamol">Paracetamol</option>
+                            <option value="Amoxicillin">Amoxicillin</option>
+                          </>
+                        )}
+                      </select>
+                    </div>
+                    <div>
+                      {row.type === 'promotion' && <br />}
+                      <div className="text-sm font-medium text-gray-600 mb-1.5">Enter Quantity</div>
+                      <input
+                        type="number"
+                        value={row.quantity !== undefined ? row.quantity : ''}
+                        onChange={(e) => {
+                          const newValue = e.target.value.replace(/^0+/, ''); // Prevents leading zeros
+                          if (newValue === '' || /^\d+$/.test(newValue)) {
+                            updateRow(row.id, 'quantity', newValue);
+                          }
+                        }}
+                        onFocus={(e) => {
+                          setTimeout(() => e.target.setSelectionRange(e.target.value.length, e.target.value.length), 0);
+                        }} // Ensures cursor stays at the end
+                        min="0"
+                        placeholder="Enter quantity"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500"
+                      />
+                    </div>
+                    <div className="flex items-center justify-end">
+                      {row.isOriginal ? (
+                        <Button
+                          fill
+                          small
+                          color="blue"
+                          onClick={() => addRow(row.type, row.id)}
+                          className="w-10 h-10 flex items-center justify-center"
+                        >
+                          <Plus className="w-5 h-5" />
+                        </Button>
+                      ) : (
+                        <Button
+                          fill
+                          small
+                          color="red"
+                          onClick={() => deleteRow(row.id)}
+                          className="w-10 h-10 flex items-center justify-center"
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </Block>
+              </ListItem>
+            ))}
+          </List>
 
           <div className={PageCss.formGroup}>
             <label htmlFor="productsDiscussed">Products Discussed</label>
             <input type="text" id="productsDiscussed" className={PageCss.formControl} />
-          </div>
-
-          <div className={PageCss.formGroup}>
-            <label htmlFor="pob">Enter POB</label>
-            <input type="number" id="pob" className={PageCss.formControl} />
           </div>
 
           <div className={PageCss.formGroup}>
@@ -355,14 +437,14 @@ const StartMeeting = (props) => {
         type: 'FORPHARMA_SYNC_OFFLINE_DATA',
       });
     }
-    if (!notificationWithButton.current) {
-      notificationWithButton.current = f7.notification.create({
-        icon: '<i class="icon icon-f7"></i>',
-        title: 'Info!',
-        subtitle: 'Order placed successfully',
-        closeButton: true,
-      });
-    }
+    // if (!notificationWithButton.current) {
+    //   notificationWithButton.current = f7.notification.create({
+    //     icon: '<i class="icon icon-f7"></i>',
+    //     title: 'Info!',
+    //     subtitle: 'Order placed successfully',
+    //     closeButton: true,
+    //   });
+    // }
     notificationWithButton.current.open();
   };
 
@@ -575,6 +657,7 @@ const StartMeeting = (props) => {
                       className="drugPopupOpener"
                       style={{ maxWidth: '300px' }}
                       iconMaterial="vaccines"
+                      
                     >
                       &nbsp; Select Drugs
                     </Button>
@@ -626,6 +709,7 @@ const StartMeeting = (props) => {
                 large
                 fill
                 iconMaterial="add_shopping_cart"
+                onClick={handleSaveOrder}
                 disabled={selectedDrugs.length == 0 || isCreateOrderBtnDisabled}
                 type="submit"
                 style={{

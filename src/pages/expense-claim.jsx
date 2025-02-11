@@ -144,8 +144,21 @@ const ExpenseClaim = ({ f7router }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    showToast('Expense claim saved successfully!');
+    // showToast('Expense claim saved successfully!');
+    handleSaveExpense();
     setShowNewClaimPopup(false);
+  };
+
+  const handleSaveExpense = () => {
+    f7.toast
+      .create({
+        text: 'Expense Claim saved successfully!',
+        closeTimeout: 2000,
+        position: 'center',
+        cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
+      })
+      .open();
   };
 
   const showToast = (message) => {
@@ -165,7 +178,7 @@ const ExpenseClaim = ({ f7router }) => {
         <NavTitle className={DrugMasterDashboardCss.pageTitle}>
           <div className="navbar-title">
             <h1>All Claims</h1>
-            <small>
+            <small style={{ color: 'white' }}>
               Last updated:{' '}
               {new Date().toLocaleString('en-US', {
                 dateStyle: 'medium',
@@ -246,7 +259,9 @@ const ExpenseClaim = ({ f7router }) => {
           <Navbar>
             <NavTitle>Create New Claims</NavTitle>
             <NavRight>
-              <Link popupClose>Close</Link>
+              <Link popupClose style={{ color: 'white' }}>
+                Close
+              </Link>
             </NavRight>
           </Navbar>
           <Block>
@@ -328,7 +343,7 @@ const ExpenseClaim = ({ f7router }) => {
                 </div>
               </List>
               <div className="form-buttons">
-                <Button fill type="submit" className="save-button">
+                <Button fill type="submit" className="save-button" onClick={handleSaveExpense}>
                   Save
                 </Button>
               </div>

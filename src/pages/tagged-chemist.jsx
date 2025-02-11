@@ -129,7 +129,7 @@ const TaggedChemist = ({ f7router }) => {
                   <Button
                     slot="after"
                     fill
-                    onClick={() => f7router.navigate(`/rcpa-list`)}
+                    onClick={() => f7router.navigate(`/rcpa-entry`)}
                     style={{ marginLeft: 'auto' }}
                   >
                     Create RCPA

@@ -28,6 +28,29 @@
       padding: 0 32px;
     }
   }
+  .specializationsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 0px;
+    padding: 0px;
+  }
+  .specializationsHeader p {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .specializationsGrid > div {
+    background: lavender;
+    color: black;
+    padding: 4px 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0.95;
+    margin-bottom: 10px;
+  }
+
   #dcr-form {
     padding: 32px;
     height: 800px;

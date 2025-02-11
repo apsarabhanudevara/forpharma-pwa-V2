@@ -57,7 +57,10 @@ const SAMPLE_MANU = [
   { uid__c: '73652925570', name__c: 'Sanofi India' },
 ];
 
+const DEFAULT_CHEMIST = 'Balaji Medical & General Store';
+
 const RcpaEntry = ({ f7router }) => {
+  const [selectedChemist, setSelectedChemist] = useState(DEFAULT_CHEMIST);
   const { t } = useTranslation(['retailChemist']);
   // const { t } = useTranslation(['captureorder']);
   const chemists = useLiveQuery(async () => await db.chemists.toArray());
@@ -75,6 +78,14 @@ const RcpaEntry = ({ f7router }) => {
   const drugsDropDownRef = useRef(null);
   const drugsDropDownCompetitorRef = useRef(null);
   const manufacturerOwnDropDownRef = useRef(null);
+
+  useEffect(() => {
+    const $ = f7.$;
+    if ($('#chemists-drop-down').length) {
+      $('#chemists-drop-down').find('.item-title').text(DEFAULT_CHEMIST);
+      $('#chemist-uid').val(DEFAULT_CHEMIST);
+    }
+  }, []);
 
   const handleSave = () => {
     props.f7.toast
@@ -380,7 +391,7 @@ const RcpaEntry = ({ f7router }) => {
     <Page className={RcpaListCss.forpharmaPage} onPageBeforeRemove={onPageBeforeRemove}>
       <Navbar className={RcpaListCss.pageNavBar} sliding={false}>
         <NavLeft>
-          <Link onClick={() => f7router.back()}>
+          <Link onClick={() => f7router.navigate('/rcpa-list')}>
             <Icon material="chevron_left" color="white" size={36} />
           </Link>
         </NavLeft>
@@ -463,7 +474,7 @@ const RcpaEntry = ({ f7router }) => {
                 borderRadius: '4px',
               }}
             >
-              <input id="chemist-uid" type="hidden" name="chemist_uid__c" />
+              <input id="chemist-uid" type="hidden" name="chemist_uid__c" value="Balaji Medical & General Store" />
             </ListItem>
             <ListItem
               id="drugs-drop-down"

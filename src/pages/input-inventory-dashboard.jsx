@@ -79,7 +79,7 @@ const InputInventoryDashboard = ({ f7router }) => {
         <Link tabLink="#fresh-tasks" tabLinkActive>
           Active Input
         </Link>
-        <Link tabLink="#completed">Previous Month - 3</Link>
+        <Link tabLink="#completed">Previous Months History</Link>
       </Toolbar>
       <Tabs animated>
         <Tab id="fresh-tasks" className="page-content" tabActive>

@@ -173,15 +173,15 @@ const RepCheckinPage = ({ f7router }) => {
           <p>
             <Icon material="access_time" size={18} /> {t('_GENERAL_TIMINGS_')}: 9:00 AM to 6:00 PM
           </p>
-          <Progressbar progress={70} id="checkin-progressbar" style={{ width: '90%' }} />
-          <div className={RepDashboardCss.checkinCountdown}>
-            <p>
+          <Progressbar progress={70} id="checkin-progressbar" style={{ width: '90%',marginBottom:'20px' }} />
+          {/* <div className={RepDashboardCss.checkinCountdown}> */}
+            {/* <p>
               <Icon material="alarm" size={18} /> {t('_CHECK_OUT_STARTS_IN_')}
             </p>{' '}
             <span className={RepDashboardCss.countdownBg}>00</span>
             <span className={RepDashboardCss.countdownBg}>45</span>
-            <span className={RepDashboardCss.countdownBg}>26</span>
-          </div>
+            <span className={RepDashboardCss.countdownBg}>26</span> */}
+          {/* </div> */}
           <Button
             onClick={() => openCheckinDialog()}
             style={{
@@ -189,6 +189,8 @@ const RepCheckinPage = ({ f7router }) => {
               color: '#fff',
               width: '100%',
               fontSize: '20px',
+              height: '50px',
+              margin:'20px'
             }}
           >
             {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}

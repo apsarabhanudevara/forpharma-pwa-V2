@@ -39,16 +39,16 @@
 }
 
 .create-expense {
-  background-color: #00bfa5;
+  background-color: #186fb2;
   color: white;
 }
 
 .create-expense:hover {
-  background-color: #00a896;
+  background-color: #186fb2;
 }
 
 .approve-claims {
-  background-color: #00bfa5;
+  background-color: #186fb2;
   color: white;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .status-button.active {
-  background-color: #00bfa5;
+  background-color: #186fb2;
   color: white;
 }
 

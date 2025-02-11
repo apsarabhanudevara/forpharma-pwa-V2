@@ -185,6 +185,7 @@ const DoctorsProfile = (props) => {
                 <div className={DoctorMasterInfoCss.infoDataGrid}>
                   <div>{doctor.bio__c}</div>
                 </div>
+
                 <div className={DoctorMasterInfoCss.infoDataGrid}>
                   <div className={DoctorMasterInfoCss.infoDataIcon}>
                     <Icon material="fmd_good" color="blue" />
@@ -193,22 +194,34 @@ const DoctorsProfile = (props) => {
                     {doctor.locality__c}, {doctor.city__c}, {doctor.state__c}, {doctor.pin_code__c}
                   </div>
                 </div>
+                <div className={DoctorMasterInfoCss.infoDataGrid}>
+                  <div className={DoctorMasterInfoCss.specializationsHeader}>
+                    {/* <div className={DoctorMasterInfoCss.infoDataIcon}>
+                    <Icon material="medical_services" color="blue" />
+                  </div> */}
+                    <div>
+                      <p style={{ fontWeight: 'bold', paddingBottom: '2px' }}>Specializations:</p>
+                    </div>
+                    <div className={DoctorMasterInfoCss.specializationsGrid}>
+                      <div>Preventive Medicine</div>
+                      <div>Planning Advice</div>
+                      <div>Weight Loss</div>
+                      <div>Bites and Stings</div>
+                      <div>Hypertension</div>
+                      <div>Pain</div>
+                      <div>Diagnosing</div>
+                      <div>Viral Fever</div>
+                      <div>Injuries</div>
+                      <div>Gastritis</div>
+                      <div>Allergies</div>
+                      <div>Genital Herpes</div>
+                      <div>Malaria</div>
+                      <div>Polyuria</div>
+                    </div>
+                  </div>
+                </div>
 
                 <Block id={DoctorsProfileCss.topButtons}>
-                  {/* <div
-                    className={DoctorMasterInfoCss.infoDataGrid}
-                    style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '15px' }}
-                  >
-                    <button
-                      id="checkInBtn"
-                      className={DoctorMasterInfoCss.checkInButton}
-                      onClick={handleSave}
-                      // ✅ Using the toast function
-                    >
-                      <i className="icon f7-icons">checkmark_circle</i> Check-in
-                    </button>
-                  </div> */}
-
                   <div className={DoctorMasterInfoCss.infoDataGrid}>
                     <Button
                       large
@@ -329,7 +342,7 @@ const DoctorsProfile = (props) => {
                 <div className={DoctorMasterInfoCss.infoDataGrid}>
                   <div style={{ marginTop: '30px' }}>
                     <p className={DoctorMasterInfoCss.headingTables}>
-                      Last 3 MR Visits <span>View All</span>
+                      Last 3 Visit History <span>View All</span>
                     </p>
                     <table className={DoctorMasterInfoCss.tableData}>
                       <thead>
