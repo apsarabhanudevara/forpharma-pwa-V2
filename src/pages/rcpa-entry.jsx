@@ -75,6 +75,20 @@ const RcpaEntry = ({ f7router }) => {
   const drugsDropDownRef = useRef(null);
   const drugsDropDownCompetitorRef = useRef(null);
   const manufacturerOwnDropDownRef = useRef(null);
+
+  const handleSave = () => {
+    props.f7.toast
+      .create({
+        text: 'Check-in Successfully!',
+        closeTimeout: 2000,
+        position: 'center',
+        cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
+      })
+      .open();
+    // setView('list');
+  };
+
   const onPageBeforeRemove = () => {
     if (chemistsDropDownRef.current) {
       chemistsDropDownRef.current.destroy();
@@ -536,7 +550,7 @@ const RcpaEntry = ({ f7router }) => {
             <ListInput name="audit_date__c" label="Observation Date & Time" type="date" outline floatingLabel />
             <ListInput name="remarks__c" label="Remarks" type="text" outline floatingLabel />
             <li style={{ margin: '16px' }}>
-              <Button type="submit" fill style={{ backgroundColor: '#2186d4' }}>
+              <Button type="submit" fill style={{ backgroundColor: '#2186d4' }} onClick={handleSave}>
                 Save
               </Button>
             </li>

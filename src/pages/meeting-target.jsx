@@ -82,7 +82,7 @@ const MeetingTarget = ({ f7router }) => {
         </ListInput>
       </List>
       <Block>
-        <div className={MeetingTargetCss.progressContainer}>
+        <div className={MeetingTargetCss.progressContainer} style={{padding:'10px'}}>
           <Progressbar className={MeetingTargetCss.customProgressbar} progress={80} id="demo-inline-progressbar" />
           <div className={MeetingTargetCss.progressLabel}>{80}%</div>
         </div>

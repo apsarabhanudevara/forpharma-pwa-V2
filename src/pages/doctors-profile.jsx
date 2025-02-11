@@ -416,7 +416,7 @@ const DoctorsProfile = (props) => {
       >
         <div className="swipe-handler"></div>
 
-        <PageContent>
+        <PageContent style={{ padding: '15px' }}>
           {/* <BlockTitle large>Share with Dr.Sridhar Peddi Reddi</BlockTitle> */}
           {/* <Block className="page-flex-provider">
             <div className="page-width-wrapper">
