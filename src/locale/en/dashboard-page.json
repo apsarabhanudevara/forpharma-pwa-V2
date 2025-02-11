@@ -9,8 +9,8 @@
   "_EXPENSE_CLAIM_": "<strong>Expense </strong>Claim<br/>",
   "_INPUT_INVENTORY_": "<strong>Input</strong> Inventory",
   "_ORDER_CAPTURE_": "<strong>Order</strong> Capture",
-  "_REP_CHECK_ATTENDANCE_": "Check-in Attendance",
-  "_REP_CHECK_OUT_ATTENDANCE_": "Check-out Attendance",
+  "_REP_CHECK_ATTENDANCE_": "Start Your Day",
+  "_REP_CHECK_OUT_ATTENDANCE_": "Sign Off for the day",
   "_RETAIL_CHEMIST_": "<strong>Retail Chemist</strong><br/>Prescription Audit",
   "_SIGN_OUT_": "Sign Out",
   "_TOUR_PLANNER_": "<strong>Tour</strong> Planner"

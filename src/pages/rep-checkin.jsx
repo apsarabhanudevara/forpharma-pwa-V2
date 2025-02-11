@@ -111,7 +111,7 @@ const RepCheckinPage = ({ f7router }) => {
             onClick: () => {
               if (!isUserCheckedin) {
                 f7.store.dispatch('checkinUser');
-                // setButtonText(t('_CHECK_OUT_'));
+                setButtonText(t('_CHECK_OUT_'));
                 setButtonColor('#F1555A');
                 return;
               }
@@ -140,9 +140,9 @@ const RepCheckinPage = ({ f7router }) => {
           {t('_DAILY_ACTIVITY_')}
         </Link> */}
         <Link href="/rep-dashboard">
-          <Icon material="av_timer" size={32} /> 
+          <Icon material="av_timer" size={32} />
           {/* {t('_DAILY_PLANNER_', { ns: 'dashboard' })} */}
-          Start Your Day
+          Daily Tasks
         </Link>
         <Link href="/attendance-record">
           <Icon material="restore" size={32} />
@@ -191,8 +191,8 @@ const RepCheckinPage = ({ f7router }) => {
               fontSize: '20px',
             }}
           >
-            {/* {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')} */}
-            {buttonText}
+            {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}
+            {/* {buttonText} */}
           </Button>
         </div>
       </PageContent>
