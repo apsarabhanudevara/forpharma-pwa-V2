@@ -243,7 +243,7 @@ const DoctorsProfile = (props) => {
                       }}
                     >
                       {/* <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" /> */}
-                      <i className="icon f7-icons">videocam_fill</i> START MEETING
+                      <i className="icon f7-icons">videocam_fill</i> Start Meeting
                     </Button>
                   </div>
                 </Block>
@@ -265,11 +265,12 @@ const DoctorsProfile = (props) => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        fontSize: '0.9rem',
                       }}
                       onClick={showNoShowDialog}
                       tooltip="Update Status"
                     >
-                      <i className="icon f7-icons" style={{ marginTop: '5px' }}>
+                      <i className="icon f7-icons" style={{ marginTop: '5px', fontSize: '20px' }}>
                         clock
                       </i>
                       Update Status
@@ -288,11 +289,14 @@ const DoctorsProfile = (props) => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        fontSize: '0.9rem',
                       }}
                       href="/transfer-doctor-meeting"
                       tooltip="Transfer Meeting"
                     >
-                      <i className="icon f7-icons">arrow_right_arrow_left</i>
+                      <i className="icon f7-icons" style={{ marginTop: '5px', fontSize: '20px' }}>
+                        arrow_right_arrow_left
+                      </i>
                       Transfer Meeting
                     </Button>
                     <Button
@@ -309,11 +313,14 @@ const DoctorsProfile = (props) => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        fontSize: '0.9rem',
                       }}
                       href="/tagged-chemist"
                       tooltip="Tagged Chemist"
                     >
-                      <i className="icon f7-icons">person_2</i>
+                      <i className="icon f7-icons" style={{ marginTop: '5px', fontSize: '20px' }}>
+                        person_2
+                      </i>
                       Tagged Chemist
                     </Button>
                   </div>
