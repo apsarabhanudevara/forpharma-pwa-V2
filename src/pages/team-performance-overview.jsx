@@ -194,7 +194,7 @@ const TeamPerformanceOverview = ({ f7router }) => {
           click: function (chart, w, e) {},
         },
       },
-      colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#800000', '#008000'],
+      colors: ['#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6'],
       plotOptions: {
         bar: {
           columnWidth: '45%',
@@ -220,7 +220,7 @@ const TeamPerformanceOverview = ({ f7router }) => {
         ],
         labels: {
           style: {
-            colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#800000', '#008000'],
+            colors: ['#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6'],
             fontSize: '12px',
           },
         },
@@ -240,7 +240,7 @@ const TeamPerformanceOverview = ({ f7router }) => {
           height: 350,
           type: 'bar',
         },
-        colors: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#800000', '#008000'],
+        colors: ['#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6', '#1a72b6'],
         plotOptions: {
           bar: {
             columnWidth: '45%',
@@ -360,19 +360,19 @@ const TeamPerformanceOverview = ({ f7router }) => {
                 width="100%" // Makes it responsive
               />
             </Block>
-            <BlockTitle className={PageCss.teamPerfInsightsHeading}>
+            {/* <BlockTitle className={PageCss.teamPerfInsightsHeading}>
               <span>Key Insights</span>
-            </BlockTitle>
+            </BlockTitle> */}
             <Block style={{ padding: 0, margin: 0 }}>
               {/* <p style={{ color: 'white', textAlign: 'center' }}>Team Performance Overview</p> */}
-              <Card raised style={{ marginTop: 0, marginBottom: 0 }}>
-                <CardHeader style={{ padding: 0, minHeight: '36px' }}>
+              <Card raised style={{ marginTop: 10, marginBottom: 0 }}>
+                <CardHeader style={{ padding: 0, minHeight: '43px' }}>
                   <Toolbar tabbar className={PageCss.cardHeaderToolBar}>
                     <Link tabLink="#tab-1" tabLinkActive>
                       My Statistics
                     </Link>
-                    <Link tabLink="#tab-2">Monthly Stars</Link>
-                    <Link tabLink="#tab-3">Quarterly Stars</Link>
+                    {/* <Link tabLink="#tab-2">Monthly Stars</Link>
+                    <Link tabLink="#tab-3">Quarterly Stars</Link> */}
                   </Toolbar>
                 </CardHeader>
                 <CardContent padding={false}>
@@ -527,23 +527,39 @@ const TeamPerformanceOverview = ({ f7router }) => {
                       </Block>
                     </Tab>
                     <Tab id="tab-5">
-                      <Block style={{ paddingTop: '16px', paddingBottom: '16px' }}>
-                        <p>Tab 2 content</p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam enim quia molestiae facilis
-                          laudantium voluptates obcaecati officia cum, sit libero commodi. Ratione illo suscipit
-                          temporibus sequi iure ad laboriosam accusamus?
-                        </p>
+                    <Block style={{ paddingTop: '16px', paddingBottom: '16px' }}>
+                        <section className={PageCss.topPerformerRow}>
+                          <strong>Top Division Reps</strong>
+                          <strong>{t('_TEAMS_')}</strong>
+                          <strong>{t('_GRADES_')}</strong>
+                        </section>
+                        {topPerformersData?.map((topPerformer, index) => {
+                          return (
+                            <section className={PageCss.topPerformerRow} key={index}>
+                              <span>{topPerformer.name}</span>
+                              <span>{topPerformer.teams}</span>
+                              <span>{topPerformer.grades}</span>
+                            </section>
+                          );
+                        })}
                       </Block>
                     </Tab>
                     <Tab id="tab-6">
-                      <Block style={{ paddingTop: '16px', paddingBottom: '16px' }}>
-                        <p>Tab 3 content</p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam enim quia molestiae facilis
-                          laudantium voluptates obcaecati officia cum, sit libero commodi. Ratione illo suscipit
-                          temporibus sequi iure ad laboriosam accusamus?
-                        </p>
+                    <Block style={{ paddingTop: '16px', paddingBottom: '16px' }}>
+                        <section className={PageCss.topPerformerRow}>
+                          <strong>Top Region Reps</strong>
+                          <strong>{t('_TEAMS_')}</strong>
+                          <strong>{t('_GRADES_')}</strong>
+                        </section>
+                        {topPerformersData?.map((topPerformer, index) => {
+                          return (
+                            <section className={PageCss.topPerformerRow} key={index}>
+                              <span>{topPerformer.name}</span>
+                              <span>{topPerformer.teams}</span>
+                              <span>{topPerformer.grades}</span>
+                            </section>
+                          );
+                        })}
                       </Block>
                     </Tab>
                   </Tabs>

@@ -213,10 +213,10 @@ const RcpaPharma = ({ f7router }) => {
       </Navbar>
       <Toolbar bottom className={RcpaListCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="/retailchemist-dashboard">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/rcpa-list">

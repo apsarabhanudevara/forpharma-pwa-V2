@@ -226,23 +226,23 @@ const DrugMasterDashboard = ({ f7router }) => {
 
       <Toolbar bottom className={EmployeeDashboardCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/employee-directory">
-          <Icon material="groups_outlined" size={22} />
+          <Icon material="groups_outlined" size={32} />
           {t('_EMPLOYEE_DIRECTORY_')}
         </Link>
         <Link href="/employee-location">
-          <Icon material="person_pin_circle_outlined" size={22} />
+          <Icon material="person_pin_circle_outlined" size={32} />
           {t('_EMPLOYEE_BY_LOCATION_')}
         </Link>
         <Link href="/employee-department">
-          <Icon material="person_pin_outlined" size={22} />
+          <Icon material="person_pin_outlined" size={32} />
           {t('_EMPLOYEE_BY_DEPARTMENT_')}
         </Link>
       </Toolbar>

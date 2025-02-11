@@ -24,19 +24,19 @@ const RepDashboard = (props) => {
     <Page pageContent={false}>
       <Toolbar bottom className={RepDashboardCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/doctors">
-          <Icon icon="doctors" size={22} color="white" />
+          <Icon icon="doctors" size={32} color="white" />
           {t('_DOCTORS_')}
         </Link>
         <Link href="/chemists">
-          <Icon icon="chemists" size={22} />
+          <Icon icon="chemists" size={32} />
           {t('_CHEMISTS_')}
         </Link>
       </Toolbar>
@@ -55,9 +55,10 @@ const RepDashboard = (props) => {
         </Block>
         <Block id={RepDashboardCss.repRatings} strong>
           <div id={RepDashboardCss.repAvatar}>
-            <img src={RepAvatar} alt="Avatar" />
+            {/* <img src={RepAvatar} alt="Avatar" /> */}
+            <img src='https://static.vecteezy.com/system/resources/previews/015/413/618/non_2x/elegant-man-in-business-suit-with-badge-man-business-avatar-profile-picture-illustration-isolated-vector.jpg' alt='Avatar' />
             <p>
-              <strong>John Doee</strong> <br /> Sr. Medical Representative
+              <strong>John Doe</strong> <br /> Sr. Medical Representative
             </p>
           </div>
           <div id={RepDashboardCss.repCharts}>
@@ -66,7 +67,9 @@ const RepDashboard = (props) => {
                 {t('_MEETING_TARGET_PROGRESS_')}
               </Button>
             </div>
+            <h2>Monthly Target Progress</h2>
             <div id={RepDashboardCss.repGaugeContainer}>
+              
               <div className={RepDashboardCss.repGaugeCard}>
                 <p>
                   Doctors <br /> <strong>Consulted</strong>
@@ -113,15 +116,15 @@ const RepDashboard = (props) => {
                 />
               </div>
             </div>
-            <div id={RepDashboardCss.ratingStars}>
+            {/* <div id={RepDashboardCss.ratingStars}>
               <span className={RepDashboardCss.filled}>★</span>
               <span className={RepDashboardCss.filled}>★</span>
               <span className={RepDashboardCss.filled}>★</span>
               <span className={RepDashboardCss.filled}>★</span>
               <span>★</span>
-            </div>
+            </div> */}
             <div className={RepDashboardCss.bottomButtons}>
-              <Button large fill iconMaterial="groups" style={{ marginRight: '12px' }} href="/team-perf-overview">
+              <Button large fill iconMaterial="groups" style={{ marginRight: '12px'}} href="/team-perf-overview">
                 {t('_TEAM_SUMMARY_')}
               </Button>
               <Button large fill iconMaterial="share">

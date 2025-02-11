@@ -34,7 +34,7 @@
       }
     }
     .bottom-tool-bar:global(.toolbar) {
-      --f7-toolbar-height: 116px;
+      --f7-toolbar-height: 96px;
       --f7-bars-bg-color: #c7e1f4;
       --f7-toolbar-bg-color: var(--f7-bars-bg-color);
       :global(.toolbar-inner) {
@@ -89,21 +89,77 @@
   }
 }
 
+/* Leave Summary Styles */
+.leaveSummary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 15px;
+  background: white;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.summaryCard {
+  padding: 15px;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.summaryLabel {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.summaryValue {
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.leaveDescription {
+  margin: 15px;
+}
+
+.buttonContainer {
+  padding: 16px;
+  display: flex;
+  gap: 10px;
+  margin: 30px;
+}
+
+.submitButton {
+  background-color: #2186d4;
+  color: white;
+  flex: 1;
+}
+
+.cancelButton {
+  background-color: #950c23;
+  color: #ffffff;
+  flex: 1;
+}
+
+/* Calendar Styles */
 #demo-calendar-inline-container {
-  font-size: 18px; /* increase font size */
-  height: 500px; /* increase height */
+  font-size: 18px;
+  height: 500px;
 }
 
 #demo-calendar-inline-container .calendar-custom-toolbar {
-  height: 50px; /* increase toolbar height */
-  font-size: 20px; /* increase toolbar font size */
+  height: 50px;
+  font-size: 20px;
 }
 
 #demo-calendar-inline-container .calendar-custom-toolbar .center {
-  font-size: 24px; /* increase center text font size */
+  font-size: 24px;
 }
 
 #demo-calendar-inline-container .calendar-day {
-  height: 40px; /* increase day cell height */
-  font-size: 18px; /* increase day cell font size */
+  height: 40px;
+  font-size: 18px;
 }

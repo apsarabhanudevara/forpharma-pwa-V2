@@ -35,16 +35,16 @@ const DoctorMasterInfo = (props) => {
   const doctor = useLiveQuery(async () => await db.doctors.get({ uid__c }));
 
   const handleSave = () => {
-    f7.toast
+    props.f7.toast
       .create({
-        text: 'DCR Survey Saved successfully!',
+        text: 'Check-in Successfully!',
         closeTimeout: 2000,
         position: 'center',
         cssClass: 'custom-toast',
         icon: '<i class="icon f7-icons">checkmark_circle</i>',
       })
       .open();
-    setView('list');
+    // setView('list');
   };
 
   useEffect(() => {
@@ -99,7 +99,7 @@ const DoctorMasterInfo = (props) => {
           <Icon material="display_settings" />E Detailing
         </Link> */}
         <Link href="#" tabLinkActive>
-          <Icon icon="doctors" size={22} color="blue" />
+          <Icon icon="doctors" size={32} color="blue" />
           Doctor Info
         </Link>
         {/* <Link href="/doctor-speciality">
@@ -155,11 +155,7 @@ const DoctorMasterInfo = (props) => {
                   className={DoctorMasterInfoCss.infoDataGrid}
                   style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '15px' }}
                 >
-                  <button
-                    id="checkInBtn"
-                    className={DoctorMasterInfoCss.checkInButton}
-                    onClick={handleSave} // ✅ Using the toast function
-                  >
+                  <button id="checkInBtn" className={DoctorMasterInfoCss.checkInButton} onClick={handleSave}>
                     <i className="icon f7-icons">checkmark_circle</i> Check-in
                   </button>
                 </div>

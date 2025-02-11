@@ -43,7 +43,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Local Conveyance',
       claimSubType: 'Bike',
       amount: '₹315',
-      status: 'Pending'
+      status: 'Pending',
     },
     {
       expenseDate: '01 July 2024',
@@ -54,7 +54,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Local Conveyance',
       claimSubType: 'Bike',
       amount: '₹320',
-      status: 'Pending'
+      status: 'Pending',
     },
     {
       expenseDate: '10 June 2024',
@@ -65,7 +65,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Hotel Stay',
       claimSubType: 'Business Trip',
       amount: '₹2500',
-      status: 'Pending'
+      status: 'Pending',
     },
     // Two new pending records
     {
@@ -77,7 +77,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Travel',
       claimSubType: 'Cab',
       amount: '₹450',
-      status: 'Pending'
+      status: 'Pending',
     },
     {
       expenseDate: '07 July 2024',
@@ -88,7 +88,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Food',
       claimSubType: 'Team Lunch',
       amount: '₹1200',
-      status: 'Pending'
+      status: 'Pending',
     },
     {
       expenseDate: '15 June 2024',
@@ -99,7 +99,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Local Conveyance',
       claimSubType: 'Taxi',
       amount: '₹500',
-      status: 'Approved'
+      status: 'Approved',
     },
     {
       expenseDate: '20 May 2024',
@@ -110,7 +110,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Food',
       claimSubType: 'Client Meeting',
       amount: '₹800',
-      status: 'Approved'
+      status: 'Approved',
     },
     {
       expenseDate: '05 May 2024',
@@ -121,7 +121,7 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Flight Ticket',
       claimSubType: 'Business Trip',
       amount: '₹7000',
-      status: 'Rejected'
+      status: 'Rejected',
     },
     {
       expenseDate: '12 April 2024',
@@ -132,14 +132,14 @@ const ExpenseClaim = ({ f7router }) => {
       claimType: 'Conference',
       claimSubType: 'Registration Fee',
       amount: '₹1500',
-      status: 'Rejected'
-    }
+      status: 'Rejected',
+    },
   ]);
 
   const statusCounts = {
-    Pending: claims.filter(claim => claim.status === 'Pending').length,
-    Approved: claims.filter(claim => claim.status === 'Approved').length,
-    Rejected: claims.filter(claim => claim.status === 'Rejected').length,
+    Pending: claims.filter((claim) => claim.status === 'Pending').length,
+    Approved: claims.filter((claim) => claim.status === 'Approved').length,
+    Rejected: claims.filter((claim) => claim.status === 'Rejected').length,
   };
 
   const handleFormSubmit = (e) => {
@@ -149,12 +149,14 @@ const ExpenseClaim = ({ f7router }) => {
   };
 
   const showToast = (message) => {
-    f7.toast.create({
-      text: message,
-      closeTimeout: 2000,
-      position: 'top',
-      cssClass: 'success-toast'
-    }).open();
+    f7.toast
+      .create({
+        text: message,
+        closeTimeout: 2000,
+        position: 'top',
+        cssClass: 'success-toast',
+      })
+      .open();
   };
 
   return (
@@ -163,11 +165,15 @@ const ExpenseClaim = ({ f7router }) => {
         <NavTitle className={DrugMasterDashboardCss.pageTitle}>
           <div className="navbar-title">
             <h1>All Claims</h1>
-            <small>Last updated: {new Date().toLocaleString('en-US', { 
-              dateStyle: 'medium', 
-              timeStyle: 'short',
-              timeZone: 'Asia/Kolkata'
-            })} (Hyderabad, India)</small>
+            <small>
+              Last updated:{' '}
+              {new Date().toLocaleString('en-US', {
+                dateStyle: 'medium',
+                timeStyle: 'short',
+                timeZone: 'Asia/Kolkata',
+              })}{' '}
+              (Hyderabad, India)
+            </small>
           </div>
         </NavTitle>
       </Navbar>
@@ -226,9 +232,7 @@ const ExpenseClaim = ({ f7router }) => {
                     <td>{claim.claimSubType}</td>
                     <td>{claim.amount}</td>
                     <td>
-                      <span className={`status-badge ${claim.status.toLowerCase()}`}>
-                        {claim.status}
-                      </span>
+                      <span className={`status-badge ${claim.status.toLowerCase()}`}>{claim.status}</span>
                     </td>
                   </tr>
                 ))}
@@ -324,7 +328,9 @@ const ExpenseClaim = ({ f7router }) => {
                 </div>
               </List>
               <div className="form-buttons">
-                <Button fill type="submit" className="save-button">Save</Button>
+                <Button fill type="submit" className="save-button">
+                  Save
+                </Button>
               </div>
             </form>
           </Block>
@@ -333,10 +339,10 @@ const ExpenseClaim = ({ f7router }) => {
 
       <Toolbar bottom className={DrugMasterDashboardCss.bottomToolBar}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           Expense Claim
         </Link>
       </Toolbar>

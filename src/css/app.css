@@ -213,6 +213,7 @@ i.checkin-pin {
   background:
     url(/assets/images/forpharma-bg.svg) no-repeat center,
     linear-gradient(150.64deg, #0b2d47 0%, #175e95 100%);
+  /* linear-gradient(150.64deg,#015ea5 0%, #0090ff 100%); */
   background-size: 1920px;
 }
 

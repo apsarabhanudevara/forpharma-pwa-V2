@@ -51,15 +51,15 @@ const MeetingTarget = ({ f7router }) => {
       </Navbar>
       <Toolbar bottom className={MeetingTargetCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="doctors">
-          <Icon icon="doctors" size={22} />
+          <Icon icon="doctors" size={32} />
           {t('_DOCTORS_')}
         </Link>
         <Link href="chemists">
-          <Icon icon="chemists" size={22} color="blue" />
+          <Icon icon="chemists" size={32} color="blue" />
           {t('_CHEMISTS_')}
         </Link>
       </Toolbar>

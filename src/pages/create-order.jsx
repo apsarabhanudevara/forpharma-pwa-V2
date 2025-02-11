@@ -232,19 +232,19 @@ const CreateOrder = ({ f7router }) => {
       </Toolbar>
       <Toolbar bottom className={PageCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="/rep-dashboard">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="#">
-          <Icon icon="doctors" size={22} />
+          <Icon icon="doctors" size={32} />
           {t('_DOCTORS_')}
         </Link>
         <Link href="/chemists">
-          <Icon icon="chemists" size={22} />
+          <Icon icon="chemists" size={32} />
           {t('_CHEMISTS_')}
         </Link>
       </Toolbar>

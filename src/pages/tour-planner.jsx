@@ -134,7 +134,7 @@ const mockDeletedTours = [
 ];
 
 const mockDoctors = [
-  { id: 1, name: 'Patel Medicines', dob: '29/4/2024', phone: '9828373658', address: '3/285 Sri Aurobindo Marg' },
+  { id: 1, name: 'Dr. Krishna', dob: '29/4/2024', phone: '9828373658', address: '3/285 Sri Aurobindo Marg' },
   { id: 2, name: 'Dr. Praveen Darji', dob: '29/4/2024', phone: '9828373659', address: '27, Kautilya Aurobindo Marg' },
   { id: 3, name: 'Dr. Anjali Sharma', dob: '15/5/2024', phone: '9876543210', address: '45, MG Road' },
   { id: 4, name: 'Dr. Rajesh Kumar', dob: '22/6/2024', phone: '9898989898', address: '12, Park Street' },
@@ -172,10 +172,11 @@ const TourPlanner = ({ f7router }) => {
   const handleApprovalConfirm = () => {
     f7.toast
       .create({
-        text: 'Tour plan sent for approval!',
+        text: 'Approval Comfirmed!',
         closeTimeout: 2000,
         position: 'center',
         cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
       })
       .open();
     setShowApprovalModal(false);
@@ -187,6 +188,7 @@ const TourPlanner = ({ f7router }) => {
         closeTimeout: 2000,
         position: 'center',
         cssClass: 'custom-toast',
+        icon: '<i class="icon f7-icons">delete</i>',
       })
       .open();
     setShowDeleteModal(false);
@@ -431,6 +433,24 @@ const TourPlanner = ({ f7router }) => {
               ))}
             </ListInput>
 
+            <ListInput
+              label="Select Doctors"
+              type="select"
+              placeholder="Select a doctor"
+              dropdownPlaceholderText="Select a doctor"
+              className="custom-input custom-select"
+              popupParams={{
+                backdrop: true,
+                closeOnSelect: true,
+              }}
+            >
+              {mockDoctors.map((doctor) => (
+                <option key={doctor.id} value={doctor.id}>
+                  {doctor.name}
+                </option>
+              ))}
+            </ListInput>
+
             <ListInput label="Enter Place" type="text" placeholder="Enter location" className="custom-input" />
           </List>
 
@@ -535,24 +555,76 @@ const TourPlanner = ({ f7router }) => {
 
         <Popup
           opened={showApprovalModal}
-          onPopupClosed={() => setShowApprovalModal(false)}
-          className="small-popup"
-          tabletFullscreen={false}
+          onClose={() => setShowApprovalModal(false)}
+          className="custom-modal"
+          closeOnEscape={true}
+          backdrop={true}
+          animate={false}
         >
-          <Block>
-            <p>Send tour plan to Manager for approval?</p>
-            <div className="flex justify-end gap-4">
-              <Button fill onClick={() => setShowApprovalModal(false)} color="red">
+          <div className="custom-modal-content">
+            <p className="text-center text-lg font-medium">Send tour plan to Manager for approval?</p>
+            <div className="flex justify-center gap-4 mt-4">
+              <Button
+                fill
+                onClick={() => {
+                  setShowApprovalModal(false);
+                }}
+                color="red"
+                className="w-24"
+              >
                 No
               </Button>
-              <Button fill onClick={handleApprovalConfirm}>
+              <Button
+                fill
+                onClick={() => {
+                  handleApprovalConfirm();
+                  setShowApprovalModal(false);
+                }}
+                color="blue"
+                className="w-24"
+              >
                 Yes
               </Button>
             </div>
-          </Block>
+          </div>
+        </Popup>
+        <Popup
+          opened={showDeleteModal}
+          onClose={() => setShowApprovalModal(false)}
+          className="custom-modal"
+          closeOnEscape={true}
+          backdrop={true}
+          animate={false}
+        >
+          <div className="custom-modal-content">
+            <p className="text-center text-lg font-medium">Are you sure you want to delete tour plan?</p>
+            <div className="flex justify-center gap-4 mt-4">
+              <Button
+                fill
+                onClick={() => {
+                  setShowDeleteModal(false);
+                }}
+                color="red"
+                className="w-24"
+              >
+                No
+              </Button>
+              <Button
+                fill
+                onClick={() => {
+                  handleApprovalConfirm();
+                  setShowDeleteModal(false);
+                }}
+                color="blue"
+                className="w-24"
+              >
+                Yes
+              </Button>
+            </div>
+          </div>
         </Popup>
 
-        <Popup
+        {/* <Popup
           opened={showDeleteModal}
           onPopupClosed={() => setShowDeleteModal(false)}
           className="small-popup"
@@ -569,14 +641,14 @@ const TourPlanner = ({ f7router }) => {
               </Button>
             </div>
           </Block>
-        </Popup>
+        </Popup> */}
       </Block>
       <Toolbar bottom className={DrugMasterDashboardCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> Home
+          <Icon icon="home" size={32} /> Home
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon material="local_pharmacy_outlined" size={22} color="blue" /> New Tour Plan
+          <Icon material="local_pharmacy_outlined" size={32} color="blue" /> New Tour Plan
         </Link>
       </Toolbar>
     </Page>

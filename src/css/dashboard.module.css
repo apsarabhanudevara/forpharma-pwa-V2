@@ -131,7 +131,8 @@
 
     #dashboard-logo {
       img {
-        width: 190px;
+        padding: 0%;
+        width: 120px;
       }
     }
 

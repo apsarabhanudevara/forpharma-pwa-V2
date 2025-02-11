@@ -8,15 +8,15 @@ const DailyPlanner = (props) => {
     <Page id="daily-planner-page" pageContent={false}>
       <Toolbar id={DailyPlannerCss.dailyPlannerTabs} bottom tabbar inner={false}>
         <Link href="/forpharma">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           Dashboard
         </Link>
         <Link href="doctors" tabLink routeTabId="doctors" panelClose="#doctor-info-panel">
-          <Icon icon="doctors" size={22} />
+          <Icon icon="doctors" size={32} />
           Doctors
         </Link>
         <Link href="chemists" tabLink routeTabId="chemists" panelClose="#doctor-info-panel">
-          <Icon icon="chemists" size={22} />
+          <Icon icon="chemists" size={32} />
           Chemists
         </Link>
       </Toolbar>

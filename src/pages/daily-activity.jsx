@@ -167,23 +167,23 @@ const DailyActivity = ({ f7router }) => {
 
       <Toolbar bottom className={DailyActivityCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="/rep-checkin">
-          <Icon material="person_add_alt" size={22} />
+          <Icon material="person_add_alt" size={32} />
           {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon material="av_timer" size={22} color="blue" />
+          <Icon material="av_timer" size={32} color="blue" />
           {t('_DAILY_ACTIVITY_')}
         </Link>
         <Link href="/attendance-record">
-          <Icon material="restore" size={22} />
+          <Icon material="restore" size={32} />
           {t('_ATTENDANCE_')}
         </Link>
         <Link href="/calendar">
-          <Icon material="calendar_month" size={22} />
+          <Icon material="calendar_month" size={32} />
           {t('_CALENDAR_')}
         </Link>
       </Toolbar>

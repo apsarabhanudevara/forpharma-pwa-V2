@@ -53,23 +53,23 @@ const CoreSalesDashboard = ({ f7router }) => {
       </Navbar>
       <Toolbar bottom className={PageCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="/forpharma" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="doctors">
-          <Icon icon="doctors" size={22} color="white" />
+          <Icon icon="doctors" size={32} color="white" />
           {t('_DOCTORS_')}
         </Link>
         <Link href="chemists">
-          <Icon material="medication_outlined" size={22} />
+          <Icon material="medication_outlined" size={42} />
           Sales Rep
         </Link>
         <Link href="chemists">
-          <Icon material="trending_up_outlined" size={22} />
+          <Icon material="trending_up_outlined" size={42} />
           Sales Rollup
         </Link>
       </Toolbar>

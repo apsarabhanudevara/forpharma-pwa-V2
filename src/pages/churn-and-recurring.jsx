@@ -270,7 +270,7 @@ const ChurnAndRecurring = ({ f7router }) => {
                       type="circle"
                       value={0.5}
                       valueText="Monthly"
-                      valueFontSize={34}
+                      valueFontsize={22}
                       valueTextColor="#333333"
                       borderColor="#a7c957"
                       borderBgColor="#fec10d"
@@ -286,7 +286,7 @@ const ChurnAndRecurring = ({ f7router }) => {
                       type="circle"
                       value={0.5}
                       valueText="Quarterly"
-                      valueFontSize={34}
+                      valueFontsize={22}
                       valueTextColor="#333333"
                       borderColor="#a7c957"
                       borderBgColor="#fec10d"
@@ -302,7 +302,7 @@ const ChurnAndRecurring = ({ f7router }) => {
                       type="circle"
                       value={0.5}
                       valueText="Yealy"
-                      valueFontSize={34}
+                      valueFontsize={22}
                       valueTextColor="#333333"
                       borderColor="#a7c957"
                       borderBgColor="#fec10d"

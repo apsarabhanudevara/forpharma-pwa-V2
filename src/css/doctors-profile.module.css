@@ -93,6 +93,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 6px;
       max-width: 600px;
       width: 100%;
       a {
@@ -112,7 +113,7 @@
   }
 
   .bottom-tool-bar:global(.toolbar) {
-    --f7-toolbar-height: 116px;
+    --f7-toolbar-height: 96px;
     --f7-bars-bg-color: #c7e1f4;
     --f7-toolbar-bg-color: var(--f7-bars-bg-color);
     :global(.toolbar-inner) {

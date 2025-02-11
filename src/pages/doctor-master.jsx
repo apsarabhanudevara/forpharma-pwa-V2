@@ -146,23 +146,23 @@ const DoctorMaster = (props) => {
 
       <Toolbar bottom className={DoctorSpecialityCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="/doctor-master-dashboard">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="#" tabLinkActive panelClose="#doctor-info-panel">
-          <Icon icon="doctors" size={22} color="blue" />
+          <Icon icon="doctors" size={32} color="blue" />
           {t('_DOCTOR_MASTER_')}
         </Link>
         <Link href="/doctor-speciality">
-          <Icon f7="heart" size={22} />
+          <Icon f7="heart" size={32} />
           {t('_DOCTOR_BY_SPECIALITY_')}
         </Link>
         <Link href="/doctor-location">
-          <Icon material="person_pin_circle_outline" size={22} />
+          <Icon material="person_pin_circle_outline" size={32} />
           {t('_DOCTORS_BY_LOCATION_')}
         </Link>
       </Toolbar>

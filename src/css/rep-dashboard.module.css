@@ -1,6 +1,6 @@
 :global(.md) {
   #daily-planner-page-content {
-    --f7-page-toolbar-bottom-offset: 116px;
+    --f7-page-toolbar-bottom-offset: 56px;
   }
 
   #daily-planner-page-content:global(.page-content) {
@@ -101,7 +101,7 @@
   }
 
   .bottom-tool-bar:global(.toolbar) {
-    --f7-toolbar-height: 116px;
+    --f7-toolbar-height: 96px;
     --f7-bars-bg-color: #c7e1f4;
     --f7-toolbar-bg-color: var(--f7-bars-bg-color);
     :global(.toolbar-inner) {
@@ -126,7 +126,7 @@
   .target-progress {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 85%;
     max-width: 600px;
     a {
       display: flex;
@@ -143,6 +143,7 @@
   }
   .bottom-buttons {
     margin-top: 24px;
+    margin-bottom: 30px;
   }
   .target-progress {
     margin-top: 24px;

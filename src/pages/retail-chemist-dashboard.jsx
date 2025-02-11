@@ -195,24 +195,24 @@ const RetailChemistDashboard = ({ f7router }) => {
       </Navbar>
       <Toolbar bottom className={RetailChemistDashboardCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/rcpa-list">
-          <Icon material="description_outlined" size={24} /> {t('_RCPA_')}
+          <Icon material="description_outlined" size={32} /> {t('_RCPA_')}
         </Link>
         <Link href="/rcpa-pharma">
-          <Icon material="medication_outlined" size={24} /> {t('_PHARMA_')}
+          <Icon material="medication_outlined" size={32} /> {t('_PHARMA_')}
         </Link>
         <Link href="/rcpa-doctor">
-          <Icon icon="doctors" size={24} />
+          <Icon icon="doctors" size={32} />
           {t('_DOCTORS_')}
         </Link>
         <Link href="/rcpa-chemist">
-          <Icon icon="chemists" size={24} />
+          <Icon icon="chemists" size={32} />
           {t('_CHEMIST_')}
         </Link>
       </Toolbar>

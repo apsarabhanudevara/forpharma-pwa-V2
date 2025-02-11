@@ -269,10 +269,10 @@ const InputInventoryDashboard = ({ f7router }) => {
 
       <Toolbar bottom className={CompareDrugsCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon material="local_pharmacy_outlined" size={22} color="blue" /> Input Inventory
+          <Icon material="local_pharmacy_outlined" size={32} color="blue" /> Input Inventory
         </Link>
       </Toolbar>
     </Page>

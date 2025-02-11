@@ -17,6 +17,8 @@ import {
   Page,
   Toggle,
 } from 'framework7-react';
+import { useStore } from 'framework7-react';
+
 import { db } from '../models/db';
 import ForPharmaLogo from '../assets/images/forpharma.svg';
 import DashboardCss from '../css/dashboard.module.css';
@@ -25,6 +27,7 @@ const Dashboard = ({ f7router }) => {
   const { t } = useTranslation('dashboard');
   const chemists = useLiveQuery(async () => await db.doctors.toArray());
   const [year, setYear] = useState(new Date().getFullYear());
+  const isUserCheckedin = useStore('getUserCheckedinState');
   return (
     <Page id={DashboardCss.dashboardScreen} onPageInit={() => (f7.dirtyInstance = true)}>
       <Block id={DashboardCss.logOut}>
@@ -39,7 +42,8 @@ const Dashboard = ({ f7router }) => {
         </div>
       </Block>
       <Block id={DashboardCss.dashboardLogo}>
-        <img src={ForPharmaLogo} alt="ForPharma Logo" />
+        {/* <img src={ForPharmaLogo} alt="ForPharma Logo" /> */}
+        <img src="../assets/images/download-removebg-preview.png" alt="ForPharma Logo" />
         {/* <Button
           id={DashboardCss.signoutBtn}
           iconMaterial="logout"
@@ -53,14 +57,33 @@ const Dashboard = ({ f7router }) => {
           {t('_SIGN_OUT_', { ns: 'dashboard' })}
         </Button> */}
       </Block>
+      
       <Block id={DashboardCss.dashboardGrid}>
-        <div className="grid grid-cols-1">
+        {/* <div className="grid grid-cols-1">
           <Button href="/rep-checkin" id={DashboardCss.repBtn} fill large icon="rep-icon">
             {t('_REP_CHECK_ATTENDANCE_', { ns: 'dashboard' })}
           </Button>
+        </div> */}
+        <div className="grid grid-cols-1">
+          <Button
+            href="/rep-checkin"
+            id={DashboardCss.repBtn}
+            fill
+            large
+            icon="rep-icon"
+            style={{ background: isUserCheckedin ? '#a20000' : '#2186d4' }}
+          >
+            <span>
+              {isUserCheckedin
+                ? // ? t('_REP_CHECK_OUT_ATTENDANCE_', { ns: 'dashboard' })
+                  // : t('_REP_CHECK_ATTENDANCE_', { ns: 'dashboard' })
+                  t('_REP_CHECK_OUT_ATTENDANCE_')
+                : t('_REP_CHECK_ATTENDANCE_')}
+            </span>
+          </Button>
         </div>
         {/* Row One */}
-        <div className="grid grid-cols-2 grid-gap">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <List strong inset>
             <ListButton href="/doctor-master-dashboard">
               <Icon icon="doctor-master" />
@@ -161,6 +184,9 @@ const Dashboard = ({ f7router }) => {
             </ListButton>
           </List>
         </div>
+
+
+
         <div className="grid grid-cols-1">
           <List id={DashboardCss.dailyPlanner}>
             <ListItem>

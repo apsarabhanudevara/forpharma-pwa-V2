@@ -394,19 +394,19 @@ const StartMeetingChemist = (props) => {
       </Toolbar>
       <Toolbar bottom className={StartChemistMeetingCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="/rep-dashboard">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/doctors">
-          <Icon icon="doctors" size={22} color="blue" />
+          <Icon icon="doctors" size={32} color="blue" />
           {t('_DOCTORS_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon icon="chemists" size={22} />
+          <Icon icon="chemists" size={32} />
           {t('_CHEMISTS_')}
         </Link>
       </Toolbar>

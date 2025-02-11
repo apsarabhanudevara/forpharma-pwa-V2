@@ -57,45 +57,45 @@ const AttendanceRecord = ({ f7router }) => {
 
   const attendanceData = [
     {
-      date: 'Friday, July 30, 2024',
+      date: 'Wednesday, February 5, 2025',
       checkinTime: '9:00 AM',
       checkoutTime: '10:40 AM',
       location: 'Nanakramguda, Hyderabad, Telengana 500032',
     },
     {
-      date: 'Friday, July 30, 2024',
+      date: 'Tuesday, February 4, 2025',
       checkinTime: '9:00 AM',
       checkoutTime: '9:40 AM',
       location: 'Nanakramguda, Hyderabad, Telengana 500032',
     },
     {
-      date: 'Friday, July 30, 2024',
+      date: 'Monday, February 3, 2025',
       checkinTime: '9:00 AM',
       checkoutTime: '9:40 AM',
       location: 'Nanakramguda, Hyderabad, Telengana 500032',
     },
     {
-      date: 'Friday, July 30, 2024',
+      date: 'Friday, January 31, 2025',
       checkinTime: '9:00 AM',
       checkoutTime: '9:40 AM',
       location: 'Nanakramguda, Hyderabad, Telengana 500032',
     },
-    { date: 'Friday, July 29, 2024', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
+    { date: 'Thursday, January 30, 2025', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
     {
-      date: 'Friday, July 28, 2024',
+      date: 'Wednesday, January 29, 2025',
       checkinTime: '9:00 AM',
       checkoutTime: '1:00 PM',
       location: 'Nanakramguda, Hyderabad, Telengana 500032',
     },
-    { date: 'Friday, July 29, 2024', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
+    { date: 'Tuesday, January 28, 2025', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
     {
-      date: 'Friday, July 22, 2024',
+      date: 'Monday, January 27, 2025',
       checkinTime: '9:00 AM',
       checkoutTime: '2:30 PM',
       location: 'Nanakramguda, Hyderabad, Telengana 500032',
     },
-    { date: 'Friday, July 29, 2024', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
-    { date: 'Friday, July 29, 2024', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
+    { date: 'Friday, January 24, 2025', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
+    { date: 'Thursday, January 23, 2025', checkinTime: '00:00 AM', checkoutTime: '00:00 PM', location: '' },
   ];
 
   return (
@@ -119,24 +119,30 @@ const AttendanceRecord = ({ f7router }) => {
 
       <Toolbar bottom className={AttendanceCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="/rep-checkin">
-          <Icon material="person_add_alt" size={22} />
+          <Icon material="person_add_alt" size={32} />
           {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}
         </Link>
-        <Link href="/daily-activity">
-          <Icon material="av_timer" size={22} />
+        {/* <Link href="/daily-activity">
+          <Icon material="av_timer" size={32} />
           {t('_DAILY_ACTIVITY_')}
+        </Link> */}
+        <Link href="/rep-dashboard">
+          <Icon material="av_timer" size={32} /> 
+          {/* {t('_DAILY_PLANNER_', { ns: 'dashboard' })} */}
+          Start Your Day
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon material="restore" size={22} color="blue" />
+          <Icon material="restore" size={32} color="blue" />
           {t('_ATTENDANCE_')}
         </Link>
         <Link href="/calendar">
-          <Icon material="calendar_month" size={22} />
-          {t('_CALENDAR_')}
+          <Icon material="calendar_month" size={32} />
+          {/* {t('_CALENDAR_')} */}
+          Leaves
         </Link>
       </Toolbar>
 

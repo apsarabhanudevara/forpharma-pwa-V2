@@ -30,7 +30,7 @@ const LINKS = [
   { href: '/forpharma', icon: 'home', label: (t) => t('_HOME_') },
   { tabLink: '#dashboard', icon: 'dashboard', label: (t) => t('_DASHBOARD_'), defaultActive: true },
   { tabLink: '#doctor', icon: 'doctors', label: (t) => t('_DOCTOR_') },
-  { tabLink: '#sales-rep', material: 'medical_services', label: (t) => t('_SALES_REP_') },
+  { tabLink: '#sales-rep', material: 'medical_srvices', label: (t) => t('_SALES_REP_') },
   { tabLink: '#sales-rollup', icon: 'core-sale-black', label: (t) => t('_SALES_ROLLUP_') },
 ];
 const chartsData = [
@@ -220,9 +220,9 @@ const MainPagesNavigationComponent = ({ activeTab, onTabChange }) => {
           href={link.href}
         >
           {link.hasOwnProperty('material') ? (
-            <Icon material={link.material} size={22} />
+            <Icon material={link.material} size={32} />
           ) : (
-            <Icon icon={link.icon} size={22} />
+            <Icon icon={link.icon} size={32} />
           )}
           {link.label(t)}
         </Link>

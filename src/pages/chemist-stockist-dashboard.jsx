@@ -134,14 +134,14 @@ const ChemistStockistDashboard = ({ f7router }) => {
       </Navbar>
       <Toolbar bottom className={chemistStockistCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="/chemist-stockist" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/chemist-stockist-list">
-          <Icon material="local_pharmacy_outlined" size={24} />
+          <Icon material="local_pharmacy_outlined" size={32} />
           {t('_CHEMIST_STOCKIST_')}
         </Link>
       </Toolbar>

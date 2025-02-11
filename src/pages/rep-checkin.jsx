@@ -25,6 +25,9 @@ import { Loader } from '@googlemaps/js-api-loader';
 const RepCheckinPage = ({ f7router }) => {
   const isUserCheckedin = useStore('getUserCheckedinState');
   const { t } = useTranslation(['repchekin']);
+  const [buttonText, setButtonText] = useState(t('_CHECK_IN_'));
+  const [buttonColor, setButtonColor] = useState('#00b295');
+
   //Load Google map on page load
   useEffect(() => {
     const loader = new Loader({
@@ -108,6 +111,8 @@ const RepCheckinPage = ({ f7router }) => {
             onClick: () => {
               if (!isUserCheckedin) {
                 f7.store.dispatch('checkinUser');
+                // setButtonText(t('_CHECK_OUT_'));
+                setButtonColor('#F1555A');
                 return;
               }
               f7.store.dispatch('checkOutUser');
@@ -123,23 +128,28 @@ const RepCheckinPage = ({ f7router }) => {
     <Page pageContent={false}>
       <Toolbar bottom className={RepDashboardCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon material="person_add_alt" size={22} color="blue" />
+          <Icon material="person_add_alt" size={37} color="blue" />
           {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}
         </Link>
-        <Link href="/daily-activity">
+        {/* <Link href="/daily-activity">
           <Icon material="av_timer" size={22} />
           {t('_DAILY_ACTIVITY_')}
+        </Link> */}
+        <Link href="/rep-dashboard">
+          <Icon material="av_timer" size={32} /> 
+          {/* {t('_DAILY_PLANNER_', { ns: 'dashboard' })} */}
+          Start Your Day
         </Link>
         <Link href="/attendance-record">
-          <Icon material="restore" size={22} />
+          <Icon material="restore" size={32} />
           {t('_ATTENDANCE_')}
         </Link>
         <Link href="/calendar">
-          <Icon material="calendar_month" size={22} />
+          <Icon material="calendar_month" size={32} />
           {t('_CALENDAR_')}
         </Link>
       </Toolbar>
@@ -181,7 +191,8 @@ const RepCheckinPage = ({ f7router }) => {
               fontSize: '20px',
             }}
           >
-            {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}
+            {/* {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')} */}
+            {buttonText}
           </Button>
         </div>
       </PageContent>

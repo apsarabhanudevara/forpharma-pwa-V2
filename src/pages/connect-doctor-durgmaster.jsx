@@ -240,17 +240,17 @@ const ConnectDoctorDrugmaster = ({ f7router }) => {
 
       <Toolbar bottom className={DoctorSpecialityCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon icon="dashboard" size={22} color="blue" />
+          <Icon icon="dashboard" size={32} color="blue" />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/drug-master">
-          <Icon material="local_pharmacy_outlined" size={22} /> {t('_DRUG_MASTER_')}
+          <Icon material="local_pharmacy_outlined" size={32} /> {t('_DRUG_MASTER_')}
         </Link>
         <Link href="/compare-drugs">
-          <Icon material="compare_arrows_outlined" size={22} /> {t('_COMPARE_DRUGS_')}
+          <Icon material="compare_arrows_outlined" size={32} /> {t('_COMPARE_DRUGS_')}
         </Link>
         <Link href="/drug-category">
           <Icon material="category_outlined" size={24} />

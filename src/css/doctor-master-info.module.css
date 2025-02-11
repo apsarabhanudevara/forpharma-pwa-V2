@@ -217,6 +217,7 @@
   .info-data-grid {
     display: flex;
     margin-bottom: 12px;
+    gap: 12px;
     .info-data-icon {
       display: flex;
       width: 48px;
@@ -226,7 +227,7 @@
   }
 
   .bottom-tool-bar:global(.toolbar) {
-    --f7-toolbar-height: 116px;
+    --f7-toolbar-height: 96px;
     --f7-bars-bg-color: #c7e1f4;
     --f7-toolbar-bg-color: var(--f7-bars-bg-color);
     :global(.toolbar-inner) {

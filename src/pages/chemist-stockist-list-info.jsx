@@ -53,10 +53,10 @@ const ChemistStockistListInfo = (props) => {
       </Navbar>
       <Toolbar bottom className={DoctorsProfileCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="/chemist-stockist">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="#" tabLinkActive>

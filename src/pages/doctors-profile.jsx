@@ -144,333 +144,259 @@ const DoctorsProfile = (props) => {
       </Navbar>
       <Toolbar bottom className={DoctorsProfileCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
         <Link href="#">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
         </Link>
         <Link href="/doctors" tabLinkActive>
-          <Icon icon="doctors" size={22} color="blue" />
+          <Icon icon="doctors" size={32} color="blue" />
           {t('_DOCTORS_')}
         </Link>
         <Link href="/chemists">
-          <Icon icon="chemists" size={22} />
+          <Icon icon="chemists" size={32} />
           {t('_CHEMISTS_')}
         </Link>
       </Toolbar>
-      {/* <PageContent id={DoctorsProfileCss.doctorProfilePageContent}>
+
+      <PageContent id={DoctorMasterInfoCss.doctorProfilePageContent}>
         {doctor && (
           <>
-            <Block id={DoctorsProfileCss.docProfileHeader}>
-              <div id={DoctorsProfileCss.docAvatar}>
+            <Block id={DoctorMasterInfoCss.docProfileHeader}>
+              <div id={DoctorMasterInfoCss.docAvatar}>
                 <img src={RepAvatar} alt="Avatar" />
               </div>
               <p>
-                <strong>{doctor.title__c + doctor.full_name__c}</strong> <br /> {doctor.designation}
+                <span>{doctor.title__c + doctor.full_name__c}</span>
+                <br />
+                {doctor.designation__c},&nbsp;
+                {doctor.hospital__c}
+                <br />
+                {doctor.timing__c}
+                <br />
+                {doctor.mobile__c}
               </p>
-              <Block id={DoctorsProfileCss.topButtons}>
-                <div className={DoctorsProfileCss.topButtonsInner}>
-                  <Button small outline style={{ marginRight: '2px' }} onClick={showNoShowDialog}>
-                    Update Status
-                  </Button>
-                  <Button small outline style={{ marginRight: '2px' }} href="/transfer-doctor-meeting">
-                    Transfer Meeting
-                  </Button>
-                  <Button small outline href="/tagged-chemist">
-                    Tagged Chemist
-                  </Button>
-                </div>
-              </Block>
             </Block>
 
-            <Block id={DoctorsProfileCss.infoGridBlock}>
+            <Block id={DoctorMasterInfoCss.infoGridBlock}>
               <div className="page-width-wrapper">
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="school" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Education</strong>
-                    <br />
-                    {doctor.qualification__c}
-                  </div>
+                <div className={DoctorMasterInfoCss.infoDataGrid}>
+                  <div>{doctor.bio__c}</div>
                 </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="local_hospital" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Hospital</strong>
-                    <br />
-                    {doctor.hospital__c}
-                  </div>
-                </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="access_time_filled" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Timing</strong>
-                    <br />
-                    {doctor.timing__c}
-                  </div>
-                </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="person" color="blue" />
-                  </div>
-                  <div>
-                    <strong>About the Doctor</strong>
-                    <br />
-                    {doctor.bio__c}
-                  </div>
-                </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="phone" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Mobile</strong>
-                    <br />
-                    {doctor.mobile__c}
-                  </div>
-                </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="workspace_premium" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Registration No.</strong>
-                    <br />
-                    {doctor.regn_no__c}
-                  </div>
-                </div>
-
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="grade" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Rating</strong>
-                    <br />
-                    {doctor.rating__c}
-                  </div>
-                </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
+                <div className={DoctorMasterInfoCss.infoDataGrid}>
+                  <div className={DoctorMasterInfoCss.infoDataIcon}>
                     <Icon material="fmd_good" color="blue" />
                   </div>
                   <div>
-                    <strong>Locality</strong>
-                    <br />
-                    {doctor.locality__c}
+                    {doctor.locality__c}, {doctor.city__c}, {doctor.state__c}, {doctor.pin_code__c}
                   </div>
                 </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="location_city" color="blue" />
+
+                <Block id={DoctorsProfileCss.topButtons}>
+                  {/* <div
+                    className={DoctorMasterInfoCss.infoDataGrid}
+                    style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '15px' }}
+                  >
+                    <button
+                      id="checkInBtn"
+                      className={DoctorMasterInfoCss.checkInButton}
+                      onClick={handleSave}
+                      // ✅ Using the toast function
+                    >
+                      <i className="icon f7-icons">checkmark_circle</i> Check-in
+                    </button>
+                  </div> */}
+
+                  <div className={DoctorMasterInfoCss.infoDataGrid}>
+                    <Button
+                      large
+                      fill
+                      onClick={handleSave}
+                      style={{
+                        background: 'green',
+                        margin: '5px',
+                        padding: '10px',
+                        justifyContent: 'center',
+                        gap: '10px',
+                        display: 'flex',
+                      }}
+                    >
+                      {/* <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" /> */}
+                      <i className="icon f7-icons">checkmark_circle</i> Check-in
+                    </Button>
                   </div>
-                  <div>
-                    <strong>City</strong>
-                    <br />
-                    {doctor.city__c}
+
+                  <div className={DoctorMasterInfoCss.infoDataGrid}>
+                    <Button
+                      large
+                      fill
+                      onClick={() => f7router.navigate('/start-meeting', { props: { doctorUID: uid__c } })}
+                      style={{
+                        background: '#b21919',
+                        margin: '5px',
+                        padding: '10px',
+                        justifyContent: 'center',
+                        gap: '10px',
+                        display: 'flex',
+                      }}
+                    >
+                      {/* <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" /> */}
+                      <i className="icon f7-icons">videocam_fill</i> START MEETING
+                    </Button>
+                  </div>
+                </Block>
+
+                {/* Check-in Button (Placed Right After Doctor Info for Better UX) */}
+                <Block id={DoctorsProfileCss.topButtons}>
+                  <div className={DoctorsProfileCss.topButtonsInner}>
+                    <Button
+                      small
+                      outline
+                      style={{
+                        background: '#00639C',
+                        color: 'white',
+                        padding: '28px',
+                        marginTop: '60px',
+                        marginBottom: '30px',
+                        justifyContent: 'center',
+                        gap: '1px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                      }}
+                      onClick={showNoShowDialog}
+                      tooltip="Update Status"
+                    >
+                      <i className="icon f7-icons" style={{ marginTop: '5px' }}>
+                        clock
+                      </i>
+                      Update Status
+                    </Button>
+                    <Button
+                      small
+                      outline
+                      style={{
+                        background: '#00639C',
+                        color: 'white',
+                        padding: '28px',
+                        marginTop: '60px',
+                        marginBottom: '30px',
+                        justifyContent: 'center',
+                        gap: '4px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                      }}
+                      href="/transfer-doctor-meeting"
+                      tooltip="Transfer Meeting"
+                    >
+                      <i className="icon f7-icons">arrow_right_arrow_left</i>
+                      Transfer Meeting
+                    </Button>
+                    <Button
+                      small
+                      outline
+                      style={{
+                        background: '#00639C',
+                        color: 'white',
+                        padding: '28px',
+                        marginTop: '60px',
+                        marginBottom: '30px',
+                        justifyContent: 'center',
+                        gap: '4px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                      }}
+                      href="/tagged-chemist"
+                      tooltip="Tagged Chemist"
+                    >
+                      <i className="icon f7-icons">person_2</i>
+                      Tagged Chemist
+                    </Button>
+                  </div>
+                </Block>
+
+                <div className={DoctorMasterInfoCss.infoDataGrid}>
+                  <div style={{ marginTop: '30px' }}>
+                    <p className={DoctorMasterInfoCss.headingTables}>
+                      Last 3 MR Visits <span>View All</span>
+                    </p>
+                    <table className={DoctorMasterInfoCss.tableData}>
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>MR</th>
+                          <th>Comments</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>18 Jan 24 3:30PM</td>
+                          <td>Aryan</td>
+                          <td>Reschedule to 25th Jan</td>
+                        </tr>
+                        <tr>
+                          <td>10 Jan 24 3:30PM</td>
+                          <td>Aryan</td>
+                          <td>Reordered existing drugs</td>
+                        </tr>
+                        <tr>
+                          <td>4 Jan 24 10:30AM</td>
+                          <td>Aryan</td>
+                          <td>Explained New Drugs</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="map" color="blue" />
-                  </div>
+                <div className={DoctorMasterInfoCss.infoDataGrid}>
                   <div>
-                    <strong>State</strong>
-                    <br />
-                    {doctor.state__c}
-                  </div>
-                </div>
-                <div className={DoctorsProfileCss.infoDataGrid}>
-                  <div className={DoctorsProfileCss.infoDataIcon}>
-                    <Icon material="local_shipping" color="blue" />
-                  </div>
-                  <div>
-                    <strong>Pin Code</strong>
-                    <br />
-                    {doctor.pin_code__c}
+                    <p className={DoctorMasterInfoCss.headingTables}>
+                      Last 3 Orders Placed <span>View All</span>
+                    </p>
+                    <table className={DoctorMasterInfoCss.tableData}>
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Name</th>
+                          <th>Price MRP/RP</th>
+                          <th>Comments</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>18 Jan 24 3:30PM</td>
+                          <td>Myrion Tablets</td>
+                          <td>570/500</td>
+                          <td>Approved</td>
+                        </tr>
+                        <tr>
+                          <td>10 Jan 24 3:30PM</td>
+                          <td>Amox-300</td>
+                          <td>650/550</td>
+                          <td>Dispatched</td>
+                        </tr>
+                        <tr>
+                          <td>4 Jan 24 10:30AM</td>
+                          <td>Penta-500</td>
+                          <td>150/130</td>
+                          <td>Pending</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </Block>
-            <Block id={DoctorsProfileCss.startMeetingBtn}>
-              <div className="page-width-wrapper">
-                <Button
-                  large
-                  fill
-                  onClick={() => f7router.navigate('/start-meeting', { props: { doctorUID: uid__c } })}
-                >
-                  <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" />
-                </Button>
-              </div>
-            </Block>
+            <Block id={DoctorsProfileCss.startMeetingBtn}></Block>
           </>
         )}
-      </PageContent> */}
+      </PageContent>
 
-    <PageContent id={DoctorMasterInfoCss.doctorProfilePageContent}>
-            {doctor && (
-              <>
-                <Block id={DoctorMasterInfoCss.docProfileHeader}>
-                              <div id={DoctorMasterInfoCss.docAvatar}>
-                                <img src={RepAvatar} alt="Avatar" />
-                              </div>
-                              <p>
-                                <span>{doctor.title__c + doctor.full_name__c}</span>
-                                <br />
-                                {doctor.designation__c},&nbsp;
-                                {doctor.hospital__c}
-                                <br />
-                                {doctor.timing__c}
-                                <br />
-                                {doctor.mobile__c}
-                              </p>
-                            </Block>
-
-                            <Block id={DoctorMasterInfoCss.infoGridBlock}>
-                                          <div className="page-width-wrapper">
-                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
-                                              <div>{doctor.bio__c}</div>
-                                            </div>
-                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
-                                              <div className={DoctorMasterInfoCss.infoDataIcon}>
-                                                <Icon material="fmd_good" color="blue" />
-                                              </div>
-                                              <div>
-                                                {doctor.locality__c}, {doctor.city__c}, {doctor.state__c}, {doctor.pin_code__c}
-                                              </div>
-                                            </div>
-                            
-                                            {/* Check-in Button (Placed Right After Doctor Info for Better UX) */}
-                                            <Block id={DoctorsProfileCss.topButtons}>
-                                                    <div className={DoctorsProfileCss.topButtonsInner}>
-                                                    <Button small outline style={{ marginRight: '2px' }} onClick={showNoShowDialog} tooltip="Update Status">
-                                                      <i className="icon f7-icons">clock</i>
-                                                      {/* Update Status */}
-                                                      </Button>
-                                                      <Button small outline style={{ marginRight: '2px' }} href="/transfer-doctor-meeting" tooltip="Transfer Meeting">
-                                                      <i className="icon f7-icons">arrow_right_arrow_left</i>
-                                                      
-                                                      {/* Transfer Meeting */}
-                                                      </Button>
-                                                      <Button small outline href="/tagged-chemist" tooltip="Tagged Chemist">
-                                                      <i className="icon f7-icons">person_2</i>
-                                                      {/* Tagged Chemist */}
-                                                      </Button>
-                                                    </div>
-                                                    
-                                            <div
-                                              className={DoctorMasterInfoCss.infoDataGrid}
-                                              style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '15px' }}
-                                            >
-                                              <button
-                                                id="checkInBtn"
-                                                className={DoctorMasterInfoCss.checkInButton}
-                                                onClick={handleSave}
-                                                 // ✅ Using the toast function
-                                                            >
-                                                            <i className="icon f7-icons">checkmark_circle</i> Check-in
-                                                            </button>
-                                                            </div>
-                                                            </Block>
-                                                            
-                                                        
-                                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
-                                                            <div>
-                                                            <p className={DoctorMasterInfoCss.headingTables}>
-                                                              Last 3 MR Visits <span>View All</span>
-                                                            </p>
-                                                            <table className={DoctorMasterInfoCss.tableData}>
-                                                              <thead>
-                                                              <tr>
-                                                              <th>Date</th>
-                                                              <th>MR</th>
-                                                              <th>Comments</th>
-                                                              </tr>
-                                                              </thead>
-                                                              <tbody>
-                                                              <tr>
-                                                              <td>18 Jan 24 3:30PM</td>
-                                                              <td>Aryan</td>
-                                                              <td>Reschedule to 25th Jan</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td>10 Jan 24 3:30PM</td>
-                                                              <td>Aryan</td>
-                                                              <td>Reordered existing drugs</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td>4 Jan 24 10:30AM</td>
-                                                              <td>Aryan</td>
-                                                              <td>Explained New Drugs</td>
-                                                              </tr>
-                                                              </tbody>
-                                                            </table>
-                                                            </div>
-                                                            </div>
-                                                            <div className={DoctorMasterInfoCss.infoDataGrid}>
-                                                            <div>
-                                                            <p className={DoctorMasterInfoCss.headingTables}>
-                                                              Last 3 Orders Placed <span>View All</span>
-                                                            </p>
-                                                            <table className={DoctorMasterInfoCss.tableData}>
-                                                              <thead>
-                                                              <tr>
-                                                              <th>Date</th>
-                                                              <th>Name</th>
-                                                              <th>Price MRP/RP</th>
-                                                              <th>Comments</th>
-                                                              </tr>
-                                                              </thead>
-                                                              <tbody>
-                                                              <tr>
-                                                              <td>18 Jan 24 3:30PM</td>
-                                                              <td>Myrion Tablets</td>
-                                                              <td>570/500</td>
-                                                              <td>Approved</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td>10 Jan 24 3:30PM</td>
-                                                              <td>Amox-300</td>
-                                                              <td>650/550</td>
-                                                              <td>Dispatched</td>
-                                                              </tr>
-                                                              <tr>
-                                                              <td>4 Jan 24 10:30AM</td>
-                                                              <td>Penta-500</td>
-                                                              <td>150/130</td>
-                                                              <td>Pending</td>
-                                                              </tr>
-                                                              </tbody>
-                                                            </table>
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                          </Block>
-                                                          <Block id={DoctorsProfileCss.startMeetingBtn}>
-              <div className="page-width-wrapper">
-                <Button
-                  large
-                  fill
-                  
-                  onClick={() => f7router.navigate('/start-meeting', { props: { doctorUID: uid__c } })}
-                >
-                  <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" />
-                </Button>
-              </div>
-            </Block>
-                                                    </>
-                                                    )}
-                                                    </PageContent>
-
-                                                  {/* Replace your existing PageContent section with this */}
+      {/* Replace your existing PageContent section with this */}
 
       <div className="page-flex-provider">
         <div className="page-width-wrapper" style={{ bottom: '65px' }}>

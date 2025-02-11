@@ -26,30 +26,29 @@ const Calendar = ({ f7router }) => {
   const [reason, setReason] = useState('');
   const [contactDetails, setContactDetails] = useState('');
 
-  const leaveTypes = [
-    'Annual Leave',
-    'Sick Leave',
-    'Personal Leave',
-    'Maternity Leave',
-    'Paternity Leave',
-    'Unpaid Leave',
-  ];
+  const leaveTypes = ['Casual Leave', 'Sick Leave', 'Earned Leave', 'Unpaid Leave'];
+
+  // Mock data for leave summary - replace with actual data from your backend
+  const leaveSummary = {
+    available: 15,
+    balance: 10,
+    total: 25,
+  };
 
   const handleSubmit = () => {
-    if (!leaveType || !fromDate || !toDate || !reason || !contactDetails) {
-      f7.dialog.alert('Leave Submitted Successfully!', () => {});
-      return;
-    }
-
-    // Here you would typically make an API call to submit the leave application
-    f7.dialog.alert('Leave application submitted successfully!', () => {
-      // Reset form after successful submission
-      setLeaveType('');
-      setFromDate('');
-      setToDate('');
-      setReason('');
-      setContactDetails('');
-    });
+    f7.toast
+      .create({
+        text: 'Leave Submitted successfully!',
+        closeTimeout: 2000,
+        position: 'center',
+        cssClass: 'custom-toast custom-toast-success',
+        icon: '<i class="icon f7-icons">checkmark_circle</i>',
+        closeButton: true,
+        closeButtonColor: 'green',
+        closeButtonText: 'Close',
+        closeButtonTextColor: 'white',
+      })
+      .open();
   };
 
   return (
@@ -65,11 +64,23 @@ const Calendar = ({ f7router }) => {
         </NavTitle>
       </Navbar>
 
+      <div className={CalendarCss.leaveSummary}>
+        <div className={CalendarCss.summaryCard}>
+          <div className={CalendarCss.summaryLabel}>Available</div>
+          <div className={CalendarCss.summaryValue}>{leaveSummary.available}</div>
+        </div>
+        <div className={CalendarCss.summaryCard}>
+          <div className={CalendarCss.summaryLabel}>Balance</div>
+          <div className={CalendarCss.summaryValue}>{leaveSummary.balance}</div>
+        </div>
+        <div className={CalendarCss.summaryCard}>
+          <div className={CalendarCss.summaryLabel}>Total</div>
+          <div className={CalendarCss.summaryValue}>{leaveSummary.total}</div>
+        </div>
+      </div>
+
       <Block className={CalendarCss.leaveDescription}>
-        <p style={{ padding: '0 10px' }}>
-          Leave is earned by the employee and granted by the employer to take time off work. The employee is free to
-          avail of this leave in accordance with the company policy.
-        </p>
+        <p style={{ padding: '0 10px' }}></p>
       </Block>
 
       <List noHairlinesMd>
@@ -131,20 +142,20 @@ const Calendar = ({ f7router }) => {
 
       <Toolbar bottom className={CalendarCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="/rep-checkin">
-          <Icon material="person_add_alt" size={22} />
+          <Icon material="person_add_alt" size={32} />
           {isUserCheckedin ? t('_CHECK_OUT_') : t('_CHECK_IN_')}
         </Link>
         <Link href="/daily-activity">
-          <Icon material="av_timer" size={22} /> {t('_DAILY_ACTIVITY_')}
+          <Icon material="av_timer" size={32} /> {t('_DAILY_ACTIVITY_')}
         </Link>
         <Link href="/attendance-record">
-          <Icon material="restore" size={22} /> {t('_ATTENDANCE_')}
+          <Icon material="restore" size={32} /> {t('_ATTENDANCE_')}
         </Link>
         <Link href="#" tabLinkActive>
-          <Icon material="calendar_month" size={22} color="blue" /> {t('_CALENDAR_')}
+          <Icon material="calendar_month" size={32} color="blue" /> {t('_CALENDAR_')}
         </Link>
       </Toolbar>
     </Page>

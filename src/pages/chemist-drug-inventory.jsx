@@ -93,19 +93,19 @@ const ChemistDrugInventory = (props) => {
       {/* Bottom Toolbar */}
       <Toolbar bottom className={drugMasterCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} />
+          <Icon icon="home" size={32} />
           Home
         </Link>
         <Link href="/rep-dashboard">
-          <Icon icon="dashboard" size={22} />
+          <Icon icon="dashboard" size={32} />
           Dashboard
         </Link>
         <Link href="/doctors">
-          <Icon icon="doctors" size={22} />
+          <Icon icon="doctors" size={32} />
           Doctors
         </Link>
         <Link href="/chemists" tabLinkActive>
-          <Icon icon="chemists" size={22} color="blue" />
+          <Icon icon="chemists" size={32} color="blue" />
           Chemist
         </Link>
       </Toolbar>

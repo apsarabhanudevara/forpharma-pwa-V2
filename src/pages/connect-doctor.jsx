@@ -159,7 +159,7 @@ const ConnectDoctor = ({ f7router }) => {
       <Sheet
         opened={shareSheetOpen}
         className="demo-sheet-swipe-to-close"
-        style={{ height: 'auto' }}
+        style={{ height: 'auto',padding: '15px' }}
         swipeToClose
         push
         backdrop
@@ -240,19 +240,19 @@ const ConnectDoctor = ({ f7router }) => {
 
       <Toolbar bottom className={DoctorSpecialityCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
-          <Icon icon="home" size={22} /> {t('_HOME_')}
+          <Icon icon="home" size={32} /> {t('_HOME_')}
         </Link>
         <Link href="/doctor-master-dashboard">
-          <Icon icon="dashboard" size={22} /> {t('_DASHBOARD_')}
+          <Icon icon="dashboard" size={32} /> {t('_DASHBOARD_')}
         </Link>
         <Link href="/doctor-master" panelClose="#doctor-info-panel">
-          <Icon icon="doctors" size={22} /> {t('_DOCTOR_MASTER_')}
+          <Icon icon="doctors" size={32} /> {t('_DOCTOR_MASTER_')}
         </Link>
         <Link href="/doctor-speciality">
-          <Icon f7="heart" size={22} /> {t('_DOCTOR_BY_SPECIALITY_')}
+          <Icon f7="heart" size={32} /> {t('_DOCTOR_BY_SPECIALITY_')}
         </Link>
         <Link href="/doctor-location">
-          <Icon material="person_pin_circle_outline" size={22} /> {t('_DOCTORS_BY_LOCATION_')}
+          <Icon material="person_pin_circle_outline" size={32} /> {t('_DOCTORS_BY_LOCATION_')}
         </Link>
       </Toolbar>
     </Page>

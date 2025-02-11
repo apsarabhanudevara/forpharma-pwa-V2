@@ -414,9 +414,9 @@ const MainPagesNavigationComponent = ({ activeTab, onTabChange }) => {
           href={link.href}
         >
           {link.hasOwnProperty('material') ? (
-            <Icon material={link.material} size={22} />
+            <Icon material={link.material} size={32} />
           ) : (
-            <Icon icon={link.icon} size={22} />
+            <Icon icon={link.icon} size={32} />
           )}
           {link.label(t)}
         </Link>

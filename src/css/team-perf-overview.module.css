@@ -140,16 +140,20 @@
     }
     .segmented-rank-and-grades {
       display: flex;
-      margin: 0px 10px;
+      margin: 10px;
+      padding: 20px;
       gap: 10px;
+      padding-inline: 10px;
+
       .segmented-block {
         width: 44vw;
         border-radius: 10px;
         text-align: center;
         background: #c8e0f4;
+        padding-inline: 10px;
         .segmented-rank {
           display: flex;
-          gap: 18px;
+          gap: 10px;
           .guage-chart {
             display: flex;
             flex-direction: column;
@@ -165,14 +169,15 @@
         width: 49vw;
         background: #c8e0f4;
         border-radius: 10px;
+        padding-inline: 10px;
         .grades {
           display: flex;
           flex-direction: column;
-          gap: 2px;
+          gap: 5px;
           align-items: center;
         }
         .grade-block {
-          height: 25px;
+          height: 30px;
           display: flex;
           flex-direction: column;
           background: white;
@@ -198,6 +203,7 @@
     @media (max-width: 480px) {
       :global(.page-content) {
         --f7-page-toolbar-bottom-offset: 116px;
+        /* --f7-block-padding-horizontal: 10px; */
       }
       .page-nav-bar:global(.navbar) {
         :global(.navbar-inner) {
