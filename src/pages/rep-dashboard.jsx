@@ -56,7 +56,10 @@ const RepDashboard = (props) => {
         <Block id={RepDashboardCss.repRatings} strong>
           <div id={RepDashboardCss.repAvatar}>
             {/* <img src={RepAvatar} alt="Avatar" /> */}
-            <img src='https://static.vecteezy.com/system/resources/previews/015/413/618/non_2x/elegant-man-in-business-suit-with-badge-man-business-avatar-profile-picture-illustration-isolated-vector.jpg' alt='Avatar' />
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/015/413/618/non_2x/elegant-man-in-business-suit-with-badge-man-business-avatar-profile-picture-illustration-isolated-vector.jpg"
+              alt="Avatar"
+            />
             <p>
               <strong>John Doe</strong> <br /> Sr. Medical Representative
             </p>
@@ -69,10 +72,9 @@ const RepDashboard = (props) => {
             </div>
             <h2>Monthly Target Progress</h2>
             <div id={RepDashboardCss.repGaugeContainer}>
-              
               <div className={RepDashboardCss.repGaugeCard}>
                 <p>
-                  Doctors <br /> <strong>Consulted</strong>
+                  Doctors <br /> <strong>Visited</strong>
                 </p>
                 <Gauge
                   type="circle"
@@ -102,7 +104,7 @@ const RepDashboard = (props) => {
               </div>
               <div className={RepDashboardCss.repGaugeCard} style={{ marginRight: 0 }}>
                 <p>
-                  Proposed new <br /> <strong>Drugs</strong>
+                  Sample <br /> <strong>Distributed</strong>
                 </p>
                 <Gauge
                   type="circle"
@@ -124,7 +126,7 @@ const RepDashboard = (props) => {
               <span>★</span>
             </div> */}
             <div className={RepDashboardCss.bottomButtons}>
-              <Button large fill iconMaterial="groups" style={{ marginRight: '12px'}} href="/team-perf-overview">
+              <Button large fill iconMaterial="groups" style={{ marginRight: '12px' }} href="/team-perf-overview">
                 {t('_TEAM_SUMMARY_')}
               </Button>
               <Button large fill iconMaterial="share">

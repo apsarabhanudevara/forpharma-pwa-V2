@@ -34,6 +34,7 @@ const DoctorsProfile = (props) => {
   const [shareSheetOpen, setShareSheetOpen] = useState(false);
   const doctor = useLiveQuery(async () => await db.doctors.get({ uid__c }));
   const [hoveredButton, setHoveredButton] = useState(null);
+  const [meetingStatus, setMeetingStatus] = useState(false);
 
   const handleSave = () => {
     f7.toast
@@ -46,6 +47,79 @@ const DoctorsProfile = (props) => {
       })
       .open();
     setView('list');
+  };
+
+  const openCheckinDialog = () => {
+    var checkin_dialog = f7.dialog
+      .create({
+        content: `
+              <div style="text-align: center; margin-top: 0;">
+                <h2 style="margin: 0; padding-top: 10px;"><strong>Fantastic!</strong></h2>
+                <p style="margin: 0;">You've finished the</p>
+                <p style="margin: 0;">Doctor meeting successfully</p>
+                <hr style="margin: 15px 0;" />
+                <div>
+                  <label style="display: block; margin: 10px 0; text-align: center;">
+                    <div style="font-size: 36px;">😊</div>
+                    <input type="radio" name="options" value="option1" style="margin-top: 5px;" />
+                    <span style="margin-left: 5px;">Exceptional</span>
+                  </label>
+                  <label style="display: block; margin: 10px 0; text-align: center;">
+                    <div style="font-size: 36px;">😮</div>
+                    <input type="radio" name="options" value="option2" style="margin-top: 5px;" />
+                    <span style="margin-left: 5px;">Impressive</span>
+                  </label>
+                  <label style="display: block; margin: 10px 0; text-align: center;">
+                    <div style="font-size: 36px;">😐</div>
+                    <input type="radio" name="options" value="option3" style="margin-top: 5px;" />
+                    <span style="margin-left: 5px;">Satisfactory</span>
+                  </label>
+                  <label style="display: block; margin: 10px 0; text-align: center;">
+                    <div style="font-size: 36px;">😕</div>
+                    <input type="radio" name="options" value="option4" style="margin-top: 5px;" />
+                    <span style="margin-left: 5px;">Adequate</span>
+                  </label>
+                  <label style="display: block; margin: 10px 0; text-align: center;">
+                    <div style="font-size: 36px;">😟</div>
+                    <input type="radio" name="options" value="option5" style="margin-top: 5px;" />
+                    <span style="margin-left: 5px;">Unsatisfactory</span>
+                  </label>
+                </div>
+              </div>
+                <hr style="margin: 15px 0;" />
+            `,
+        buttons: [
+          {
+            text: 'Ok',
+            onClick: () => {
+              f7.dialog.close(); // Close the dialog when 'Ok' is clicked
+              f7router.navigate('/doctors'); // Use f7router to navigate to the /doctors route
+            },
+          },
+          {
+            text: 'Close',
+            onClick: () => {
+              f7.dialog.close(); // Close the dialog when 'Close' is clicked
+            },
+          },
+        ],
+        verticalButtons: false,
+        cssClass: 'custom-dialog-class',
+      })
+      .open();
+  };
+
+  const handleMeetingToggle = () => {
+    console.log('Meeting status: ', meetingStatus);
+    setMeetingStatus(!meetingStatus);
+    if (!meetingStatus) {
+      console.log('Meeting status: ', meetingStatus);
+      f7router.navigate('/start-meeting', { props: { doctorUID: uid__c } });
+    } else {
+      // Add any additional logic for ending the meeting if needed
+      console.log('Meeting status: ', meetingStatus);
+      openCheckinDialog();
+    }
   };
 
   const showNoShowDialog = () => {
@@ -222,41 +296,52 @@ const DoctorsProfile = (props) => {
                 </div>
 
                 <Block id={DoctorsProfileCss.topButtons}>
-                  <div className={DoctorMasterInfoCss.infoDataGrid}>
+                  <div className={DoctorsProfileCss.topButtonsInner}>
                     <Button
-                      large
+                      small
                       fill
-                      onClick={handleSave}
                       style={{
                         background: 'green',
-                        margin: '5px',
-                        padding: '10px',
+                        color: 'white',
+                        padding: '28px',
                         justifyContent: 'center',
-                        gap: '10px',
+                        gap: '8px',
                         display: 'flex',
+                        alignItems: 'center',
+                        fontSize: '0.9rem',
+                        fontWeight: 'normal',
+                        width: '100%',
+                        borderRadius: '10px',
                       }}
+                      onClick={handleSave}
                     >
-                      {/* <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" /> */}
-                      <i className="icon f7-icons">checkmark_circle</i> Check-in
+                      <i className="icon f7-icons" style={{ marginTop: '5px', fontSize: '20px' }}>
+                        checkmark_circle
+                      </i>
+                      Check-in
                     </Button>
-                  </div>
-
-                  <div className={DoctorMasterInfoCss.infoDataGrid}>
                     <Button
-                      large
+                      small
                       fill
-                      onClick={() => f7router.navigate('/start-meeting', { props: { doctorUID: uid__c } })}
                       style={{
                         background: '#b21919',
-                        margin: '5px',
-                        padding: '10px',
+                        color: 'white',
+                        padding: '28px',
                         justifyContent: 'center',
-                        gap: '10px',
+                        gap: '8px',
                         display: 'flex',
+                        alignItems: 'center',
+                        fontSize: '0.9rem',
+                        fontWeight: 'normal',
+                        width: '100%',
+                        borderRadius: '10px',
                       }}
+                      onClick={handleMeetingToggle}
                     >
-                      {/* <Icon icon="start-meeting" /> START MEETING <Icon material="chevron_right" /> */}
-                      <i className="icon f7-icons">videocam_fill</i> Start Meeting
+                      <i className="icon f7-icons" style={{ marginTop: '5px', fontSize: '20px' }}>
+                        videocam_fill
+                      </i>
+                      {meetingStatus ? 'End Meeting' : 'Start Meeting'}
                     </Button>
                   </div>
                 </Block>
@@ -279,6 +364,7 @@ const DoctorsProfile = (props) => {
                         flexDirection: 'column',
                         alignItems: 'center',
                         fontSize: '0.9rem',
+                        fontWeight: 'normal',
                       }}
                       onClick={showNoShowDialog}
                       tooltip="Update Status"
@@ -288,7 +374,7 @@ const DoctorsProfile = (props) => {
                       </i>
                       Update Status
                     </Button>
-                    <Button
+                    {/* <Button
                       small
                       outline
                       style={{
@@ -311,7 +397,7 @@ const DoctorsProfile = (props) => {
                         arrow_right_arrow_left
                       </i>
                       Transfer Meeting
-                    </Button>
+                    </Button> */}
                     <Button
                       small
                       outline
@@ -327,6 +413,7 @@ const DoctorsProfile = (props) => {
                         flexDirection: 'column',
                         alignItems: 'center',
                         fontSize: '0.9rem',
+                        fontWeight: 'normal',
                       }}
                       href="/tagged-chemist"
                       tooltip="Tagged Chemist"
@@ -416,15 +503,10 @@ const DoctorsProfile = (props) => {
         )}
       </PageContent>
 
-      {/* Replace your existing PageContent section with this */}
+      <Fab position="right-bottom" slot="fixed" onClick={() => setShareSheetOpen(true)}>
+        <Icon md="material:campaign" />
+      </Fab>
 
-      <div className="page-flex-provider">
-        <div className="page-width-wrapper" style={{ bottom: '65px' }}>
-          <Fab position="right-bottom" slot="fixed" onClick={() => setShareSheetOpen(true)}>
-            <Icon md="material:campaign" />
-          </Fab>
-        </div>
-      </div>
       <Sheet
         opened={shareSheetOpen}
         className="demo-sheet-swipe-to-close"

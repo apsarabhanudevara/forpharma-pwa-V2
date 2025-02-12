@@ -265,7 +265,7 @@ const ExpenseClaim = ({ f7router }) => {
             </NavRight>
           </Navbar>
           <Block>
-            <form onSubmit={handleFormSubmit} className="claim-form">
+            <form onSubmit={handleFormSubmit} className="claim-form" style={{backgroundColor:'white'}}>
               <h2 style={{ color: 'white' }}>Claim - 1</h2>
               <button type="button" className="add-new-claims">
                 + Add New Claims

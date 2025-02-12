@@ -59,6 +59,7 @@
         padding-left: 0 !important;
         --f7-list-item-min-height: 30px;
         width: 280px;
+        background-color: white;
       }
       :global(.item-inner) {
         flex-direction: row;

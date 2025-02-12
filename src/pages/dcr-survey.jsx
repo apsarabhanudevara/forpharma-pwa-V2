@@ -86,7 +86,7 @@ const visitedNotes = [
   },
 ];
 const _NAME_SPACE_IDENTIFIER_ = 'coresalesvisits';
-const StartMeeting = (props) => {
+const DCRSurvey = (props) => {
   const { f7router, doctorUID } = props;
   const drugsAutoCompleteRef = useRef(null);
   const notificationWithButton = useRef(null);
@@ -203,7 +203,7 @@ const StartMeeting = (props) => {
     if (notificationWithButton.current) notificationWithButton.current.destroy();
   };
 
-  const [activeTab, setActiveTab] = useState('fresh-tasks'); // Set default active tab
+  const [activeTab, setActiveTab] = useState('completed'); // Set default active tab
 
   // Step 2: Handle tab change
   const onTabChange = (tab) => {
@@ -225,7 +225,7 @@ const StartMeeting = (props) => {
     return (
       <div className="formContainer">
         <form id="dcrForm" className={PageCss.dcrForm}>
-          <h2 className={PageCss.formTitle}>DCR Survey</h2>
+          {/* <h2 className={PageCss.formTitle}>DCR Survey</h2> */}
           <div className={PageCss.formGroup}>
             <label htmlFor="tourPlan">Types of Tour Plan</label>
             <select id="tourPlan" className={PageCss.formControl}>
@@ -237,12 +237,22 @@ const StartMeeting = (props) => {
 
           <div className={PageCss.formGroup}>
             <label htmlFor="visitDate">Select Visited Date</label>
-            <input type="date" id="visitDate" className={PageCss.formControl} />
+            <input
+              type="date"
+              id="visitDate"
+              className={PageCss.formControl}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
           <div className={PageCss.formGroup}>
             <label htmlFor="visitTime">Enter Visit Time</label>
-            <input type="time" id="visitTime" className={PageCss.formControl} />
+            <input
+              type="time"
+              id="visitTime"
+              className={PageCss.formControl}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
           <List>
@@ -258,8 +268,9 @@ const StartMeeting = (props) => {
                         value={row.selection}
                         onChange={(e) => updateRow(row.id, 'selection', e.target.value)}
                         className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500"
+                        style={{ border: '1px solid #ddd', borderRadius: '6px' }}
                       >
-                        <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option>
+                        {/* <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option> */}
                         {row.type === 'sample' ? (
                           <>
                             <option value="Aspirin">Aspirin</option>
@@ -267,8 +278,8 @@ const StartMeeting = (props) => {
                           </>
                         ) : (
                           <>
-                            <option value="Paracetamol">Paracetamol</option>
-                            <option value="Amoxicillin">Amoxicillin</option>
+                            <option value="Paracetamol">Shaker</option>
+                            <option value="Amoxicillin">Pen</option>
                           </>
                         )}
                       </select>
@@ -279,6 +290,7 @@ const StartMeeting = (props) => {
                       <input
                         type="number"
                         value={row.quantity !== undefined ? row.quantity : ''}
+                        style={{ border: '1px solid #ddd', borderRadius: '6px' }}
                         onChange={(e) => {
                           const newValue = e.target.value.replace(/^0+/, ''); // Prevents leading zeros
                           if (newValue === '' || /^\d+$/.test(newValue)) {
@@ -289,7 +301,6 @@ const StartMeeting = (props) => {
                           setTimeout(() => e.target.setSelectionRange(e.target.value.length, e.target.value.length), 0);
                         }} // Ensures cursor stays at the end
                         min="0"
-                        placeholder="Enter quantity"
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500"
                       />
                     </div>
@@ -324,12 +335,22 @@ const StartMeeting = (props) => {
 
           <div className={PageCss.formGroup}>
             <label htmlFor="productsDiscussed">Products Discussed</label>
-            <input type="text" id="productsDiscussed" className={PageCss.formControl} />
+            <input
+              type="text"
+              id="productsDiscussed"
+              className={PageCss.formControl}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
           <div className={PageCss.formGroup}>
             <label htmlFor="nextVisitDate">Select Next Visit Date</label>
-            <input type="date" id="nextVisitDate" className={PageCss.formControl} />
+            <input
+              type="date"
+              id="nextVisitDate"
+              className={PageCss.formControl}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
           <div className={PageCss.formGroup}>
@@ -350,66 +371,6 @@ const StartMeeting = (props) => {
         </form>
       </div>
     );
-  };
-
-  const openCheckinDialog = () => {
-    var checkin_dialog = f7.dialog
-      .create({
-        content: `
-            <div style="text-align: center; margin-top: 0;">
-              <h2 style="margin: 0; padding-top: 10px;"><strong>Fantastic!</strong></h2>
-              <p style="margin: 0;">You've finished the</p>
-              <p style="margin: 0;">Doctor meeting successfully</p>
-              <hr style="margin: 15px 0;" />
-              <div>
-                <label style="display: block; margin: 10px 0; text-align: center;">
-                  <div style="font-size: 36px;">😊</div>
-                  <input type="radio" name="options" value="option1" style="margin-top: 5px;" />
-                  <span style="margin-left: 5px;">Exceptional</span>
-                </label>
-                <label style="display: block; margin: 10px 0; text-align: center;">
-                  <div style="font-size: 36px;">😮</div>
-                  <input type="radio" name="options" value="option2" style="margin-top: 5px;" />
-                  <span style="margin-left: 5px;">Impressive</span>
-                </label>
-                <label style="display: block; margin: 10px 0; text-align: center;">
-                  <div style="font-size: 36px;">😐</div>
-                  <input type="radio" name="options" value="option3" style="margin-top: 5px;" />
-                  <span style="margin-left: 5px;">Satisfactory</span>
-                </label>
-                <label style="display: block; margin: 10px 0; text-align: center;">
-                  <div style="font-size: 36px;">😕</div>
-                  <input type="radio" name="options" value="option4" style="margin-top: 5px;" />
-                  <span style="margin-left: 5px;">Adequate</span>
-                </label>
-                <label style="display: block; margin: 10px 0; text-align: center;">
-                  <div style="font-size: 36px;">😟</div>
-                  <input type="radio" name="options" value="option5" style="margin-top: 5px;" />
-                  <span style="margin-left: 5px;">Unsatisfactory</span>
-                </label>
-              </div>
-            </div>
-              <hr style="margin: 15px 0;" />
-          `,
-        buttons: [
-          {
-            text: 'Ok',
-            onClick: () => {
-              f7.dialog.close(); // Close the dialog when 'Ok' is clicked
-              f7router.navigate('/doctors'); // Use f7router to navigate to the /doctors route
-            },
-          },
-          {
-            text: 'Close',
-            onClick: () => {
-              f7.dialog.close(); // Close the dialog when 'Close' is clicked
-            },
-          },
-        ],
-        verticalButtons: false,
-        cssClass: 'custom-dialog-class',
-      })
-      .open();
   };
 
   const handleSubmitForm = async (e) => {
@@ -457,10 +418,8 @@ const StartMeeting = (props) => {
           </Link>
         </NavLeft>
         <NavTitle className={PageCss.pageTitle}>
-          <p>
-            <span>{t('_DAILY_PLANNER_')}</span>
-            <br />
-            {t('_MEETING_IN_PROGRESS_')}
+          <p style={{ display: 'flex', alignItems: 'center' }}>
+            <span>DCR Survey</span>
           </p>
         </NavTitle>
         <NavRight>
@@ -474,256 +433,43 @@ const StartMeeting = (props) => {
           )}
         </NavRight>
       </Navbar>
-      <Toolbar top tabbar className={PageCss.topToolBar}>
-        <Link tabLink="#fresh-tasks" tabLinkActive onClick={() => onTabChange('fresh-tasks')}>
+      {/* <Toolbar top tabbar className={PageCss.topToolBar}> */}
+      {/* <Link tabLink="#fresh-tasks" tabLinkActive onClick={() => onTabChange('fresh-tasks')}>
           eDetailing
-        </Link>
-        {/* <Link tabLink="#completed" onClick={() => onTabChange('completed')}>
+        </Link> */}
+      {/* <Link tabLink="#completed" tabLinkActive onClick={() => onTabChange('completed')}>
           DCR Survey
         </Link> */}
-        <Link tabLink="#no-show" onClick={() => onTabChange('no-show')}>
+      {/* <Link tabLink="#no-show" onClick={() => onTabChange('no-show')}>
           Place Order
-        </Link>
-      </Toolbar>
+        </Link> */}
+      {/* </Toolbar> */}
       <Toolbar bottom className={PageCss.bottomToolBar} outline={false}>
         <Link href="/forpharma">
           <Icon icon="home" size={32} />
           {t('_HOME_')}
         </Link>
-        <Link href="/rep-dashboard">
+        {/* <Link href="/rep-dashboard">
           <Icon icon="dashboard" size={32} />
           {t('_DASHBOARD_')}
+        </Link> */}
+        <Link tabLink="#completed" tabLinkActive onClick={() => onTabChange('completed')}>
+          <Icon material="touch_app" size={32} color="blue" />
+          DCR Survey
+          {/* {t('_DOCTORS_')} */}
         </Link>
-        <Link href="#" tabLinkActive>
-          <Icon icon="doctors" size={32} color="blue" />
-          {t('_DOCTORS_')}
-        </Link>
-        <Link href="/chemists">
+        {/* <Link href="/chemists">
           <Icon icon="chemists" size={32} />
           {t('_CHEMISTS_')}
-        </Link>
+        </Link> */}
       </Toolbar>
       <Tabs animated>
-        <Tab id="fresh-tasks" className="page-content" tabActive>
-          <div className={PageCss.progressContainer}>
-            <div>
-              <span>Syncing Data</span>
-            </div>
-            <div>
-              <Icon material="cached_outlined" size={21} color="blue" />
-            </div>
-            <div>
-              <Progressbar className={PageCss.customProgressbar} progress={20} id="demo-inline-progressbar" />
-            </div>
-          </div>
-
-          <Card>
-            <CardContent>
-              <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-                <iframe
-                  src="https://www.youtube.com/embed/CFB3cGG5fxs"
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="YouTube Video"
-                />
-              </div>
-              <p>ForPharma Visual Aid</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent>
-              <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-                <iframe
-                  src="https://www.youtube.com/embed/J5QsCfiakd8"
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="YouTube Video"
-                />
-              </div>
-              <p>ForPharma Visual Aid</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent>
-              <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-                <iframe
-                  src="https://www.youtube.com/embed/wt_renA2mrw"
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="YouTube Video"
-                />
-              </div>
-              <p>ForPharma Visual Aid</p>
-            </CardContent>
-            <Card>
-              <CardContent>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSJqWRgBV_WrZIORHlTN1kzTac10-4zuAxhg&s"
-                    alt="Knee Replacement Surgery"
-                    style={{ width: '100px', height: '100px', marginRight: '16px' }}
-                  />
-                  <a
-                    href="#"
-                    onClick={() =>
-                      window.open(
-                        'https://www.unfpa.org/sites/default/files/pub-pdf/en_SOWMR_Full.pdf',
-                        '_blank',
-                        'noopener,noreferrer'
-                      )
-                    }
-                  >
-                    Knee Replacement Surgery
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <img
-                    src="https://www.researchgate.net/publication/358158607/figure/fig1/AS:1127575745249281@1645846415722/The-procedure-of-hemodialysis-A-patient-is-connected-to-a-dialysis-machine-and-their.png"
-                    alt="Dialysis"
-                    style={{ width: '100px', height: '100px', marginRight: '16px' }}
-                  />
-                  <a
-                    href="#"
-                    onClick={() =>
-                      window.open(
-                        'https://www.kidney.org/sites/default/files/11-50-0214_hemodialysis.pdf',
-                        '_blank',
-                        'noopener,noreferrer'
-                      )
-                    }
-                  >
-                    Dialysis
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </Card>
-
-          {/* <Fab position="right-bottom" slot="fixed" style={{ bottom: '90px' }} href="/document">
-            <Icon material="edit_note" />
-          </Fab> */}
-        </Tab>
-
-        <Tab id="completed" className="page-content">
+        <Tab id="completed" className="page-content" tabActive>
           <VisitNotes />
-          {/* <Fab position="right-bottom" slot="fixed" style={{ bottom: '90px' }} href="/document">
-            <Icon material="edit_note" />
-          </Fab> */}
-        </Tab>
-        <Tab id="no-show" className="page-content">
-          <div
-            className={PageCss.progressContainer}
-            style={{ visibility: isProgressBarVisible ? 'visible' : 'hidden' }}
-          >
-            <span style={{ width: '140px' }}>Syncing Data</span>
-            <Icon
-              material="cached_outlined"
-              size={21}
-              color="blue"
-              style={{ marginRight: '10px', maginLeft: '10px' }}
-            />
-            <Progressbar
-              className={PageCss.customProgressbar}
-              id="demo-inline-progressbar"
-              infinite={isProgressBarVisible}
-            />
-          </div>
-          <List mediaList form formStoreData id="capture-order" onSubmit={handleSubmitForm}>
-            <ul>
-              {selectedDrugs.length == 0 ? (
-                <li>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      marginTop: '48px',
-                    }}
-                  >
-                    <Button
-                      large
-                      fill
-                      className="drugPopupOpener"
-                      style={{ maxWidth: '300px' }}
-                      iconMaterial="vaccines"
-                    >
-                      &nbsp; Select Drugs
-                    </Button>
-                  </div>
-                </li>
-              ) : (
-                selectedDrugs.map((drug, index) => {
-                  return (
-                    <ListItem
-                      key={index}
-                      mediaItem
-                      title={drug.name__c}
-                      subtitle={drug.composition__c}
-                      text={drug.manufacturer__c}
-                      style={{ backgroundColor: '#e9f3fb', borderRadius: '4px', margin: '8px 16px' }}
-                    >
-                      <img
-                        slot="media"
-                        style={{ height: '100%', width: '100%', maxHeight: '64px', maxWidth: '64px' }}
-                        src={drug.image__c}
-                      />
-                      <Button
-                        slot="after"
-                        iconMaterial="close"
-                        color="blue"
-                        style={{ width: '24px', height: '24px' }}
-                        onClick={() =>
-                          setSelectedDrugs((selectedDrugs) => selectedDrugs.filter((d) => d.uid__c !== drug.uid__c))
-                        }
-                      />
-                      <Stepper id={drug.uid__c} name={drug.uid__c} style={{ marginTop: '6px' }}></Stepper>
-                    </ListItem>
-                  );
-                })
-              )}
-            </ul>
-            <Block id={PageCss.startMeetingBtn}>
-              <Button
-                large
-                fill
-                href="/start-meeting"
-                style={{ marginRight: '12px', flex: 1 }}
-                onClick={() => openCheckinDialog()}
-                iconMaterial="motion_photos_off"
-              >
-                End Meeting
-              </Button>
-              <Button
-                large
-                fill
-                iconMaterial="add_shopping_cart"
-                onClick={handleSaveOrder}
-                disabled={selectedDrugs.length == 0 || isCreateOrderBtnDisabled}
-                type="submit"
-                style={{
-                  backgroundColor: selectedDrugs.length == 0 || isCreateOrderBtnDisabled ? '#000' : '#14ae5c',
-                  flex: 1,
-                }}
-              >
-                Create Order
-              </Button>
-            </Block>
-          </List>
         </Tab>
       </Tabs>
     </Page>
   );
 };
 
-export default StartMeeting;
+export default DCRSurvey;

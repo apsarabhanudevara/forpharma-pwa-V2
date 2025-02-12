@@ -63,6 +63,7 @@ import TourPlanner from '../pages/tour-planner.jsx';
 import Document from '../pages/document.jsx';
 import TaggedDoctors from '../pages/tagged-doctors.jsx';
 import ExpenseClaim from '../pages/expense-claim.jsx';
+import DCRSurvey from '../pages/dcr-survey.jsx';
 var isUserAuthenticated = (f7) => {
   return f7.store.state.userAuthenticated ? true : false;
 };
@@ -285,6 +286,11 @@ var routes = [
   {
     path: '/retailchemist-dashboard',
     component: RetailChemistDashboard,
+    transition: 'f7-cover-v',
+  },
+  {
+    path:'/dcr-survey',
+    component: DCRSurvey,
     transition: 'f7-cover-v',
   },
   {

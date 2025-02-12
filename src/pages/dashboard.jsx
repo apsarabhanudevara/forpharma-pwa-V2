@@ -57,7 +57,7 @@ const Dashboard = ({ f7router }) => {
           {t('_SIGN_OUT_', { ns: 'dashboard' })}
         </Button> */}
       </Block>
-      
+
       <Block id={DashboardCss.dashboardGrid}>
         {/* <div className="grid grid-cols-1">
           <Button href="/rep-checkin" id={DashboardCss.repBtn} fill large icon="rep-icon">
@@ -140,7 +140,7 @@ const Dashboard = ({ f7router }) => {
           </List>
         </div>
         {/* Row Four */}
-        <div className="grid grid-cols-2 grid-gap">
+        <div className="grid grid-cols-3 grid-gap">
           <List strong inset>
             <ListButton href="/order-capture">
               <Icon icon="order-capture" />
@@ -153,7 +153,17 @@ const Dashboard = ({ f7router }) => {
             <ListButton href="/retailchemist-dashboard">
               <Icon icon="retail-chemist" />
               <span className={DashboardCss.dashboardBtnTxt}>
-                <Trans i18nKey="_RETAIL_CHEMIST_" ns="dashboard" components={{ strong: <strong />, br: <br /> }} />
+                <strong>RCPA</strong>
+                {/* <Trans i18nKey="_RETAIL_CHEMIST_" ns="dashboard" components={{ strong: <strong />, br: <br /> }} /> */}
+              </span>
+            </ListButton>
+          </List>
+          <List strong inset>
+            <ListButton href="/dcr-survey">
+              <Icon icon="employee-master" />
+              <span className={DashboardCss.dashboardBtnTxt}>
+                <strong>DCR</strong> Survey
+                {/* <Trans i18nKey="_RETAIL_CHEMIST_" ns="dashboard" components={{ strong: <strong />, br: <br /> }} /> */}
               </span>
             </ListButton>
           </List>
@@ -184,8 +194,6 @@ const Dashboard = ({ f7router }) => {
             </ListButton>
           </List>
         </div>
-
-
 
         <div className="grid grid-cols-1">
           <List id={DashboardCss.dailyPlanner}>
