@@ -102,6 +102,21 @@ const DCRSurvey = (props) => {
     { id: '2', type: 'promotion', selection: '', quantity: '', isOriginal: true },
   ]);
 
+  const [formData, setFormData] = useState({
+    tourPlan: '',
+    visitDate: '',
+    visitTime: '',
+  });
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
   const addRow = (type, afterId) => {
     const newRow = {
       id: Math.random().toString(36).substr(2, 9),
@@ -228,7 +243,12 @@ const DCRSurvey = (props) => {
           {/* <h2 className={PageCss.formTitle}>DCR Survey</h2> */}
           <div className={PageCss.formGroup}>
             <label htmlFor="tourPlan">Types of Tour Plan</label>
-            <select id="tourPlan" className={PageCss.formControl}>
+            <select
+              id="tourPlan"
+              className={PageCss.formControl}
+              value={formData.tourPlan}
+              onChange={handleInputChange}
+            >
               <option value="">Select</option>
               <option value="Field Work">Field Work</option>
               <option value="Office Work">Office Work</option>
@@ -241,6 +261,8 @@ const DCRSurvey = (props) => {
               type="date"
               id="visitDate"
               className={PageCss.formControl}
+              value={formData.visitDate}
+              onChange={handleInputChange}
               style={{ border: '1px solid #ddd', borderRadius: '6px' }}
             />
           </div>
@@ -251,6 +273,8 @@ const DCRSurvey = (props) => {
               type="time"
               id="visitTime"
               className={PageCss.formControl}
+              value={formData.visitTime}
+              onChange={handleInputChange}
               style={{ border: '1px solid #ddd', borderRadius: '6px' }}
             />
           </div>
