@@ -478,9 +478,9 @@ const StartMeeting = (props) => {
         <Link tabLink="#fresh-tasks" tabLinkActive onClick={() => onTabChange('fresh-tasks')}>
           eDetailing
         </Link>
-        {/* <Link tabLink="#completed" onClick={() => onTabChange('completed')}>
+         <Link tabLink="#completed" onClick={() => onTabChange('completed')}>
           DCR Survey
-        </Link> */}
+        </Link> 
         <Link tabLink="#no-show" onClick={() => onTabChange('no-show')}>
           Place Order
         </Link>
