@@ -97,10 +97,24 @@ const StartMeeting = (props) => {
   const drugs = useLiveQuery(async () => await db.drugs.toArray());
   const { t } = useTranslation(['dailyplanner']);
 
+  const [formData, setFormData] = useState({
+    tourPlan: '',
+    visitDate: '',
+    visitTime: '',
+  });
+
   const [formRows, setFormRows] = useState([
     { id: '1', type: 'sample', selection: '', quantity: '', isOriginal: true },
     { id: '2', type: 'promotion', selection: '', quantity: '', isOriginal: true },
   ]);
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
 
   const addRow = (type, afterId) => {
     const newRow = {
@@ -147,10 +161,10 @@ const StartMeeting = (props) => {
         icon: '<i class="icon f7-icons">checkmark_circle</i>',
       })
       .open();
-    setFormRows([
-      { id: '1', type: 'sample', selection: '', quantity: '', isOriginal: true },
-      { id: '2', type: 'promotion', selection: '', quantity: '', isOriginal: true },
-    ]);
+    // setFormRows([
+    //   { id: '1', type: 'sample', selection: '', quantity: '', isOriginal: true },
+    //   { id: '2', type: 'promotion', selection: '', quantity: '', isOriginal: true },
+    // ]);
   };
 
   useEffect(() => {
@@ -228,7 +242,12 @@ const StartMeeting = (props) => {
           <h2 className={PageCss.formTitle}>DCR Survey</h2>
           <div className={PageCss.formGroup}>
             <label htmlFor="tourPlan">Types of Tour Plan</label>
-            <select id="tourPlan" className={PageCss.formControl}>
+            <select
+              id="tourPlan"
+              className={PageCss.formControl}
+              value={formData.tourPlan}
+              onChange={handleInputChange}
+            >
               <option value="">Select</option>
               <option value="Field Work">Field Work</option>
               <option value="Office Work">Office Work</option>
@@ -237,12 +256,26 @@ const StartMeeting = (props) => {
 
           <div className={PageCss.formGroup}>
             <label htmlFor="visitDate">Select Visited Date</label>
-            <input type="date" id="visitDate" className={PageCss.formControl} />
+            <input
+              type="date"
+              id="visitDate"
+              className={PageCss.formControl}
+              value={formData.visitDate}
+              onChange={handleInputChange}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
           <div className={PageCss.formGroup}>
             <label htmlFor="visitTime">Enter Visit Time</label>
-            <input type="time" id="visitTime" className={PageCss.formControl} />
+            <input
+              type="time"
+              id="visitTime"
+              className={PageCss.formControl}
+              value={formData.visitTime}
+              onChange={handleInputChange}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
           <List>
@@ -258,8 +291,9 @@ const StartMeeting = (props) => {
                         value={row.selection}
                         onChange={(e) => updateRow(row.id, 'selection', e.target.value)}
                         className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500"
+                        style={{ border: '1px solid #ddd', borderRadius: '6px' }}
                       >
-                        <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option>
+                        {/* <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option> */}
                         {row.type === 'sample' ? (
                           <>
                             <option value="Aspirin">Aspirin</option>
@@ -279,6 +313,7 @@ const StartMeeting = (props) => {
                       <input
                         type="number"
                         value={row.quantity !== undefined ? row.quantity : ''}
+                        style={{ border: '1px solid #ddd', borderRadius: '6px' }}
                         onChange={(e) => {
                           const newValue = e.target.value.replace(/^0+/, ''); // Prevents leading zeros
                           if (newValue === '' || /^\d+$/.test(newValue)) {
@@ -289,7 +324,6 @@ const StartMeeting = (props) => {
                           setTimeout(() => e.target.setSelectionRange(e.target.value.length, e.target.value.length), 0);
                         }} // Ensures cursor stays at the end
                         min="0"
-                        placeholder="Enter quantity"
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500"
                       />
                     </div>
@@ -478,9 +512,9 @@ const StartMeeting = (props) => {
         <Link tabLink="#fresh-tasks" tabLinkActive onClick={() => onTabChange('fresh-tasks')}>
           eDetailing
         </Link>
-         <Link tabLink="#completed" onClick={() => onTabChange('completed')}>
+        <Link tabLink="#completed" onClick={() => onTabChange('completed')}>
           DCR Survey
-        </Link> 
+        </Link>
         <Link tabLink="#no-show" onClick={() => onTabChange('no-show')}>
           Place Order
         </Link>
