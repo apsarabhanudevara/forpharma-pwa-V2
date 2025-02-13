@@ -104,6 +104,7 @@ const DCRSurvey = (props) => {
 
   const [formData, setFormData] = useState({
     tourPlan: '',
+    doctorName: '',
     visitDate: '',
     visitTime: '',
   });
@@ -226,7 +227,7 @@ const DCRSurvey = (props) => {
   };
 
   const VisitNotes = () => {
-    const { t } = useTranslation([_NAME_SPACE_IDENTIFIER_]);
+    // const { t } = useTranslation([_NAME_SPACE_IDENTIFIER_]);
     const [progress, setProgress] = useState(30);
     const [openIndexes, setOpenIndexes] = useState([]);
 
@@ -252,6 +253,20 @@ const DCRSurvey = (props) => {
               <option value="">Select</option>
               <option value="Field Work">Field Work</option>
               <option value="Office Work">Office Work</option>
+            </select>
+          </div>
+          <div className={PageCss.formGroup}>
+            <label htmlFor="tourPlan">Doctor's Name</label>
+            <select
+              id="doctorName"
+              className={PageCss.formControl}
+              value={formData.doctorName}
+              onChange={handleInputChange}
+            >
+              <option value="">Select Doctor</option>
+              <option value="Field Work">Dr. Rajesh Sharma </option>
+              <option value="Office Work">Dr. Priya Mehta </option>
+              <option value="Office Work">Dr. Anil Verma </option>
             </select>
           </div>
 
@@ -297,11 +312,13 @@ const DCRSurvey = (props) => {
                         {/* <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option> */}
                         {row.type === 'sample' ? (
                           <>
+                            <option value=""></option>
                             <option value="Aspirin">Aspirin</option>
                             <option value="Ibuprofen">Ibuprofen</option>
                           </>
                         ) : (
                           <>
+                            <option value=""></option>
                             <option value="Paracetamol">Shaker</option>
                             <option value="Amoxicillin">Pen</option>
                           </>
