@@ -24,6 +24,7 @@ import {
   Toolbar,
 } from 'framework7-react';
 import { ArrowLeft, Trash2, Edit, X as XIcon } from 'lucide-react';
+import LoginCss from '../css/login.module.css';
 
 const mockTours = [
   {
@@ -376,10 +377,11 @@ const TourPlanner = ({ f7router }) => {
       style={{ maxWidth: '1200px', margin: '20 auto', background: '#ffffff' }}
     >
       <Card className="tour-card">
-        <CardContent>
+        <CardContent style={{ width: '100%' }}>
           {/* <div className="form-title">Create New Tour Plan</div> */}
-          <List noHairlinesMd inset>
+          <List noHairlinesMd inset id={LoginCss.loginList}>
             <ListInput
+              outline
               label="Select Day"
               type="date"
               placeholder="Select date"
@@ -393,6 +395,7 @@ const TourPlanner = ({ f7router }) => {
             />
 
             <ListInput
+              outline
               label="Station"
               type="select"
               placeholder="Select station"
@@ -411,6 +414,7 @@ const TourPlanner = ({ f7router }) => {
             </ListInput>
 
             <ListInput
+              outline
               label="Type of Tour Plan"
               type="select"
               placeholder="Select Type"
@@ -427,6 +431,7 @@ const TourPlanner = ({ f7router }) => {
             </ListInput>
 
             <ListInput
+              outline
               label="Select Start Time"
               type="time"
               placeholder="Select time"
@@ -439,6 +444,7 @@ const TourPlanner = ({ f7router }) => {
             />
 
             <ListInput
+              outline
               label="Select End Time"
               type="time"
               placeholder="Select time"
@@ -451,6 +457,7 @@ const TourPlanner = ({ f7router }) => {
             />
 
             <ListInput
+              outline
               label="Select Campaign"
               type="select"
               placeholder="Select a campaign"
@@ -475,14 +482,17 @@ const TourPlanner = ({ f7router }) => {
                 backgroundColor: '#f8f9fa',
                 padding: '15px',
                 borderRadius: '8px',
+                backgroundColor: 'rgba(239,244,255,1)',
               }}
             >
               <div
                 style={{
+                  
                   fontSize: '14px',
                   color: '#666',
                   marginBottom: '10px',
                   fontWeight: '500',
+                  backgroundColor: 'rgba(239,244,255,1)',
                 }}
               >
                 Select Doctors
@@ -550,11 +560,11 @@ const TourPlanner = ({ f7router }) => {
                 placeholder="Search doctors..."
                 style={{
                   width: '100%',
-                  padding: '8px 12px',
+                  padding: '25px 12px',
                   border: '1px solid #ddd',
                   borderRadius: '4px',
                   fontSize: '14px',
-                  backgroundColor: 'white',
+                  backgroundColor: 'rgba(239,244,255,1)',
                 }}
               />
 
@@ -616,7 +626,7 @@ const TourPlanner = ({ f7router }) => {
               )}
             </div>
 
-            <ListInput label="Enter Place" type="text" placeholder="Enter location" className="custom-input" />
+            <ListInput outline label="Enter Place" type="text" placeholder="Enter location" className="custom-input" />
           </List>
 
           <div className="buttonGroup">

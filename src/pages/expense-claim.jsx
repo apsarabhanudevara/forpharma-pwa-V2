@@ -17,6 +17,7 @@ import {
   f7,
 } from 'framework7-react';
 import DrugMasterDashboardCss from '../css/drugmaster-dashboard.module.css';
+import LoginCss from '../css/login.module.css';
 
 const ExpenseClaim = ({ f7router }) => {
   const { t } = useTranslation(['drugmaster']);
@@ -270,9 +271,10 @@ const ExpenseClaim = ({ f7router }) => {
               <button type="button" className="add-new-claims">
                 + Add New Claims
               </button>
-              <List noHairlinesMd>
+              <List noHairlinesMd id={LoginCss.loginList}>
                 <div className="form-row">
                   <ListInput
+                  outline
                     label="Claim Type *"
                     type="select"
                     value={formData.claimType}
@@ -284,6 +286,7 @@ const ExpenseClaim = ({ f7router }) => {
                     <option value="Food">Food</option>
                   </ListInput>
                   <ListInput
+                  outline
                     label="From Date *"
                     type="date"
                     value={formData.fromDate}
@@ -292,12 +295,14 @@ const ExpenseClaim = ({ f7router }) => {
                 </div>
                 <div className="form-row">
                   <ListInput
+                  outline
                     label="To Date *"
                     type="date"
                     value={formData.toDate}
                     onChange={(e) => setFormData({ ...formData, toDate: e.target.value })}
                   />
                   <ListInput
+                  outline
                     label="From Place *"
                     type="text"
                     placeholder="Enter From Place"
@@ -307,6 +312,7 @@ const ExpenseClaim = ({ f7router }) => {
                 </div>
                 <div className="form-row">
                   <ListInput
+                  outline
                     label="To Place *"
                     type="text"
                     placeholder="Enter To Place"
@@ -314,6 +320,7 @@ const ExpenseClaim = ({ f7router }) => {
                     onChange={(e) => setFormData({ ...formData, toPlace: e.target.value })}
                   />
                   <ListInput
+                  outline
                     label="Conveyance Mode *"
                     type="select"
                     value={formData.conveyanceMode}
@@ -327,6 +334,7 @@ const ExpenseClaim = ({ f7router }) => {
                 </div>
                 <div className="form-row">
                   <ListInput
+                  outline
                     label="Distance (KM) *"
                     type="number"
                     placeholder="Enter Distance"
@@ -334,6 +342,7 @@ const ExpenseClaim = ({ f7router }) => {
                     onChange={(e) => setFormData({ ...formData, distance: e.target.value })}
                   />
                   <ListInput
+                  outline
                     label="Total Amount *"
                     type="number"
                     placeholder="Enter Amount"

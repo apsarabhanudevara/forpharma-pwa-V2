@@ -22,7 +22,7 @@
         }
       }
     }
-    
+
     .top-tool-bar:global(.toolbar) {
       --f7-toolbar-height: 96px;
       --f7-tabbar-link-inactive-color: white;
@@ -90,6 +90,9 @@
   }
 }
 
+.item-content {
+  background-color: white !important; /* Override the gray background */
+}
 /* Leave Summary Styles */
 .leaveSummary {
   display: grid;
@@ -164,3 +167,5 @@
   height: 40px;
   font-size: 18px;
 }
+
+

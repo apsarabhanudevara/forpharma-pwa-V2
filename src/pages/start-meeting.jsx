@@ -31,6 +31,7 @@ import { db } from '../models/db';
 import BioSplit from '../assets/images/biosplit.png'; // adjust the path if necessary
 import CyproNect from '../assets/images/cypronect.png'; // adjust the path if necessary
 import { Plus, Trash2 } from 'lucide-react';
+import LoginCss from '../css/login.module.css';
 
 const openConfirmDoctorsSync = () => {
   f7.dialog.confirm("Sync Doctor's data now?", () => {
@@ -240,7 +241,7 @@ const StartMeeting = (props) => {
       <div className="formContainer">
         <form id="dcrForm" className={PageCss.dcrForm}>
           <h2 className={PageCss.formTitle}>DCR Survey</h2>
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="tourPlan">Types of Tour Plan</label>
             <select
               id="tourPlan"
@@ -254,7 +255,7 @@ const StartMeeting = (props) => {
             </select>
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="visitDate">Select Visited Date</label>
             <input
               type="date"
@@ -266,7 +267,7 @@ const StartMeeting = (props) => {
             />
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="visitTime">Enter Visit Time</label>
             <input
               type="time"
@@ -364,22 +365,32 @@ const StartMeeting = (props) => {
             ))}
           </List>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="productsDiscussed">Products Discussed</label>
-            <input type="text" id="productsDiscussed" className={PageCss.formControl} style={{ border: '1px solid #ddd', borderRadius: '6px' }}/>
+            <input
+              type="text"
+              id="productsDiscussed"
+              className={PageCss.formControl}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="nextVisitDate">Select Next Visit Date</label>
-            <input type="date" id="nextVisitDate" className={PageCss.formControl} style={{ border: '1px solid #ddd', borderRadius: '6px' }}/>
+            <input
+              type="date"
+              id="nextVisitDate"
+              className={PageCss.formControl}
+              style={{ border: '1px solid #ddd', borderRadius: '6px' }}
+            />
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="comments">Comments</label>
             <textarea id="comments" className={PageCss.formControl}></textarea>
           </div>
 
-          <div className={PageCss.buttonGroup}>
+          <div className={PageCss.buttonGroup} id={LoginCss.loginList}>
             <button type="button" id="saveBtn" className={`${PageCss.button} ${PageCss.save}`} onClick={handleSave}>
               Save
             </button>

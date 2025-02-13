@@ -16,6 +16,7 @@ import {
   Block,
 } from 'framework7-react';
 import CalendarCss from '../css/calendar.module.css';
+import LoginCss from '../css/login.module.css';
 
 const Calendar = ({ f7router }) => {
   const { t } = useTranslation(['dailyActivity']);
@@ -83,8 +84,9 @@ const Calendar = ({ f7router }) => {
         <p style={{ padding: '0 10px' }}></p>
       </Block>
 
-      <List noHairlinesMd>
+      <List id={LoginCss.loginList}>
         <ListInput
+          outline
           label="Leave Type"
           type="select"
           placeholder="Select leave type"
@@ -99,6 +101,7 @@ const Calendar = ({ f7router }) => {
         </ListInput>
 
         <ListInput
+        outline
           label="From Date"
           type="date"
           placeholder="Select start date"
@@ -107,6 +110,7 @@ const Calendar = ({ f7router }) => {
         />
 
         <ListInput
+        outline
           label="To Date"
           type="date"
           placeholder="Select end date"
@@ -115,6 +119,7 @@ const Calendar = ({ f7router }) => {
         />
 
         <ListInput
+        outline
           label="Contact Details"
           type="text"
           placeholder="Enter contact details during leave"
@@ -123,6 +128,7 @@ const Calendar = ({ f7router }) => {
         />
 
         <ListInput
+        outline
           label="Reason"
           type="textarea"
           placeholder="Enter reason for leave"

@@ -31,6 +31,7 @@ import { db } from '../models/db';
 import BioSplit from '../assets/images/biosplit.png'; // adjust the path if necessary
 import CyproNect from '../assets/images/cypronect.png'; // adjust the path if necessary
 import { Plus, Trash2 } from 'lucide-react';
+import LoginCss from '../css/login.module.css';
 
 const openConfirmDoctorsSync = () => {
   f7.dialog.confirm("Sync Doctor's data now?", () => {
@@ -242,9 +243,10 @@ const DCRSurvey = (props) => {
       <div className="formContainer">
         <form id="dcrForm" className={PageCss.dcrForm}>
           {/* <h2 className={PageCss.formTitle}>DCR Survey</h2> */}
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="tourPlan">Types of Tour Plan</label>
             <select
+              outline
               id="tourPlan"
               className={PageCss.formControl}
               value={formData.tourPlan}
@@ -255,9 +257,10 @@ const DCRSurvey = (props) => {
               <option value="Office Work">Office Work</option>
             </select>
           </div>
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="tourPlan">Doctor's Name</label>
             <select
+              outline
               id="doctorName"
               className={PageCss.formControl}
               value={formData.doctorName}
@@ -270,7 +273,7 @@ const DCRSurvey = (props) => {
             </select>
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="visitDate">Select Visited Date</label>
             <input
               type="date"
@@ -282,7 +285,7 @@ const DCRSurvey = (props) => {
             />
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="visitTime">Enter Visit Time</label>
             <input
               type="time"
@@ -380,7 +383,7 @@ const DCRSurvey = (props) => {
             ))}
           </List>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="productsDiscussed">Products Discussed</label>
             <input
               type="text"
@@ -390,7 +393,7 @@ const DCRSurvey = (props) => {
             />
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="nextVisitDate">Select Next Visit Date</label>
             <input
               type="date"
@@ -400,12 +403,12 @@ const DCRSurvey = (props) => {
             />
           </div>
 
-          <div className={PageCss.formGroup}>
+          <div className={PageCss.formGroup} id={LoginCss.loginList}>
             <label htmlFor="comments">Comments</label>
             <textarea id="comments" className={PageCss.formControl}></textarea>
           </div>
 
-          <div className={PageCss.buttonGroup}>
+          <div className={PageCss.buttonGroup} id={LoginCss.loginList}>
             <button type="button" id="saveBtn" className={`${PageCss.button} ${PageCss.save}`} onClick={handleSave}>
               Save
             </button>
