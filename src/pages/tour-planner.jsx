@@ -479,7 +479,6 @@ const TourPlanner = ({ f7router }) => {
               style={{
                 position: 'relative',
                 marginBottom: '20px',
-                backgroundColor: '#f8f9fa',
                 padding: '15px',
                 borderRadius: '8px',
                 backgroundColor: 'rgba(239,244,255,1)',

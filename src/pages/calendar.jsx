@@ -84,7 +84,7 @@ const Calendar = ({ f7router }) => {
         <p style={{ padding: '0 10px' }}></p>
       </Block>
 
-      <List id={LoginCss.loginList}>
+      <List id={LoginCss.loginList} style={{maxWidth: '500px'}}>
         <ListInput
           outline
           label="Leave Type"
