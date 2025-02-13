@@ -366,12 +366,12 @@ const StartMeeting = (props) => {
 
           <div className={PageCss.formGroup}>
             <label htmlFor="productsDiscussed">Products Discussed</label>
-            <input type="text" id="productsDiscussed" className={PageCss.formControl} />
+            <input type="text" id="productsDiscussed" className={PageCss.formControl} style={{ border: '1px solid #ddd', borderRadius: '6px' }}/>
           </div>
 
           <div className={PageCss.formGroup}>
             <label htmlFor="nextVisitDate">Select Next Visit Date</label>
-            <input type="date" id="nextVisitDate" className={PageCss.formControl} />
+            <input type="date" id="nextVisitDate" className={PageCss.formControl} style={{ border: '1px solid #ddd', borderRadius: '6px' }}/>
           </div>
 
           <div className={PageCss.formGroup}>
