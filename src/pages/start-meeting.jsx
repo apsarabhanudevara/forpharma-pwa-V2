@@ -296,11 +296,13 @@ const StartMeeting = (props) => {
                         {/* <option value="">Select {row.type === 'sample' ? 'Sample' : 'Promotion'}</option> */}
                         {row.type === 'sample' ? (
                           <>
+                          <option value=""></option>
                             <option value="Aspirin">Aspirin</option>
                             <option value="Ibuprofen">Ibuprofen</option>
                           </>
                         ) : (
                           <>
+                          <option value=""></option>
                             <option value="Paracetamol">Paracetamol</option>
                             <option value="Amoxicillin">Amoxicillin</option>
                           </>
