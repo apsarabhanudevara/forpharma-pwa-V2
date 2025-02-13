@@ -313,14 +313,20 @@ const DCRSurvey = (props) => {
                         {row.type === 'sample' ? (
                           <>
                             <option value=""></option>
-                            <option value="Aspirin">Aspirin</option>
-                            <option value="Ibuprofen">Ibuprofen</option>
+                            <option value="Acetaminophen">Acetaminophen</option>
+                            <option value="Naproxen">Naproxen</option>
+                            <option value="Paracetamol">Paracetamol</option>
+                            <option value="Diclofenac">Diclofenac</option>
+                            <option value="Celecoxib">Celecoxib</option>
                           </>
                         ) : (
                           <>
                             <option value=""></option>
-                            <option value="Paracetamol">Shaker</option>
-                            <option value="Amoxicillin">Pen</option>
+                            <option value="Notepad">Notepad</option>
+                            <option value="Calendar">Calendar</option>
+                            <option value="Keychain">Keychain</option>
+                            <option value="Tote Bag">Tote Bag</option>
+                            <option value="Water Bottle">Water Bottle</option>
                           </>
                         )}
                       </select>
