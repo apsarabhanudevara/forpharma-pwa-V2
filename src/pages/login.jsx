@@ -25,7 +25,7 @@ const LoginPage = ({ f7router }) => {
   const [year, setYear] = useState(new Date().getFullYear());
   const login = () => {
     // if (username === 'medicalrep@forsysinc.com' && password === 'supersecret123') {
-    if (username === 'test' && password === 'test') {
+    if (username === 'forsys' && password === 'forsys') {
       f7.store.dispatch('loginUser');
       f7router.navigate('/forpharma');
     } else {

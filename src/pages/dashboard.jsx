@@ -42,8 +42,8 @@ const Dashboard = ({ f7router }) => {
         </div>
       </Block>
       <Block id={DashboardCss.dashboardLogo}>
-        {/* <img src={ForPharmaLogo} alt="ForPharma Logo" /> */}
-        <img src="../assets/images/download-removebg-preview.png" alt="ForPharma Logo" />
+        <img src={ForPharmaLogo} alt="ForPharma Logo" />
+        {/* <img src="../assets/images/download-removebg-preview.png" alt="ForPharma Logo" /> */}
         {/* <Button
           id={DashboardCss.signoutBtn}
           iconMaterial="logout"
